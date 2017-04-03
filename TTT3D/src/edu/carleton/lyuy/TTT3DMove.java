@@ -22,4 +22,23 @@ public class TTT3DMove {
         this.column = column;
         this.player = player;
     }
+
+    public boolean equals(TTT3DMove move) {
+        if (move == null) {
+            return false;
+        }
+        if (this.level != move.level){
+            return false;
+        }
+        if (this.row != move.row){
+            return false;
+        }
+        if (this.column != move.column){
+            return false;
+        }
+        if (this.player != move.player){
+            return false;
+        }
+        return true;
+    }
 }

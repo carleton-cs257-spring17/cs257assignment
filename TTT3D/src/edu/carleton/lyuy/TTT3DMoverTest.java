@@ -9,7 +9,10 @@ import java.util.Set;
 
 
 /**
- * Created by yanhanlyu on 01/04/2017.
+ * Created by yanhanlyu on 01/04/2017. We overwrite equals method in TTT3DMove class, so when
+ * assertEquals compare two sets, they can compare two TTT3DMove objects using the new equals method.
+ * We add a new constructor in TTT3DBoard to convert a string directly into a board.
+ *
  */
 class TTT3DMoverTest {
     // make TTT3DMover a private variable
@@ -36,16 +39,16 @@ class TTT3DMoverTest {
                 + "---- ---- ---- ----";
         TTT3DBoard board1 = new TTT3DBoard(boardString1, 'X');
         Set<TTT3DMove> winningMoves1 = new HashSet<TTT3DMove>(move.winningMoves(board1));
-        assertEquals(emptySet, winningMoves1, "There shoud be no winning moves");
+        assertEquals(emptySet, winningMoves1, "There should be no winning moves in board1");
 
         // example 2;
         String boardString2 = "XXXO ---- ---- ----"
                 + "X--- -O-O -O-- ----"
                 + "O--- ---- ---- ----"
                 + "X--- ---- ---- ----";
-        TTT3DBoard board2 = new TTT3DBoard(boardString2);
+        TTT3DBoard board2 = new TTT3DBoard(boardString2, 'X');
         Set<TTT3DMove> winningMoves2 = new HashSet<TTT3DMove>(move.winningMoves(board2));
-        assertEquals(emptySet, winningMoves2,"There should be no winning moves");
+        assertEquals(emptySet, winningMoves2,"There should be no winning moves in board2");
         // case2: 1 winning move for X;
 
         // a: winning move is on the same level with other 3 Xs
@@ -55,10 +58,10 @@ class TTT3DMoverTest {
                 + "---- ---- ---- ----"
                 + "---- ---- ---- ----";
         TTT3DBoard board3 = new TTT3DBoard(boardString2, 'X');
-        TTT3DMove winningMove = new TTT3DMove(0, 0, 3, 'X');
+        TTT3DMove winningMove = new TTT3DMove(0, 3, 0, 'X');
         aSet.add(winningMove);
         Set<TTT3DMove> winningMovesA = new HashSet<TTT3DMove>(move.winningMoves(board3));
-        assertEquals(aSet, winningMovesA,"There should be only 1 winning move");
+        assertEquals(aSet, winningMovesA,"There should be only 1 winning move in board3");
 
         // b: winning move is not on the same level with other 3 X
         Set<TTT3DMove> bSet = new HashSet<TTT3DMove>();
@@ -70,7 +73,7 @@ class TTT3DMoverTest {
         TTT3DMove winningMove1 = new TTT3DMove(0, 2, 0, 'X');
         bSet.add(winningMove1);
         Set<TTT3DMove> winningMovesB = new HashSet<TTT3DMove>(move.winningMoves(board4));
-        assertEquals(bSet, winningMovesB,"There should be only 1 winning move");
+        assertEquals(bSet, winningMovesB,"There should be only 1 winning move in board4");
         // case3: various winning moves for X;
         // c: winning moves are on the same level with the other 3 Xs;
         Set<TTT3DMove> cSet = new HashSet<TTT3DMove>();
@@ -84,7 +87,7 @@ class TTT3DMoverTest {
         cSet.add(winningMoveC1);
         cSet.add(winningMoveC2);
         Set<TTT3DMove> winningMovesC = new HashSet<TTT3DMove>(move.winningMoves(board5));
-        assertEquals(cSet, winningMovesC,"There should be 2 winning moves");
+        assertEquals(cSet, winningMovesC,"There should be 2 winning moves in board5");
         // d: winning moves are not on the same level with the other 3 Xs;
         Set<TTT3DMove> dSet = new HashSet<TTT3DMove>();
         String boardString6 = "XO-- -O-- -OO- O---"
@@ -97,7 +100,7 @@ class TTT3DMoverTest {
         dSet.add(winningMoveD1);
         dSet.add(winningMoveD2);
         Set<TTT3DMove> winningMovesD = new HashSet<TTT3DMove>(move.winningMoves(board6));
-        assertEquals(dSet, winningMovesD,"There should be 2 winning moves");
+        assertEquals(dSet, winningMovesD,"There should be 2 winning moves in board6");
 
     }
 
