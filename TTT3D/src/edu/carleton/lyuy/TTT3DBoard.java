@@ -1,6 +1,6 @@
 package edu.carleton.lyuy;
 import java.util.Arrays;
-
+import java.lang.String;
 /**
  * TTT3DBoard represents a simple 4x4x4 3D tic-tac-toe game. Each instance
  * stores includes the contents of each of the 64 squares, plus an indicator
@@ -24,7 +24,7 @@ import java.util.Arrays;
  * (4) What do you think about my use of the "ternary operator" (?:) in
  * the second constructor and at the bottom of makeMove?
  *
- * @author Jeff Ondich
+ * @author Jeff Ondich, Yanhan Lyu, Lucy Wu;
  * @version 30 March 2017
  */
 public class TTT3DBoard {
@@ -53,6 +53,20 @@ public class TTT3DBoard {
             this.squareValues[k] = EMPTY_SQUARE;
         }
         this.whoseTurn = (whoStarts == 'X' ? 'X' : 'O');
+    }
+
+    /**
+     * Initialize a board with given board string
+     */
+    public TTT3DBoard(String boardString){
+        TTT3DBoard board = new TTT3DBoard();
+        int squareArrayLength = BOARD_SIZE * BOARD_SIZE * BOARD_SIZE;
+        this.squareValues = new Character[squareArrayLength];
+        for (int k = 0; k < squareArrayLength; k++) {
+            this.squareValues[k] = boardString.charAt(k);
+        }
+        // set whoseTurn = X to make test easier;
+        this.whoseTurn = 'X';
     }
 
     /**
