@@ -65,8 +65,8 @@ public class TTT3DBoard {
         for (int k = 0; k < squareArrayLength; k++) {
             this.squareValues[k] = boardString.charAt(k);
         }
-        // set whoseTurn = X to make test easier;
-        if (whoseTurn == 'X'){
+        // actually we set whoseTurn = X to make test easier;
+        if (whoseTurn.equals('X')){
             this.whoseTurn = 'X';
         } else {
             this.whoseTurn = 'O';
