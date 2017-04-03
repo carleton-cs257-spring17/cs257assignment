@@ -58,7 +58,7 @@ public class TTT3DBoard {
     /**
      * Initialize a board with given board string
      */
-    public TTT3DBoard(String boardString, String whoseTurn){
+    public TTT3DBoard(String boardString, Character whoseTurn){
         TTT3DBoard board = new TTT3DBoard();
         int squareArrayLength = BOARD_SIZE * BOARD_SIZE * BOARD_SIZE;
         this.squareValues = new Character[squareArrayLength];
