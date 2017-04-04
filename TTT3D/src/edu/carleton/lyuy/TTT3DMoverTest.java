@@ -195,7 +195,6 @@ class TTT3DMoverTest {
         TTT3DBoard board7 = new TTT3DBoard(boardString7, 'X');
         Set<TTT3DMove> winningMovesE = new HashSet<TTT3DMove>(move.blockingMoves(board7));
         assertEquals(emptySet, winningMovesE,"There should be no blocking moves in board7");
-
     }
 
     @org.junit.jupiter.api.Test
