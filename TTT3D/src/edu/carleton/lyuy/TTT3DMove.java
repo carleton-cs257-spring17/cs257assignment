@@ -7,7 +7,7 @@ package edu.carleton.lyuy;
  * here instead of getters like "public int getRow()"?<br>
  * What do you think about including the player in this class?
  *
- * @author Jeff Ondich
+ * @author Jeff Ondich, Yanhan Lyu, Lucy Wu
  * @version 30 March 2017
  */
 public class TTT3DMove {
@@ -23,6 +23,11 @@ public class TTT3DMove {
         this.player = player;
     }
 
+    /**
+     * Overwite the equals method to compare two TTT3DMoves
+     * @param move a TTT3DMove
+     * @return true if the two TTT3DMove are exactly the same
+     */
     public boolean equals(TTT3DMove move) {
         if (move == null) {
             return false;

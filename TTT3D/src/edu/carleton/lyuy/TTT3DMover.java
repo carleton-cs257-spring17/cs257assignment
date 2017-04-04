@@ -12,7 +12,7 @@ import java.util.List;
  * you'll create a JUnit TTT3DMoverTest class with a suitably rich collection of
  * unit tests for the public methods below.
  *
- * @author Jeff Ondich
+ * @author Jeff Ondich, Yanhan Lyu, Lucy Wu
  * @version 30 March 2017
  */
 public class TTT3DMover {

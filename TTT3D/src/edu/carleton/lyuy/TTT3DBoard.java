@@ -56,7 +56,10 @@ public class TTT3DBoard {
     }
 
     /**
-     * Initialize a board with given board string
+     * Initialize a board with given board string and given whoseTurn.
+     * @param boardString the String that represents the board
+     * @param whoseTurn the character that represents X or O
+     *
      */
     public TTT3DBoard(String boardString, Character whoseTurn){
         TTT3DBoard board = new TTT3DBoard();
