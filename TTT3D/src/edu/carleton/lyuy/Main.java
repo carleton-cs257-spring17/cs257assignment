@@ -4,9 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        System.out.println("Finally, Yanhan wrote this print statement!");
-        TTT3DMove move1 = new TTT3DMove(1,1,2,'X');
-        TTT3DMove move2 = new TTT3DMove(1,1,1,'X');
-        System.out.println(move1.equals(move2));
+        String boardString1 = "XOXO XOXO OXOX OXOX"
+                + "OXOX OXOX XOXO XOXO"
+                + "OXOX OXOX XOXO XOXO"
+                + "XOXO OXXO OXOX X--O";
+        TTT3DBoard board1 = new TTT3DBoard(boardString1, 'X');
+        board1.printBoard();
     }
 }

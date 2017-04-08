@@ -1,6 +1,10 @@
 package edu.carleton.lyuy;
 import java.util.Arrays;
 import java.lang.String;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 /**
  * TTT3DBoard represents a simple 4x4x4 3D tic-tac-toe game. Each instance
  * stores includes the contents of each of the 64 squares, plus an indicator
@@ -62,19 +66,23 @@ public class TTT3DBoard {
      *
      */
     public TTT3DBoard(String boardString, Character whoseTurn){
-        TTT3DBoard board = new TTT3DBoard();
         int squareArrayLength = BOARD_SIZE * BOARD_SIZE * BOARD_SIZE;
         this.squareValues = new Character[squareArrayLength];
-        for (int k = 0; k < squareArrayLength; k++) {
-            this.squareValues[k] = boardString.charAt(k);
+        int indexForSquare = 0;
+        for (int i=0; i<boardString.length(); i++) {
+            if (boardString.charAt(i) != ' ') {
+                //System.out.print(boardString.charAt(i));
+                this.squareValues[indexForSquare] = boardString.charAt(i);
+                indexForSquare++;
+            }
         }
+
         // actually we set whoseTurn = X to make test easier;
         if (whoseTurn.equals('X')){
             this.whoseTurn = 'X';
         } else {
             this.whoseTurn = 'O';
         }
-
     }
 
     /**
@@ -86,6 +94,53 @@ public class TTT3DBoard {
         this.squareValues = new Character[squareArrayLength];
         System.arraycopy(otherBoard.squareValues, 0, this.squareValues, 0, squareArrayLength);
     }
+
+    /**
+     * Initializes this board from the contents of the specified file.
+     *
+     * The file format for a board consists of five lines of text. The first four lines
+     * represent the four rows of the 3D tic-tac-toe board, with X's, O's, hyphens (to
+     * represent empty squares), and space characters as needed for human readability.
+     * The fifth line should contain only an X or an O, to indicate whose turn it is.
+     * For example:<br><br>
+     *     <pre>
+     *     XO-- X--- X--- ----
+     *     X--- ---- ---- ----
+     *     ---- -O-- ---- -O--
+     *     XO-- ---- ---- ----
+     *     O
+     *     </pre>
+     *
+     *     represents a board where X has taken 4 turns, O has taken three turns, and
+     *     it's O's turn now. You may use space characters in any way you wish. Any
+     *     characters other than X, O, -, space, or newline should cause loadFromFile
+     *     to throw an exception.
+     *     @param fileName the file containing the board to be loaded.
+     */
+    public void loadFromFile(String fileName) {
+        int squareArrayLength = BOARD_SIZE * BOARD_SIZE * BOARD_SIZE;
+        this.squareValues = new Character[squareArrayLength];
+        Scanner scanner = null;
+        try {
+            //Open a scanner to read the board file
+            scanner = new Scanner(new File(fileName));
+            // read the file
+            int indexSquareValue = 0;
+            while (scanner.hasNextLine()) {
+                String boardLine = scanner.nextLine();
+                for(int i = 0; i < boardLine.length(); i++){
+                    char move = boardLine.charAt(i);
+                    if (move != (' ')){
+                        squareValues[indexSquareValue] = move;
+                        indexSquareValue++;
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("The requested file, " + fileName + ", was not found.");
+        }
+    }
+
 
     /**
      * @return 'X' or 'O', depending on whose turn it is
@@ -152,5 +207,25 @@ public class TTT3DBoard {
      */
     private int indexForPosition(int level, int row, int column) {
         return BOARD_SIZE * BOARD_SIZE * level + BOARD_SIZE * row + column;
+    }
+
+    /**
+     * print board
+     */
+    public void printBoard(){
+        int countSpace = 0;
+        for (int level=0; level<4; level++){
+            System.out.print(" \n");
+            for (int row=0; row<4; row++) {
+                if (row != 0){
+                    System.out.print(" ");
+                }
+                for (int column = 0; column < 4; column++) {
+                    int indexForPosition = indexForPosition(level, row, column);
+                    System.out.print(this.squareValues[indexForPosition]);
+
+                }
+            }
+        }
     }
 }
