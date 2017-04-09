@@ -85,24 +85,39 @@ class TTT3DMoverTest {
             System.out.print("Fail board4\n");
         }
 
+//        // case3: various winning moves for X;
+//        // c: winning moves are on the same level with the other 3 Xs;
+//        Set<TTT3DMove> cSet = new HashSet<TTT3DMove>();
+//        String boardString5 = "XX-X X--- -O-- X---"
+//                + "O--- ---- ---- ----"
+//                + "---- ---- -O-- ----"
+//                + "O--- ---- ---- -O--";
+//        TTT3DBoard board5 = new TTT3DBoard(boardString5, 'X');
+//        TTT3DMove winningMoveC1 = new TTT3DMove(0, 2, 0, 'X');
+//        TTT3DMove winningMoveC2 = new TTT3DMove(0, 0, 2, 'X');
+//        if ((winningMoveC1.equals(move.winningMoves(board5).get(0))
+//                && winningMoveC2.equals(move.winningMoves(board5).get(1)))
+//                || (winningMoveC1.equals(move.winningMoves(board5).get(1))
+//                && winningMoveC2.equals(move.winningMoves(board5).get(0)))){
+//
+//            System.out.print("Pass board5\n");
+//        } else {
+//            System.out.print("Fail board5\n");
+//        }
+
         // case3: various winning moves for X;
         // c: winning moves are on the same level with the other 3 Xs;
         Set<TTT3DMove> cSet = new HashSet<TTT3DMove>();
-        String boardString5 = "XX-X X--- -O-- X---"
-                + "O--- ---- ---- ----"
-                + "---- ---- -O-- ----"
-                + "O--- ---- ---- -O--";
+        String boardString5 = "O--X OXOX O-XX ----"
+                + "---- ---- ---- ----"
+                + "---- ---- ---- ----"
+                + "---- ---- ---- ----";
         TTT3DBoard board5 = new TTT3DBoard(boardString5, 'X');
-        TTT3DMove winningMoveC1 = new TTT3DMove(0, 2, 0, 'X');
-        TTT3DMove winningMoveC2 = new TTT3DMove(0, 0, 2, 'X');
-        if ((winningMoveC1.equals(move.winningMoves(board5).get(0))
-                && winningMoveC2.equals(move.winningMoves(board5).get(1)))
-                || (winningMoveC1.equals(move.winningMoves(board5).get(1))
-                && winningMoveC2.equals(move.winningMoves(board5).get(0)))){
-
-            System.out.print("Pass board5\n");
-        } else {
-            System.out.print("Fail board5\n");
+        if (move.winningMoves(board5).size()==2) {
+            System.out.print("Length is 2 Pass board5\n");
+        }
+        else {
+            System.out.print(move.winningMoves(board5).size() + "Length is not 2 Fail board5\n");
         }
 
 
@@ -256,8 +271,8 @@ class TTT3DMoverTest {
                 + "---- ---- ---- ----"
                 + "---- ---- ---- ----";
         TTT3DBoard board1 = new TTT3DBoard(boardString1, 'X');
-        Set<TTT3DMove> blockingMovesA = new HashSet<TTT3DMove>(move.blockingMoves(board1));
-        assertEquals(emptySet, blockingMovesA,"There should be no forcing moves in board1");
+        Set<TTT3DMove> forcingMovesA = new HashSet<TTT3DMove>(move.forcingMoves(board1));
+        assertEquals(emptySet, forcingMovesA,"There should be no forcing moves in board1");
 
         // b: no forcing move because Xs are in different levels that destroy the possible forcing move
         String boardString2 = "X-X- O--- O--- OO--"
@@ -265,8 +280,8 @@ class TTT3DMoverTest {
                 + "---- ---- --X- ----"
                 + "---- ---- ---- ----";
         TTT3DBoard board2 = new TTT3DBoard(boardString2, 'X');
-        Set<TTT3DMove> blockingMovesB = new HashSet<TTT3DMove>(move.blockingMoves(board2));
-        assertEquals(emptySet, blockingMovesB, "There should be no forcing moves in board2");
+        Set<TTT3DMove> forcingMovesB = new HashSet<TTT3DMove>(move.forcingMoves(board2));
+        assertEquals(emptySet, forcingMovesB, "There should be no forcing moves in board2");
 
         // case2: 1 forcing move for X;
         // c: forcing move that is on the same level with other 3 Xs

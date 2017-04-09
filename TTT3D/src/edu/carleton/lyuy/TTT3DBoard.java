@@ -240,13 +240,17 @@ public class TTT3DBoard {
         }
     }
 
-    public void changeWhoseTurn(){
-        if (this.whoseTurn == 'X'){
-            this.whoseTurn = 'O';
-        } else {
-            this.whoseTurn = 'X';
-        }
+    /**
+     * Set a specific position on the board to be 'X' or 'O'
+     * @param indexInArray
+     * @param chars
+     */
+    public void setValueInSquare(int indexInArray, Character chars){
+        this.squareValues[indexInArray] = chars;
+    }
 
+    public void setWhoseTurn(Character chars){
+        this.whoseTurn = chars;
     }
 
     /**

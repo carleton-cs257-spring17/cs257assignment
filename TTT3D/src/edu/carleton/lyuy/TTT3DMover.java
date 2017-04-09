@@ -507,7 +507,23 @@ public class TTT3DMover {
      * in a single turn to avoid losing.
      */
     public List<TTT3DMove> forcingMoves(TTT3DBoard board) {
-        return new ArrayList<TTT3DMove>();
+        List<TTT3DMove> forcingMoves = new ArrayList<TTT3DMove>();
+        for (int i = 0; i < 64; i++){
+            if (board.valueInSquare(i) == board.EMPTY_SQUARE){
+                TTT3DBoard boardTemp = new TTT3DBoard(board);
+                boardTemp.setWhoseTurn(board.getWhoseTurn());
+                boardTemp.setValueInSquare(i, board.getWhoseTurn());
+                if (winningMoves(boardTemp).size() >= 2){
+                    System.out.println(i);
+                    int position[] = board.positionForIndex(i);
+                    System.out.println(i);
+                    TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
+                    forcingMoves.add(move);
+                }
+            }
+        }
+
+        return forcingMoves;
     }
 
     /**
