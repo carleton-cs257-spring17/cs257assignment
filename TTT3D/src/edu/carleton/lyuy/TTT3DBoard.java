@@ -240,6 +240,15 @@ public class TTT3DBoard {
         }
     }
 
+    public void changeWhoseTurn(){
+        if (this.whoseTurn == 'X'){
+            this.whoseTurn = 'O';
+        } else {
+            this.whoseTurn = 'X';
+        }
+
+    }
+
     /**
      * print board
      */

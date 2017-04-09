@@ -436,7 +436,6 @@ public class TTT3DMover {
      * to win the game in a single turn.
      */
     public List<TTT3DMove> winningMoves(TTT3DBoard board) {
-        HashMap<Integer, Integer> sumMap = new HashMap<Integer,Integer>();
         List<TTT3DMove> winningMoves = new ArrayList<TTT3DMove>();
         for (int i = 0; i < 76; i++){
             int sum = 0;
@@ -471,7 +470,31 @@ public class TTT3DMover {
      * player should play to avoid losing on the opponent's next turn.
      */
     public List<TTT3DMove> blockingMoves(TTT3DBoard board) {
-        return new ArrayList<TTT3DMove>();
+        List<TTT3DMove> blockingMoves = new ArrayList<TTT3DMove>();
+        for (int i = 0; i < 76; i++){
+            int sum = 0;
+            boolean empty = false;
+            int indexEmpty = 0;
+            int numTurn = 0;
+            for (int j=0; j<4; j++){
+                if (board.valueInSquare(this.combinations[i][j]) != board.getWhoseTurn()
+                        && board.valueInSquare(this.combinations[i][j]) != board.EMPTY_SQUARE){
+                    numTurn++;
+                } else if (board.valueInSquare(this.combinations[i][j]) == board.EMPTY_SQUARE){
+                    indexEmpty = this.combinations[i][j];
+                    empty = true;
+
+                }
+            }
+            if (numTurn == 3 && empty == true){
+                int position[] = board.positionForIndex(indexEmpty);
+                TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
+                blockingMoves.add(move);
+                //System.out.print(position[0]+" "+position[1]+ " "+position[2]);
+            }
+        }
+        //System.out.print(winningMoves.size());
+        return blockingMoves;
     }
 
     /**

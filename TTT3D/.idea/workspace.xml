@@ -26,8 +26,8 @@
       <file leaf-file-name="TTT3DBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-151">
-              <caret line="211" column="33" lean-forward="false" selection-start-line="211" selection-start-column="17" selection-end-line="211" selection-end-column="33" />
+            <state relative-caret-position="2446">
+              <caret line="244" column="27" lean-forward="true" selection-start-line="244" selection-start-column="27" selection-end-line="244" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,11 +48,11 @@
       <file leaf-file-name="TTT3DMover.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="461" column="10" lean-forward="false" selection-start-line="461" selection-start-column="10" selection-end-line="461" selection-end-column="10" />
+            <state relative-caret-position="202">
+              <caret line="492" column="18" lean-forward="false" selection-start-line="492" selection-start-column="18" selection-end-line="492" selection-end-column="18" />
               <folding>
-                <element signature="e#12119#12136#0" expanded="true" />
-                <element signature="e#12192#12203#0" expanded="true" />
+                <element signature="e#12117#12128#0" expanded="true" />
+                <element signature="e#13650#13661#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,8 +61,8 @@
       <file leaf-file-name="TTT3DMoverTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMoverTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="54" column="41" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+            <state relative-caret-position="102">
+              <caret line="239" column="50" lean-forward="false" selection-start-line="239" selection-start-column="50" selection-end-line="239" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2206#2217#0" expanded="true" />
@@ -109,9 +109,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/TTT3DMove.java" />
-        <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DBoard.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMove.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/Main.java" />
+        <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DBoard.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMover.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMoverTest.java" />
       </list>
@@ -202,7 +202,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TTT3DMoverTest.winningMoves">
+  <component name="RunManager" selected="JUnit.TTT3DMoverTest.blockingMoves">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="edu.carleton.lyuy.Main" />
@@ -487,10 +487,10 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TTT3DMoverTest.winningMoves" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TTT3DMoverTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TTT3DMoverTest.blockingMoves" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TTT3DMoverTest.blockingMoves" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TTT3DMoverTest.winningMoves" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TTT3DMoverTest" />
       </list>
     </recent_temporary>
   </component>
@@ -508,35 +508,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 16m 07s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 46m 29s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 16m 37s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 47m 02s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 21m 41s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 47m 19s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 24m 23s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 48m 28s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 26m 19s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 49m 41s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 27m 11s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 50m 26s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 28m 33s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 50m 40s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 28m 52s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 51m 14s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 29m 10s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 51m 38s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TTT3DMoverTest_winningMoves - 2017.04.09 at 13h 29m 53s.xml">
-      <configuration name="TTT3DMoverTest.winningMoves" configurationId="JUnit" />
+    <history-entry file="TTT3DMoverTest_blockingMoves - 2017.04.09 at 13h 52m 20s.xml">
+      <configuration name="TTT3DMoverTest.blockingMoves" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -630,8 +630,8 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -681,8 +681,8 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -732,8 +732,8 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -769,8 +769,8 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -810,8 +810,8 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -871,8 +871,8 @@
         <state relative-caret-position="240">
           <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="23" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -912,8 +912,8 @@
         <state relative-caret-position="240">
           <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="23" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -973,8 +973,8 @@
         <state relative-caret-position="240">
           <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="23" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1051,16 +1051,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TTT3DMove.java" />
     <entry file="file://$PROJECT_DIR$/../../cs257_2017/TTT3D/src/edu/carleton/jondich/TTT3DMover.java" />
-    <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151">
-          <caret line="211" column="33" lean-forward="false" selection-start-line="211" selection-start-column="17" selection-end-line="211" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMove.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
@@ -1077,21 +1067,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2446">
+          <caret line="244" column="27" lean-forward="true" selection-start-line="244" selection-start-column="27" selection-end-line="244" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="461" column="10" lean-forward="false" selection-start-line="461" selection-start-column="10" selection-end-line="461" selection-end-column="10" />
+        <state relative-caret-position="202">
+          <caret line="492" column="18" lean-forward="false" selection-start-line="492" selection-start-column="18" selection-end-line="492" selection-end-column="18" />
           <folding>
-            <element signature="e#12119#12136#0" expanded="true" />
-            <element signature="e#12192#12203#0" expanded="true" />
+            <element signature="e#12117#12128#0" expanded="true" />
+            <element signature="e#13650#13661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMoverTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="54" column="41" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+        <state relative-caret-position="102">
+          <caret line="239" column="50" lean-forward="false" selection-start-line="239" selection-start-column="50" selection-end-line="239" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2206#2217#0" expanded="true" />
