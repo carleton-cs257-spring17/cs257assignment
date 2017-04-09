@@ -209,6 +209,37 @@ public class TTT3DBoard {
         return BOARD_SIZE * BOARD_SIZE * level + BOARD_SIZE * row + column;
     }
 
+    public int[] positionForIndex(int index){
+        int positionForIndex[] = new int[3];
+        for (int level=0; level<4; level++){
+            for (int row=0; row<4; row++){
+                for (int column=0; column<4; column++){
+                    if (BOARD_SIZE * BOARD_SIZE * level + BOARD_SIZE * row + column == index){
+                        positionForIndex[0] = level;
+                        positionForIndex[1] = row;
+                        positionForIndex[2] = column;
+                        return positionForIndex;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param indexInArray
+     * @return the index to be used in the linear array squareValues to represent the
+     * 3D position (level, row, column). We're storing the squares in level-major and
+     * then row-major order.
+     */
+    public Character valueInSquare(int indexInArray) {
+        if (indexInArray <= 63){
+            return this.squareValues[indexInArray];
+        } else {
+            throw new IllegalArgumentException("illegal index >= 63");
+        }
+    }
+
     /**
      * print board
      */
