@@ -27,6 +27,7 @@ class TTT3DMoverTest {
     /*Do winningMoves test. Normal cases and weird cases are included.*/
     @org.junit.jupiter.api.Test
     void winningMoves() {
+        System.out.print("Winning Move test starts!!\n");
         // We always set X to be the mover to make test easier
         // The following are normal cases
         // case1: no winning move for X;
@@ -156,6 +157,7 @@ class TTT3DMoverTest {
     /*Do blockingMoves test. Normal cases and weird cases are included.*/
     @org.junit.jupiter.api.Test
     void blockingMoves() {
+        System.out.print("Blocking Move test starts!!\n");
         // We always set X to be the mover to make test easier
         // case1: no blocking move for X;
         Set<TTT3DMove> emptySet = new HashSet<TTT3DMove>();
@@ -341,6 +343,7 @@ class TTT3DMoverTest {
     * are included*/
     @org.junit.jupiter.api.Test
     void bestMove() {
+        System.out.print("Best Move test starts!!\n");
         // We always set X to be the mover to make test easier
         //Although bestMove returns a single move, we put it into a set to make comparison easier
         // case1: no best move for X (i.e. no winning move, blocking move or forcing move for X);
@@ -351,9 +354,12 @@ class TTT3DMoverTest {
                 + "---- ---- ---- ----"
                 + "---- ---- ---- ----";
         TTT3DBoard board1 = new TTT3DBoard(boardString1, 'X');
-        Set<TTT3DMove> bestMoveA = new HashSet<TTT3DMove>();
-        bestMoveA.add(move.bestMove(board1));
-        assertEquals(emptySet, bestMoveA,"There should be no best move in board1");
+        TTT3DMove bestMove1 = move.bestMove(board1);
+        if (bestMove1 != null){
+            System.out.print("board1 Pass\n");
+        } else {
+            System.out.print("board1 Fail, best move should not be null\n");
+        }
 
         // b: former moves were not made on the same level
         String boardString2 = "O--- -O-- ---- ----"
@@ -361,10 +367,12 @@ class TTT3DMoverTest {
                 + "---- ---- X-X- ----"
                 + "---- ---- ---- XOOX";
         TTT3DBoard board2 = new TTT3DBoard(boardString2, 'X');
-        Set<TTT3DMove> bestMoveB = new HashSet<TTT3DMove>();
-        bestMoveB.add(move.bestMove(board2));
-        assertEquals(emptySet, bestMoveB, "There should be no best move in board2");
-
+        TTT3DMove bestMove2 = move.bestMove(board2);
+        if (bestMove2 != null){
+            System.out.print("board2 Pass\n");
+        } else {
+            System.out.print("board2 Fail, best move should not be null\n");
+        }
         // case2: Only one kind of possible strategy move for X;
         // c: X only has a winning move
         Set<TTT3DMove> cSet = new HashSet<TTT3DMove>();
@@ -374,89 +382,98 @@ class TTT3DMoverTest {
                 + "---- ---- ---- ----";
         TTT3DBoard board3 = new TTT3DBoard(boardString3, 'X');
         TTT3DMove bestMoveC = new TTT3DMove(3, 0, 0, 'X');
-        cSet.add(bestMoveC);
-        Set<TTT3DMove> bestMovesC = new HashSet<TTT3DMove>();
-        bestMovesC.add(move.bestMove(board3));
-        assertEquals(cSet, bestMovesC,"There should be only 1 best move in board3");
+        TTT3DMove bestMove3 = move.bestMove(board3);
+        if (bestMove3.equals(bestMoveC)){
+            System.out.print("board3 Pass\n");
+        } else {
+            System.out.print("board3 Fail, best move should be level=3, row=0, column=0\n");
+        }
 
         // d: X only has a blocking move
-        Set<TTT3DMove> dSet = new HashSet<TTT3DMove>();
         String boardString4 = "XOXX ---- ---- ----"
                 + "-O-- ---- ---- ----"
                 + "---- ---- ---- ----"
                 + "-O-- ---- ---- ----";
         TTT3DBoard board4 = new TTT3DBoard(boardString4, 'X');
         TTT3DMove bestMoveD = new TTT3DMove(2, 0, 1, 'X');
-        dSet.add(bestMoveD);
-        Set<TTT3DMove> bestMovesD = new HashSet<TTT3DMove>();
-        bestMovesD.add(move.bestMove(board4));
-        assertEquals(dSet, bestMovesD,"There should be only 1 best move in board4");
+        TTT3DMove bestMove4 = move.bestMove(board4);
+        if (bestMove4.equals(bestMoveD)){
+            System.out.print("board4 Pass\n");
+        } else {
+            System.out.print("board4 Fail, best move should be level=2, row=0, column=1\n");
+        }
 
         // e: X only has a forcing move
-        Set<TTT3DMove> eSet = new HashSet<TTT3DMove>();
+
         String boardString5 = "---- ---- XOOO X--O"
                 + "---- ---- ---- ----"
                 + "X--- ---- ---- ----"
                 + "X--- ---- ---- ----";
         TTT3DBoard board5 = new TTT3DBoard(boardString5, 'X');
         TTT3DMove bestMoveE = new TTT3DMove(0, 0, 0, 'X');
-        eSet.add(bestMoveE);
-        Set<TTT3DMove> bestMovesE = new HashSet<TTT3DMove>();
-        bestMovesE.add(move.bestMove(board5));
-        assertEquals(eSet, bestMovesE,"There should be only 1 best move in board5");
-
+        TTT3DMove bestMove5 = move.bestMove(board5);
+        if (bestMove5.equals(bestMoveE)){
+            System.out.print("board5 Pass\n");
+        } else {
+            System.out.print("board5 Fail, best move should be level=0, row=0, column=0\n");
+        }
         // case3: Two kinds of possible strategy moves for X;
         // fa: X has a winning move and a blocking move, it should choose the winning move
-        Set<TTT3DMove> f1Set = new HashSet<TTT3DMove>();
+
         String boardString6_1 = "OX-- ---- ---- ----"
                 + "OX-- ---- ---- ----"
                 + "OX-- ---- ---- ----"
                 + "---- ---- ---- ----";
         TTT3DBoard board6_1 = new TTT3DBoard(boardString6_1, 'X');
         TTT3DMove bestMoveF1 = new TTT3DMove(3, 0, 1, 'X');
-        f1Set.add(bestMoveF1);
-        Set<TTT3DMove> bestMovesF1 = new HashSet<TTT3DMove>();
-        bestMovesF1.add(move.bestMove(board6_1));
-        assertEquals(f1Set, bestMovesF1,"There should be only 1 best move in board6_1");
-
+        TTT3DMove bestMove6 = move.bestMove(board6_1);
+        if (bestMove6.equals(bestMoveF1)){
+            System.out.print("board6_1 Pass\n");
+        } else {
+            System.out.print("board6_1 Fail, best move should be level=3, row=0, column=1\n");
+        }
         // fb: X has a winning move and a forcing move, it should choose the winning move
-        Set<TTT3DMove> f2Set = new HashSet<TTT3DMove>();
+
         String boardString6_2 = "--O- -XOX OOXX -OO-"
                 + "X--- ---- ---- --O-"
                 + "X--- ---- ---- ----"
                 + "X--- ---- ---- ----";
         TTT3DBoard board6_2 = new TTT3DBoard(boardString6_2, 'X');
         TTT3DMove bestMoveF2 = new TTT3DMove(0, 0, 0, 'X');
-        f2Set.add(bestMoveF2);
-        Set<TTT3DMove> bestMovesF2 = new HashSet<TTT3DMove>();
-        bestMovesF2.add(move.bestMove(board6_2));
-        assertEquals(f2Set, bestMovesF2,"There should be only 1 best move in board6_2");
+        TTT3DMove bestMove6_2 = move.bestMove(board6_2);
+        if (bestMove6_2.equals(bestMove6_2)){
+            System.out.print("board6_2 Pass\n");
+        } else {
+            System.out.print("board6_2 Fail, best move should be level=0, row=0, column=0\n");
+        }
 
         // g: X has a blocking move and a forcing move, it should choose the blocking move
-        Set<TTT3DMove> gSet = new HashSet<TTT3DMove>();
         String boardString7 = "---- ---- ---- ----"
                 + "---- -X-X --XX ----"
                 + "---- ---- O--- OOO-"
                 + "---- ---- ---- ----";
         TTT3DBoard board7 = new TTT3DBoard(boardString7, 'X');
         TTT3DMove bestMoveG = new TTT3DMove(2, 3, 3, 'X');
-        gSet.add(bestMoveG);
-        Set<TTT3DMove> bestMovesG = new HashSet<TTT3DMove>();
-        bestMovesG.add(move.bestMove(board7));
-        assertEquals(gSet, bestMovesG,"There should be only 1 best move in board7");
+        TTT3DMove bestMove7 = move.bestMove(board7);
+        if (bestMove7.equals(bestMoveG)){
+            System.out.print("board7 Pass\n");
+        } else {
+            System.out.print("board7 Fail, best move should be level=2, row=3, column=3\n");
+        }
 
         // case4: All three kinds of possible strategy moves for X;
         // h: X has winning move, blocking move and forcing move, it should choose the winning move
-        Set<TTT3DMove> hSet = new HashSet<TTT3DMove>();
         String boardString8 = "---- -X-X OOXX O---"
                 + "-X-- ---- ---- ----"
                 + "-X-- ---- ---- ----"
                 + "-X-- ---- O--- OOO-";
         TTT3DBoard board8 = new TTT3DBoard(boardString8, 'X');
         TTT3DMove bestMoveH = new TTT3DMove(0, 0, 1, 'X');
-        hSet.add(bestMoveH);
-        Set<TTT3DMove> bestMovesH = new HashSet<TTT3DMove>();
-        bestMovesH.add(move.bestMove(board8));
-        assertEquals(hSet, bestMovesH,"There should be only 1 best move in board8");
+        TTT3DMove bestMove8 = move.bestMove(board8);
+        if (bestMove8.equals(bestMoveH)){
+            System.out.print("board8 Pass\n");
+        } else {
+            System.out.print("board8 Fail, best move should be level=0, row=0, column=1\n");
+        }
     }
 }
