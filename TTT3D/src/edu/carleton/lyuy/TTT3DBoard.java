@@ -121,6 +121,7 @@ public class TTT3DBoard {
         int squareArrayLength = BOARD_SIZE * BOARD_SIZE * BOARD_SIZE;
         this.squareValues = new Character[squareArrayLength];
         Scanner scanner = null;
+
         try {
             //Open a scanner to read the board file
             scanner = new Scanner(new File(fileName));
@@ -130,9 +131,11 @@ public class TTT3DBoard {
                 String boardLine = scanner.nextLine();
                 for(int i = 0; i < boardLine.length(); i++){
                     char move = boardLine.charAt(i);
-                    if (move != (' ')){
+                    if ((move == 'X' || move == 'O' || move == '-')&&(indexSquareValue<=63)){
                         squareValues[indexSquareValue] = move;
                         indexSquareValue++;
+                    } else if ((move == 'X' || move == 'O') && indexSquareValue<=64){
+                        this.setWhoseTurn(move);
                     }
                 }
             }
@@ -249,6 +252,11 @@ public class TTT3DBoard {
         this.squareValues[indexInArray] = chars;
     }
 
+    public void setValueInSquare(int level, int row, int column, Character chars){
+        int position = this.indexForPosition(level, row, column);
+        this.squareValues[position] = chars;
+    }
+
     public void setWhoseTurn(Character chars){
         this.whoseTurn = chars;
     }
@@ -267,7 +275,6 @@ public class TTT3DBoard {
                 for (int column = 0; column < 4; column++) {
                     int indexForPosition = indexForPosition(level, row, column);
                     System.out.print(this.squareValues[indexForPosition]);
-
                 }
             }
         }

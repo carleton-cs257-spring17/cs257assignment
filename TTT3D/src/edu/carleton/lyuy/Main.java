@@ -1,26 +1,44 @@
 package edu.carleton.lyuy;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        TTT3DMover move = new TTT3DMover();
+        String action = args[0];
+        String file = args[1];
+        TTT3DBoard board = new TTT3DBoard();
+        TTT3DMover mover = new TTT3DMover();
+        List<TTT3DMove> moveList = new ArrayList<TTT3DMove>();
+        board.loadFromFile(file);
+        if (action.equals("block")) {
+            moveList = mover.blockingMoves(board);
+            if (!moveList.isEmpty()) {
+                board.setValueInSquare(moveList.get(0).level, moveList.get(0).row, moveList.get(0).column, '*');
+            }
+            board.printBoard();
+        } else if (action.equals("win")) {
+            moveList = mover.winningMoves(board);
+            if (!moveList.isEmpty()) {
+                board.setValueInSquare(moveList.get(0).level, moveList.get(0).row, moveList.get(0).column, '*');
+            }
+            board.printBoard();
+        } else if (action.equals("force")) {
+            moveList = mover.forcingMoves(board);
+            if (!moveList.isEmpty()) {
+                board.setValueInSquare(moveList.get(0).level, moveList.get(0).row, moveList.get(0).column, '*');
+            }
+            board.printBoard();
+        }else if (action.equals("best")) {
+            moveList.add(mover.bestMove(board));
+            if (!moveList.isEmpty()) {
+                board.setValueInSquare(moveList.get(0).level, moveList.get(0).row, moveList.get(0).column, '*');
+            }
+            board.printBoard();
+        } else {
+            System.out.print("Invalid action. No board printed");
+        }
 
-        Set<TTT3DMove> cSet = new HashSet<TTT3DMove>();
-        String boardString3 = "X-X- OXX- O--- OO--"
-                + "---- ---- ---- ----"
-                + "---- ---- ---- ----"
-                + "---- ---- ---- ----";
-        TTT3DBoard board3 = new TTT3DBoard(boardString3, 'X');
-        TTT3DMove forcingMove = new TTT3DMove(0, 2, 2, 'X');
-        cSet.add(forcingMove);
-        Set<TTT3DMove> forcingMovesC = new HashSet<TTT3DMove>(move.forcingMoves(board3));
-        System.out.println(move.forcingMoves(board3).size());
-        //assertEquals(cSet, forcingMovesC,"There should be only 1 forcing move in board3");
 
     }
 }

@@ -113,7 +113,7 @@ public class TTT3DMover {
         combinations[15][2] = 62;
         combinations[15][3] = 63;
 
-        // Vertical, moves on different levels
+        // on the same level, vertically form a line
         combinations[16][0] = 0;
         combinations[16][1] = 4;
         combinations[16][2] = 8;
@@ -196,7 +196,7 @@ public class TTT3DMover {
         combinations[31][2] = 59;
         combinations[31][3] = 63;
 
-        // Diagonal on vertical faces
+        // on the same level, diaganolly form a line
         combinations[32][0] = 0;
         combinations[32][1] = 5;
         combinations[32][2] = 10;
@@ -238,7 +238,7 @@ public class TTT3DMover {
         combinations[39][2] = 57;
         combinations[39][3] = 60;
 
-        // Horizontal, X
+        // Different level, same column & row
 
         combinations[40][0] = 51;
         combinations[40][1] = 35;
@@ -322,7 +322,7 @@ public class TTT3DMover {
         combinations[55][2] = 28;
         combinations[55][3] = 12;
 
-        // Diagonal, X
+        //Different level, same column
         combinations[56][0] = 51;
         combinations[56][1] = 39;
         combinations[56][2] = 27;
@@ -363,9 +363,7 @@ public class TTT3DMover {
         combinations[63][2] = 40;
         combinations[63][3] = 60;
 
-        // Diagonal, Y
-
-
+        // Different level, same row
         combinations[64][0] = 63;
         combinations[64][1] = 46;
         combinations[64][2] = 29;
@@ -406,7 +404,7 @@ public class TTT3DMover {
         combinations[71][2] = 33;
         combinations[71][3] = 48;
 
-        // Corner to Corner
+        // From corner to corner, diagonally
 
         combinations[72][0] = 0;
         combinations[72][1] = 21;
@@ -513,10 +511,11 @@ public class TTT3DMover {
                 TTT3DBoard boardTemp = new TTT3DBoard(board);
                 boardTemp.setWhoseTurn(board.getWhoseTurn());
                 boardTemp.setValueInSquare(i, board.getWhoseTurn());
+                //boardTemp.printBoard();
                 if (winningMoves(boardTemp).size() >= 2){
-                    System.out.println(i);
+                    //System.out.println(i);
                     int position[] = board.positionForIndex(i);
-                    System.out.println(i);
+                    //System.out.println(i);
                     TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
                     forcingMoves.add(move);
                 }
@@ -533,7 +532,41 @@ public class TTT3DMover {
      * board's current player.
      */
     public TTT3DMove bestMove(TTT3DBoard board) {
-        return new TTT3DMove(0, 0, 0, board.getWhoseTurn());
-    }
+        if (!this.winningMoves(board).isEmpty()){
+            return this.winningMoves(board).get(0);
+        } else if (!this.blockingMoves(board).isEmpty()){
+            return this.blockingMoves(board).get(0);
+        } else if (!this.forcingMoves(board).isEmpty()){
+            return this.forcingMoves(board).get(0);
+        } else {
+            for (int i = 0; i < 76; i++){
+                boolean empty = false;
+                int indexEmpty = 0;
+                int numTurn = 0;
+                for (int j=0; j<4; j++){
+                    if (board.valueInSquare(this.combinations[i][j]) == board.getWhoseTurn()){
+                        numTurn++;
+                    } else if (board.valueInSquare(this.combinations[i][j]) == board.EMPTY_SQUARE){
+                        indexEmpty = this.combinations[i][j];
+                        empty = true;
 
+                    }
+                }
+                if (numTurn == 2 && empty == true){
+                    int position[] = board.positionForIndex(indexEmpty);
+                    TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
+                    return move;
+                }
+            }
+            for (int i = 0; i <64; i++){
+                if (board.valueInSquare(i) == board.EMPTY_SQUARE){
+                    int position[] = board.positionForIndex(i);
+                    TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
+                    return move;
+                }
+            }
+        }
+        System.out.print("No available positions, return null");
+        return null;
+    }
 }

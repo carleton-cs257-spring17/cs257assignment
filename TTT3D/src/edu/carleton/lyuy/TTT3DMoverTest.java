@@ -300,7 +300,7 @@ class TTT3DMoverTest {
         String boardString4 = "X--X O--- O--- O---"
                 + "---- -X-X ---- ----"
                 + "---- ---- ---- ----"
-                + "O-- ---- ---- ----";
+                + "O--- ---- ---- ----";
         TTT3DBoard board4 = new TTT3DBoard(boardString4, 'X');
         TTT3DMove forcingMoved1 = new TTT3DMove(3, 3, 3, 'X');
         bSet.add(forcingMoved1);
@@ -324,7 +324,7 @@ class TTT3DMoverTest {
         // f: possible forcing moves are not on the same level
         List<TTT3DMove> fSet = new ArrayList<TTT3DMove>();
         String boardString6 = "XX-- OO-- OO-- OO--"
-                + "---X ----- ---- ----"
+                + "---X ---- ---- ----"
                 + "---X ---- ---- ----"
                 + "---- ---- ---X ---X";
         TTT3DBoard board6 = new TTT3DBoard(boardString6, 'X');
