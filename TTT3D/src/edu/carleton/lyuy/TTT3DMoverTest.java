@@ -281,12 +281,13 @@ class TTT3DMoverTest {
         // b: no forcing move because Xs are in different levels that destroy the possible forcing move
         String boardString2 = "X-X- O--- O--- OO--"
                 + "---- -X-- ---- ----"
-                + "---- ---- --X- ----"
+                + "---- -X-- ---- ----"
                 + "---- ---- ---- ----";
         TTT3DBoard board2 = new TTT3DBoard(boardString2, 'X');
         if (move.forcingMoves(board2).size() == 0){
             System.out.print("Pass board2\n");
         } else {
+            System.out.println(move.forcingMoves(board2).size());
             System.out.print("Fail board2\n");
         }
 
@@ -311,7 +312,7 @@ class TTT3DMoverTest {
                 + "O--- ---- ---- ----";
         TTT3DBoard board4 = new TTT3DBoard(boardString4, 'X');
         TTT3DMove forcingMoved1 = new TTT3DMove(3, 3, 3, 'X');
-        if (forcingMove.equals(move.forcingMoves(board4).get(0))){
+        if (forcingMoved1.equals(move.forcingMoves(board4).get(0))){
             System.out.print("Pass board4\n");
         } else {
             System.out.print("Fail board4\n");
@@ -326,10 +327,10 @@ class TTT3DMoverTest {
         TTT3DBoard board5 = new TTT3DBoard(boardString5, 'X');
         TTT3DMove forcingMoveE1 = new TTT3DMove(0, 0, 0, 'X');
         TTT3DMove forcingMoveE2 = new TTT3DMove(0, 3, 3, 'X');
-        if ((forcingMoveE1.equals(move.winningMoves(board5).get(0))
-                && forcingMoveE2.equals(move.winningMoves(board5).get(1)))
-                || (forcingMoveE1.equals(move.winningMoves(board5).get(1))
-                && forcingMoveE2.equals(move.winningMoves(board5).get(0)))){
+        if ((forcingMoveE1.equals(move.forcingMoves(board5).get(0))
+                && forcingMoveE2.equals(move.forcingMoves(board5).get(1)))
+                || (forcingMoveE1.equals(move.forcingMoves(board5).get(1))
+                && forcingMoveE2.equals(move.forcingMoves(board5).get(0)))){
             System.out.print("Pass board5\n");
         } else {
             System.out.print("Fail board5\n");
@@ -343,10 +344,10 @@ class TTT3DMoverTest {
         TTT3DBoard board6 = new TTT3DBoard(boardString6, 'X');
         TTT3DMove forcingMoveF1 = new TTT3DMove(0, 0, 3, 'X');
         TTT3DMove forcingMoveF2 = new TTT3DMove(3, 0, 3, 'X');
-        if ((forcingMoveF1.equals(move.winningMoves(board6).get(0))
-                && forcingMoveF2.equals(move.winningMoves(board6).get(1)))
-                || (forcingMoveF1.equals(move.winningMoves(board6).get(1))
-                && forcingMoveF2.equals(move.winningMoves(board6).get(0)))){
+        if ((forcingMoveF1.equals(move.forcingMoves(board6).get(0))
+                && forcingMoveF2.equals(move.forcingMoves(board6).get(1)))
+                || (forcingMoveF1.equals(move.forcingMoves(board6).get(1))
+                && forcingMoveF2.equals(move.forcingMoves(board6).get(0)))){
             System.out.print("Pass board6\n");
         } else {
             System.out.print("Fail board6\n");
