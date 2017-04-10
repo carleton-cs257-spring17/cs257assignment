@@ -23,13 +23,11 @@ public class TTT3DMover {
     private HashMap<Set<List<Integer>>, Integer> dict;
     public int combinations[][];
     /**
-     * Because we currently have no implementation of TTT3DMover, a default
-     * constructor should suffice.
+     * It holds 76 winning lines for 4*4*4 3D tic tac toe game.
+     *
      */
     public TTT3DMover() {
-        dict = new HashMap <Set<List<Integer>>, Integer>();
         combinations = new int[76][4];
-
         //On the same level, horizontally form a line
         combinations[0][0] = 0;
         combinations[0][1] = 1;
@@ -238,110 +236,109 @@ public class TTT3DMover {
         combinations[39][2] = 57;
         combinations[39][3] = 60;
 
-        // Different level, same column & row
+        // Different level, same column & row, form vertically
+        combinations[40][0] = 3;
+        combinations[40][1] = 19;
+        combinations[40][2] = 35;
+        combinations[40][3] = 51;
 
-        combinations[40][0] = 51;
-        combinations[40][1] = 35;
-        combinations[40][2] = 19;
-        combinations[40][3] = 3;
+        combinations[41][0] = 7;
+        combinations[41][1] = 23;
+        combinations[41][2] = 39;
+        combinations[41][3] = 55;
 
-        combinations[41][0] = 55;
-        combinations[41][1] = 39;
-        combinations[41][2] = 23;
-        combinations[41][3] = 7;
+        combinations[42][0] = 11;
+        combinations[42][1] = 27;
+        combinations[42][2] = 43;
+        combinations[42][3] = 59;
 
-        combinations[42][0] = 59;
-        combinations[42][1] = 43;
-        combinations[42][2] = 27;
-        combinations[42][3] = 11;
-
-        combinations[43][0] = 63;
-        combinations[43][1] = 47;
-        combinations[43][2] = 31;
-        combinations[43][3] = 15;
-
-
-        combinations[44][0] = 50;
-        combinations[44][1] = 34;
-        combinations[44][2] = 18;
-        combinations[44][3] = 2;
-
-        combinations[45][0] = 54;
-        combinations[45][1] = 38;
-        combinations[45][2] = 22;
-        combinations[45][3] = 6;
-
-        combinations[46][0] = 58;
-        combinations[46][1] = 42;
-        combinations[46][2] = 26;
-        combinations[46][3] = 10;
-
-        combinations[47][0] = 62;
-        combinations[47][1] = 46;
-        combinations[47][2] = 30;
-        combinations[47][3] = 14;
+        combinations[43][0] = 15;
+        combinations[43][1] = 31;
+        combinations[43][2] = 47;
+        combinations[43][3] = 63;
 
 
-        combinations[48][0] = 49;
-        combinations[48][1] = 33;
-        combinations[48][2] = 17;
-        combinations[48][3] = 1;
+        combinations[44][0] = 2;
+        combinations[44][1] = 18;
+        combinations[44][2] = 34;
+        combinations[44][3] = 50;
 
-        combinations[49][0] = 53;
-        combinations[49][1] = 37;
-        combinations[49][2] = 21;
-        combinations[49][3] = 5;
+        combinations[45][0] = 6;
+        combinations[45][1] = 22;
+        combinations[45][2] = 38;
+        combinations[45][3] = 54;
 
-        combinations[50][0] = 57;
-        combinations[50][1] = 41;
-        combinations[50][2] = 25;
-        combinations[50][3] = 9;
+        combinations[46][0] = 10;
+        combinations[46][1] = 26;
+        combinations[46][2] = 42;
+        combinations[46][3] = 58;
 
-        combinations[51][0] = 61;
-        combinations[51][1] = 45;
-        combinations[51][2] = 29;
-        combinations[51][3] = 13;
+        combinations[47][0] = 14;
+        combinations[47][1] = 30;
+        combinations[47][2] = 46;
+        combinations[47][3] = 62;
 
-        combinations[52][0] = 48;
-        combinations[52][1] = 32;
-        combinations[52][2] = 16;
-        combinations[52][3] = 0;
 
-        combinations[53][0] = 52;
-        combinations[53][1] = 36;
-        combinations[53][2] = 20;
-        combinations[53][3] = 4;
+        combinations[48][0] = 1;
+        combinations[48][1] = 17;
+        combinations[48][2] = 33;
+        combinations[48][3] = 49;
 
-        combinations[54][0] = 56;
-        combinations[54][1] = 40;
-        combinations[54][2] = 24;
-        combinations[54][3] = 8;
+        combinations[49][0] = 5;
+        combinations[49][1] = 21;
+        combinations[49][2] = 37;
+        combinations[49][3] = 53;
 
-        combinations[55][0] = 60;
-        combinations[55][1] = 44;
-        combinations[55][2] = 28;
-        combinations[55][3] = 12;
+        combinations[50][0] = 9;
+        combinations[50][1] = 25;
+        combinations[50][2] = 41;
+        combinations[50][3] = 57;
 
-        //Different level, same column
-        combinations[56][0] = 51;
-        combinations[56][1] = 39;
-        combinations[56][2] = 27;
-        combinations[56][3] = 15;
+        combinations[51][0] = 13;
+        combinations[51][1] = 29;
+        combinations[51][2] = 45;
+        combinations[51][3] = 61;
 
-        combinations[57][0] = 50;
-        combinations[57][1] = 38;
-        combinations[57][2] = 26;
-        combinations[57][3] = 14;
+        combinations[52][0] = 0;
+        combinations[52][1] = 16;
+        combinations[52][2] = 32;
+        combinations[52][3] = 48;
 
-        combinations[58][0] = 49;
-        combinations[58][1] = 37;
-        combinations[58][2] = 25;
-        combinations[58][3] = 13;
+        combinations[53][0] = 4;
+        combinations[53][1] = 20;
+        combinations[53][2] = 36;
+        combinations[53][3] = 52;
 
-        combinations[59][0] = 48;
-        combinations[59][1] = 36;
-        combinations[59][2] = 24;
-        combinations[59][3] = 12;
+        combinations[54][0] = 8;
+        combinations[54][1] = 24;
+        combinations[54][2] = 40;
+        combinations[54][3] = 56;
+
+        combinations[55][0] = 12;
+        combinations[55][1] = 28;
+        combinations[55][2] = 44;
+        combinations[55][3] = 60;
+
+        //Different level, same column, different row, form the line diagonally
+        combinations[56][0] = 15;
+        combinations[56][1] = 27;
+        combinations[56][2] = 39;
+        combinations[56][3] = 51;
+
+        combinations[57][0] = 14;
+        combinations[57][1] = 26;
+        combinations[57][2] = 38;
+        combinations[57][3] = 50;
+
+        combinations[58][0] = 13;
+        combinations[58][1] = 25;
+        combinations[58][2] = 37;
+        combinations[58][3] = 49;
+
+        combinations[59][0] = 12;
+        combinations[59][1] = 24;
+        combinations[59][2] = 36;
+        combinations[59][3] = 48;
 
         combinations[60][0] = 3;
         combinations[60][1] = 23;
@@ -363,46 +360,46 @@ public class TTT3DMover {
         combinations[63][2] = 40;
         combinations[63][3] = 60;
 
-        // Different level, same row
-        combinations[64][0] = 63;
-        combinations[64][1] = 46;
-        combinations[64][2] = 29;
-        combinations[64][3] = 12;
+        // Different level, same row, different column, form a line diagonally
+        combinations[64][0] = 12;
+        combinations[64][1] = 29;
+        combinations[64][2] = 46;
+        combinations[64][3] = 63;
 
-        combinations[65][0] = 59;
-        combinations[65][1] = 42;
-        combinations[65][2] = 25;
-        combinations[65][3] = 8;
+        combinations[65][0] = 8;
+        combinations[65][1] = 25;
+        combinations[65][2] = 42;
+        combinations[65][3] = 59;
 
-        combinations[66][0] = 55;
-        combinations[66][1] = 38;
-        combinations[66][2] = 21;
-        combinations[66][3] = 4;
+        combinations[66][0] = 4;
+        combinations[66][1] = 21;
+        combinations[66][2] = 38;
+        combinations[66][3] = 55;
 
-        combinations[67][0] = 51;
-        combinations[67][1] = 34;
-        combinations[67][2] = 17;
-        combinations[67][3] = 0;
+        combinations[67][0] = 0;
+        combinations[67][1] = 17;
+        combinations[67][2] = 34;
+        combinations[67][3] = 51;
 
-        combinations[68][0] = 15;
-        combinations[68][1] = 30;
-        combinations[68][2] = 45;
-        combinations[68][3] = 60;
+        combinations[68][0] = 3;
+        combinations[68][1] = 18;
+        combinations[68][2] = 33;
+        combinations[68][3] = 48;
 
-        combinations[69][0] = 11;
-        combinations[69][1] = 26;
-        combinations[69][2] = 41;
-        combinations[69][3] = 56;
+        combinations[69][0] = 7;
+        combinations[69][1] = 22;
+        combinations[69][2] = 37;
+        combinations[69][3] = 52;
 
-        combinations[70][0] = 7;
-        combinations[70][1] = 22;
-        combinations[70][2] = 37;
-        combinations[70][3] = 52;
+        combinations[70][0] = 11;
+        combinations[70][1] = 26;
+        combinations[70][2] = 41;
+        combinations[70][3] = 56;
 
-        combinations[71][0] = 3;
-        combinations[71][1] = 18;
-        combinations[71][2] = 33;
-        combinations[71][3] = 48;
+        combinations[71][0] = 15;
+        combinations[71][1] = 30;
+        combinations[71][2] = 45;
+        combinations[71][3] = 60;
 
         // From corner to corner, diagonally
 
@@ -435,8 +432,8 @@ public class TTT3DMover {
      */
     public List<TTT3DMove> winningMoves(TTT3DBoard board) {
         List<TTT3DMove> winningMoves = new ArrayList<TTT3DMove>();
+        // search for 76 winning lines to check if there are already 3 my chess move in a combination.
         for (int i = 0; i < 76; i++){
-            int sum = 0;
             boolean empty = false;
             int indexEmpty = 0;
             int numTurn = 0;
@@ -446,17 +443,16 @@ public class TTT3DMover {
                 } else if (board.valueInSquare(this.combinations[i][j]) == board.EMPTY_SQUARE){
                     indexEmpty = this.combinations[i][j];
                     empty = true;
-
                 }
             }
+            // If there are 3 X's or O's in one combination and there is still one position left
+            // then the empty position is a winning move
             if (numTurn == 3 && empty == true){
                 int position[] = board.positionForIndex(indexEmpty);
                 TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
                 winningMoves.add(move);
-                //System.out.print(position[0]+" "+position[1]+ " "+position[2]);
             }
         }
-        //System.out.print(winningMoves.size());
         return winningMoves;
     }
 
@@ -469,8 +465,9 @@ public class TTT3DMover {
      */
     public List<TTT3DMove> blockingMoves(TTT3DBoard board) {
         List<TTT3DMove> blockingMoves = new ArrayList<TTT3DMove>();
+        // search for 76 winning lines to check if there are already 3 my opponent's
+        // chess move in a combination.
         for (int i = 0; i < 76; i++){
-            int sum = 0;
             boolean empty = false;
             int indexEmpty = 0;
             int numTurn = 0;
@@ -484,14 +481,14 @@ public class TTT3DMover {
 
                 }
             }
+            // If there are 3 my opponent's chess in one combination and there is still one position left
+            // then the empty position is a winning move
             if (numTurn == 3 && empty == true){
                 int position[] = board.positionForIndex(indexEmpty);
                 TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
                 blockingMoves.add(move);
-                //System.out.print(position[0]+" "+position[1]+ " "+position[2]);
             }
         }
-        //System.out.print(winningMoves.size());
         return blockingMoves;
     }
 
@@ -506,16 +503,15 @@ public class TTT3DMover {
      */
     public List<TTT3DMove> forcingMoves(TTT3DBoard board) {
         List<TTT3DMove> forcingMoves = new ArrayList<TTT3DMove>();
+        // We search all the available positions in the board
         for (int i = 0; i < 64; i++){
             if (board.valueInSquare(i) == board.EMPTY_SQUARE){
                 TTT3DBoard boardTemp = new TTT3DBoard(board);
                 boardTemp.setWhoseTurn(board.getWhoseTurn());
                 boardTemp.setValueInSquare(i, board.getWhoseTurn());
-                //boardTemp.printBoard();
+                //check whether we can have more than 2 winning moves if we put a chess in this position
                 if (winningMoves(boardTemp).size() >= 2){
-                    //System.out.println(i);
                     int position[] = board.positionForIndex(i);
-                    //System.out.println(i);
                     TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
                     forcingMoves.add(move);
                 }
@@ -532,12 +528,18 @@ public class TTT3DMover {
      * board's current player.
      */
     public TTT3DMove bestMove(TTT3DBoard board) {
+        // Our general algorithm is that if we have winning moves available,
+        // then we take the first winning move to be our move
+        // Then we check the blocking moves and forcing moves
         if (!this.winningMoves(board).isEmpty()){
             return this.winningMoves(board).get(0);
         } else if (!this.blockingMoves(board).isEmpty()){
             return this.blockingMoves(board).get(0);
         } else if (!this.forcingMoves(board).isEmpty()){
             return this.forcingMoves(board).get(0);
+            // If there is no winningMoves, blockingMoves and forcingMoves, then we
+            // search if there exist 2 our chess moves in one winning combination.
+            // If we have, then we return the first empty position in the winningline
         } else {
             for (int i = 0; i < 76; i++){
                 boolean empty = false;
@@ -558,6 +560,7 @@ public class TTT3DMover {
                     return move;
                 }
             }
+            // If we still do not have best move, then we just randomly pick one
             for (int i = 0; i <64; i++){
                 if (board.valueInSquare(i) == board.EMPTY_SQUARE){
                     int position[] = board.positionForIndex(i);
@@ -566,7 +569,6 @@ public class TTT3DMover {
                 }
             }
         }
-        System.out.print("No available positions, return null");
         return null;
     }
 }

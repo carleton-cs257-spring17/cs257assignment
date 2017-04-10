@@ -76,8 +76,6 @@ public class TTT3DBoard {
                 indexForSquare++;
             }
         }
-
-        // actually we set whoseTurn = X to make test easier;
         if (whoseTurn.equals('X')){
             this.whoseTurn = 'X';
         } else {
@@ -121,7 +119,6 @@ public class TTT3DBoard {
         int squareArrayLength = BOARD_SIZE * BOARD_SIZE * BOARD_SIZE;
         this.squareValues = new Character[squareArrayLength];
         Scanner scanner = null;
-
         try {
             //Open a scanner to read the board file
             scanner = new Scanner(new File(fileName));
@@ -173,6 +170,20 @@ public class TTT3DBoard {
     }
 
     /**
+     * @param indexInArray the index to be used in the linear array squareValues
+     * @return the value ('X', 'O', or EMPTY_SQUARE) located at the specified
+     * index in the array
+     * @throws IllegalArgumentException if indexInArray is out of the sqaureValues array
+     */
+    public Character valueInSquare(int indexInArray) {
+        if (indexInArray <= 63){
+            return this.squareValues[indexInArray];
+        } else {
+            throw new IndexOutOfBoundsException("illegal index >= 63");
+        }
+    }
+
+    /**
      * Apply the specified move to this game board. If the move is legal,
      * this game board reflects the change and the whoseTurn changes to the
      * other player.
@@ -212,6 +223,12 @@ public class TTT3DBoard {
         return BOARD_SIZE * BOARD_SIZE * level + BOARD_SIZE * row + column;
     }
 
+    /**
+     *
+     * @param index the index to be used in the linear array squareValues to represent the
+     * 3D position
+     * @return an array of position representing [level, row, column], which can be empty
+     */
     public int[] positionForIndex(int index){
         int positionForIndex[] = new int[3];
         for (int level=0; level<4; level++){
@@ -230,39 +247,62 @@ public class TTT3DBoard {
     }
 
     /**
-     * @param indexInArray
-     * @return the index to be used in the linear array squareValues to represent the
-     * 3D position (level, row, column). We're storing the squares in level-major and
-     * then row-major order.
+     * Set a specific position by index in the array on the board to be 'X' or 'O' or '-' or '*'
+     * @param indexInArray the index to be used in the linear array squareValues to represent the
+     * 3D position
+     * @param chars 'X' or 'O' or '*' or '-' that we want to set in this index
      */
-    public Character valueInSquare(int indexInArray) {
-        if (indexInArray <= 63){
-            return this.squareValues[indexInArray];
+    public void setValueInSquare(int indexInArray, Character chars){
+        if (chars != 'X' || chars != 'O' || chars != '-' || chars != '*'){
+            this.squareValues[indexInArray] = chars;
         } else {
-            throw new IllegalArgumentException("illegal index >= 63");
+            throw new IllegalArgumentException(chars+" is not an legal character to be set in the game");
+
         }
     }
 
     /**
-     * Set a specific position on the board to be 'X' or 'O'
-     * @param indexInArray
-     * @param chars
+     * Set a specific position by level, row and column on the board to be 'X' or 'O' or '-' or '*'
+     * @param level the level of the board position
+     * @param row the row of the board position
+     * @param column the column of the board position
+     * @param chars 'X' or 'O' or '*' or '-' that we want to set in this index
+     * @throws IndexOutOfBoundsException if the move position is out of bounds, in
+     * which case this game board is not changed
+     * @throws IllegalArgumentException if it's not currently the move's player's
+     * turn, in which case this game board is not changed
      */
-    public void setValueInSquare(int indexInArray, Character chars){
-        this.squareValues[indexInArray] = chars;
-    }
 
     public void setValueInSquare(int level, int row, int column, Character chars){
+        if (row < 0 || row >= BOARD_SIZE) {
+            throw new IndexOutOfBoundsException("Illegal row number " + row);
+        }
+        if (column < 0 || column >= BOARD_SIZE) {
+            throw new IndexOutOfBoundsException("Illegal column number " + column);
+        }
+        if (level < 0 || level >= BOARD_SIZE) {
+            throw new IndexOutOfBoundsException("Illegal level number " + level);
+        }
         int position = this.indexForPosition(level, row, column);
         this.squareValues[position] = chars;
     }
 
+    /**
+     * Set whoseTurn to be the input character
+     * @param chars 'X' or 'O' or '*' or '-' that we want to set in this index
+     * @throws IndexOutOfBoundsException if the character to represent player is invalid
+     */
     public void setWhoseTurn(Character chars){
-        this.whoseTurn = chars;
+        if (chars == 'X' || chars == 'O'){
+            this.whoseTurn = chars;
+        } else {
+            throw new IndexOutOfBoundsException("Invalid character to represent whoseTurn");
+        }
+
     }
 
     /**
-     * print board
+     * Print the game board
      */
     public void printBoard(){
         int countSpace = 0;
