@@ -46,7 +46,5 @@ public class Main {
         } else {
             System.out.print("Invalid action. No board printed");
         }
-
-
     }
 }
