@@ -22,8 +22,8 @@ import java.util.*;
 public class TTT3DMover {
     private int winningLines[][];
     /**
-     * It holds 76 winning lines for 4*4*4 3D tic tac toe game.
-     *
+     * it holds 76 winning lines. It is brute force, but this is the most efficient way we
+     * can think about.
      */
     public TTT3DMover() {
         winningLines = new int[76][4];
@@ -130,8 +130,7 @@ public class TTT3DMover {
         winningLines[19][1] = 7;
         winningLines[19][2] = 11;
         winningLines[19][3] = 15;
-
-
+        
         winningLines[20][0] = 16;
         winningLines[20][1] = 20;
         winningLines[20][2] = 24;
@@ -509,7 +508,7 @@ public class TTT3DMover {
                 boardTemp.setWhoseTurn(board.getWhoseTurn());
                 boardTemp.setValueInSquare(i, board.getWhoseTurn());
                 //check whether we can have more than 2 winning moves if we put a chess in this position
-                if (winningMoves(boardTemp).size() >= 2){
+                if (this.winningMoves(boardTemp).size() >= 2){
                     int position[] = board.positionForIndex(i);
                     TTT3DMove move = new TTT3DMove(position[0], position[1], position[2],board.getWhoseTurn());
                     forcingMoves.add(move);

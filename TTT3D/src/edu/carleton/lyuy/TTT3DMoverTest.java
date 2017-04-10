@@ -376,7 +376,6 @@ class TTT3DMoverTest {
         }
         // case2: Only one kind of possible strategy move for X;
         // c: X only has a winning move
-        Set<TTT3DMove> cSet = new HashSet<TTT3DMove>();
         String boardString3 = "XOO- ---- ---- ----"
                 + "XO-- ---- ---- ----"
                 + "X--- ---- ---- ----"

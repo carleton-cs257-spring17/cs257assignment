@@ -13,11 +13,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+            <state relative-caret-position="510">
+              <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -26,22 +26,22 @@
       <file leaf-file-name="TTT3DBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-174">
+            <state relative-caret-position="3990">
               <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TTT3DMover.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TTT3DMover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="1905">
+              <caret line="132" column="8" lean-forward="false" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
               <folding>
-                <element signature="e#12148#12159#0" expanded="true" />
-                <element signature="e#13781#13792#0" expanded="true" />
-                <element signature="e#15671#15682#0" expanded="true" />
+                <element signature="e#12199#12210#0" expanded="true" />
+                <element signature="e#13832#13843#0" expanded="true" />
+                <element signature="e#15722#15733#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,8 +50,8 @@
       <file leaf-file-name="TTT3DMoverTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMoverTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2495">
-              <caret line="250" column="33" lean-forward="false" selection-start-line="250" selection-start-column="33" selection-end-line="250" selection-end-column="33" />
+            <state relative-caret-position="148">
+              <caret line="327" column="40" lean-forward="true" selection-start-line="327" selection-start-column="40" selection-end-line="327" selection-end-column="40" />
               <folding>
                 <element signature="e#1249#1260#0" expanded="true" />
                 <element signature="e#2264#2275#0" expanded="true" />
@@ -65,7 +65,6 @@
                 <element signature="e#9274#9285#0" expanded="true" />
                 <element signature="e#14101#14112#0" expanded="true" />
                 <element signature="e#15494#15505#0" expanded="true" />
-                <element signature="e#16659#16670#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,8 +123,8 @@
         <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMove.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DBoard.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMoverTest.java" />
-        <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMover.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/Main.java" />
+        <option value="$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMover.java" />
       </list>
     </option>
   </component>
@@ -324,7 +323,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="edu.carleton.lyuy.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="force test2.txt" />
+      <option name="PROGRAM_PARAMETERS" value="win test2.txt" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -593,7 +592,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -663,9 +662,9 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -687,7 +686,6 @@
             <element signature="e#9274#9285#0" expanded="true" />
             <element signature="e#14101#14112#0" expanded="true" />
             <element signature="e#15494#15505#0" expanded="true" />
-            <element signature="e#16659#16670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -721,9 +719,9 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -745,7 +743,6 @@
             <element signature="e#9274#9285#0" expanded="true" />
             <element signature="e#14101#14112#0" expanded="true" />
             <element signature="e#15494#15505#0" expanded="true" />
-            <element signature="e#16659#16670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -779,9 +776,9 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -815,9 +812,9 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -839,7 +836,6 @@
             <element signature="e#9274#9285#0" expanded="true" />
             <element signature="e#14101#14112#0" expanded="true" />
             <element signature="e#15494#15505#0" expanded="true" />
-            <element signature="e#16659#16670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -865,9 +861,9 @@
         <state relative-caret-position="240">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -889,7 +885,6 @@
             <element signature="e#9274#9285#0" expanded="true" />
             <element signature="e#14101#14112#0" expanded="true" />
             <element signature="e#15494#15505#0" expanded="true" />
-            <element signature="e#16659#16670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -931,9 +926,9 @@
         <state relative-caret-position="240">
           <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="23" />
           <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -955,7 +950,6 @@
             <element signature="e#9274#9285#0" expanded="true" />
             <element signature="e#14101#14112#0" expanded="true" />
             <element signature="e#15494#15505#0" expanded="true" />
-            <element signature="e#16659#16670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -981,9 +975,9 @@
         <state relative-caret-position="240">
           <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="23" />
           <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1005,7 +999,6 @@
             <element signature="e#9274#9285#0" expanded="true" />
             <element signature="e#14101#14112#0" expanded="true" />
             <element signature="e#15494#15505#0" expanded="true" />
-            <element signature="e#16659#16670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1047,9 +1040,9 @@
         <state relative-caret-position="240">
           <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="23" />
           <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1071,7 +1064,6 @@
             <element signature="e#9274#9285#0" expanded="true" />
             <element signature="e#14101#14112#0" expanded="true" />
             <element signature="e#15494#15505#0" expanded="true" />
-            <element signature="e#16659#16670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1135,10 +1127,18 @@
     <entry file="file://$PROJECT_DIR$/src/TTT3DMove.java" />
     <entry file="file://$PROJECT_DIR$/../../cs257_2017/TTT3D/src/edu/carleton/jondich/TTT3DMover.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/util/HashSet.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMoverTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2495">
-          <caret line="250" column="33" lean-forward="false" selection-start-line="250" selection-start-column="33" selection-end-line="250" selection-end-column="33" />
+        <state relative-caret-position="148">
+          <caret line="327" column="40" lean-forward="true" selection-start-line="327" selection-start-column="40" selection-end-line="327" selection-end-column="40" />
           <folding>
             <element signature="e#1249#1260#0" expanded="true" />
             <element signature="e#2264#2275#0" expanded="true" />
@@ -1152,44 +1152,35 @@
             <element signature="e#9274#9285#0" expanded="true" />
             <element signature="e#14101#14112#0" expanded="true" />
             <element signature="e#15494#15505#0" expanded="true" />
-            <element signature="e#16659#16670#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMover.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="e#12148#12159#0" expanded="true" />
-            <element signature="e#13781#13792#0" expanded="true" />
-            <element signature="e#15671#15682#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="510">
+          <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
+        <state relative-caret-position="3990">
           <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/carleton/lyuy/TTT3DMover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="1905">
+          <caret line="132" column="8" lean-forward="false" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
+          <folding>
+            <element signature="e#12199#12210#0" expanded="true" />
+            <element signature="e#13832#13843#0" expanded="true" />
+            <element signature="e#15722#15733#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
