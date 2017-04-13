@@ -616,9 +616,8 @@ public class TTT3DMover {
                 }
                 board.printBoard();
             } else {
-                System.out.print("Invalid action. No board printed");
+                System.out.println("Illegal action. Please input the action you want to take and the the name of board file.");;
             }
-
         }
     }
 }

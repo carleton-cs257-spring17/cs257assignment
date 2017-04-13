@@ -44,7 +44,7 @@ public class Main {
             }
             board.printBoard();
         } else {
-            System.out.print("Invalid action. No board printed");
+            System.out.print("Invalid action. No board printed. Please type the action you want to take and the board file");
         }
     }
 }

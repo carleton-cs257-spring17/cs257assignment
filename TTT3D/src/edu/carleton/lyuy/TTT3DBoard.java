@@ -143,6 +143,8 @@ public class TTT3DBoard {
             }
         } catch (FileNotFoundException e) {
             System.err.println("The requested file, " + fileName + ", was not found.");
+            // just exit the program
+            System.exit(0);
         }
     }
 
@@ -319,6 +321,7 @@ public class TTT3DBoard {
                 for (int column = 0; column < BOARD_SIZE; column++) {
                     int indexForPosition = indexForPosition(level, row, column);
                     System.out.print(this.squareValues[indexForPosition]);
+
                 }
             }
         }
