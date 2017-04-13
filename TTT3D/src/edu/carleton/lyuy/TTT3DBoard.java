@@ -310,7 +310,6 @@ public class TTT3DBoard {
      * Print the game board
      */
     public void printBoard(){
-        int countSpace = 0;
         for (int level=0; level<BOARD_SIZE; level++){
             System.out.print(" \n");
             for (int row=0; row<BOARD_SIZE; row++) {
