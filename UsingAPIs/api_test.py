@@ -95,7 +95,7 @@ def main(args):
     has this name as its official name or partial name.
     '''
     if (args.action == 'language'):
-        countrys = get_country_by_language(args.language)
+        countries = get_country_by_language(args.language)
         for country in countries:
             name = country['name']
             region = country['region']
@@ -130,9 +130,11 @@ if __name__ == '__main__':
                         choices = ['list', 'language', 'name'])
    
     parser.add_argument('-language',
+                        metavar ='--language',
                         help='The language you want to search by',
                         required = False)
     parser.add_argument('-name',
+                        metavar ='--name',
                         help='The name of country you want to search by, it can be official name or partial name',
                         required = False)
     # make sure that we have enough arguments
