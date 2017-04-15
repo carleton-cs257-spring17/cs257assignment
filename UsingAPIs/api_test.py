@@ -131,7 +131,7 @@ if __name__ == '__main__':
    
     parser.add_argument('-language',
                         metavar ='--language',
-                        help='The language you want to search by',
+                        help='The language you want to search by. The language should be in the form of ISO 639-1 Language Code.',
                         required = False)
     parser.add_argument('-name',
                         metavar ='--name',
