@@ -131,8 +131,10 @@ if __name__ == '__main__':
    
     parser.add_argument('-language',
                         metavar ='--language',
-                        help='The language you want to search by. The language should be in the form of ISO 639-1 Language Code.',
-                        required = False)
+                        help='The language you want to search by. The language should be in the form of ISO 639-1 Language Code.\
+                        You can choose from some common language such as zh, en, et, fj, fi, de... Some weird languages may\
+                        not be included.)',
+                        required = False,)
     parser.add_argument('-name',
                         metavar ='--name',
                         help='The name of country you want to search by, it can be official name or partial name',
