@@ -114,6 +114,7 @@ public class TTT3DBoard {
      *     characters other than X, O, -, space, or newline should cause loadFromFile
      *     to throw an exception.
      *     @param fileName the file containing the board to be loaded.
+     *     @throws IllegalArgumentException if the character is not 'X', '-' or 'O'
      */
     public void loadFromFile(String fileName) {
         int squareArrayLength = BOARD_SIZE * BOARD_SIZE * BOARD_SIZE;
@@ -128,16 +129,22 @@ public class TTT3DBoard {
                 String boardLine = scanner.nextLine();
                 for(int i = 0; i < boardLine.length(); i++){
                     char move = boardLine.charAt(i);
-                    if ((move == 'X' || move == 'O' || move == '-')&&(indexSquareValue<=63)){
-                        squareValues[indexSquareValue] = move;
-                        indexSquareValue++;
-                    } else if ((move == 'X' || move == 'O') && indexSquareValue<=64){
-                        this.setWhoseTurn(move);
+                    if (move != ' '){
+                        if ((move == 'X' || move == 'O' || move == '-')&&(indexSquareValue<=squareArrayLength-1)){
+                            squareValues[indexSquareValue] = move;
+                            indexSquareValue++;
+                        } else if (move == 'X' || move == 'O'){
+                            this.setWhoseTurn(move);
+                        } else {
+                            throw new IllegalArgumentException("Illegal character!");
+                        }
                     }
                 }
             }
         } catch (FileNotFoundException e) {
             System.err.println("The requested file, " + fileName + ", was not found.");
+            // just exit the program
+            System.exit(0);
         }
     }
 
@@ -158,13 +165,13 @@ public class TTT3DBoard {
      */
     public Character valueInSquare(int level, int row, int column) {
         if (level < 0 || level >= BOARD_SIZE) {
-            throw new IllegalArgumentException("Illegal level number " + level);
+            throw new IndexOutOfBoundsException("Illegal level number " + level);
         }
         if (row < 0 || row >= BOARD_SIZE) {
-            throw new IllegalArgumentException("Illegal row number " + row);
+            throw new IndexOutOfBoundsException("Illegal row number " + row);
         }
         if (column < 0 || column >= BOARD_SIZE) {
-            throw new IllegalArgumentException("Illegal column number " + column);
+            throw new IndexOutOfBoundsException("Illegal column number " + column);
         }
         return this.squareValues[indexForPosition(level, row, column)];
     }
@@ -176,10 +183,10 @@ public class TTT3DBoard {
      * @throws IllegalArgumentException if indexInArray is out of the sqaureValues array
      */
     public Character valueInSquare(int indexInArray) {
-        if (indexInArray <= 63){
+        if (indexInArray <= BOARD_SIZE*BOARD_SIZE*BOARD_SIZE){
             return this.squareValues[indexInArray];
         } else {
-            throw new IndexOutOfBoundsException("illegal index >= 63");
+            throw new IndexOutOfBoundsException("illegal index >= BOARD_SIZE*BOARD_SIZE*BOARD_SIZE");
         }
     }
 
@@ -231,9 +238,9 @@ public class TTT3DBoard {
      */
     public int[] positionForIndex(int index){
         int positionForIndex[] = new int[3];
-        for (int level=0; level<4; level++){
-            for (int row=0; row<4; row++){
-                for (int column=0; column<4; column++){
+        for (int level=0; level<BOARD_SIZE; level++){
+            for (int row=0; row<BOARD_SIZE; row++){
+                for (int column=0; column<BOARD_SIZE; column++){
                     if (BOARD_SIZE * BOARD_SIZE * level + BOARD_SIZE * row + column == index){
                         positionForIndex[0] = level;
                         positionForIndex[1] = row;
@@ -305,16 +312,16 @@ public class TTT3DBoard {
      * Print the game board
      */
     public void printBoard(){
-        int countSpace = 0;
-        for (int level=0; level<4; level++){
+        for (int level=0; level<BOARD_SIZE; level++){
             System.out.print(" \n");
-            for (int row=0; row<4; row++) {
+            for (int row=0; row<BOARD_SIZE; row++) {
                 if (row != 0){
                     System.out.print(" ");
                 }
-                for (int column = 0; column < 4; column++) {
+                for (int column = 0; column < BOARD_SIZE; column++) {
                     int indexForPosition = indexForPosition(level, row, column);
                     System.out.print(this.squareValues[indexForPosition]);
+
                 }
             }
         }
