@@ -1,0 +1,102 @@
+CREATE TABLE departments (
+	id SERIAL,
+	name Text
+);
+ 
+CREATE TABLE events (
+	id SERIAL,
+	name Text,
+	location Text,
+	time Text,
+	date Text,
+	date_time Text,
+	department_id Int,
+);
+ 
+1.SYNOPSIS: Get a list of all the posted events starting from today by a specific major department.
+ 
+QUERY (GET): /events/department/<department>/
+ 
+RESPONSE: a list of dictionaries, each of which describes one event with keys 'name', 'location' , 'date_time' and 'department'. The dictionaries are sorted by date.
+ 
+EXAMPLE: http://whatever.com/events/ComputerScience/
+ 
+[{'name':'CS Tea', 'location': 'CMC 110', 'date_time': '2017-05-15T13:45', 'department': 'Computer Science'}, 
+{'name':'CS Talk', 'location': 'CMC 306', 'date_time': '2017-05-16T09:45','department': 'Computer Science},
+ {'name':'CS Major Meeting', 'location': 'CMC 201','date_time': '2017-05-20T19:30', 'department': 'Computer Science}]
+ 
+2.SYNOPSIS: Get a list of all the posted events happening on a given date which should start from today.
+ 
+QUERY (GET): /events/date/<date>/
+ 
+RESPONSE: a list of dictionaries, each of which describes one event with keys 'name', 'location' , 'date_time' and 'department'.  The dictionaries are  sorted by date.
+ 
+EXAMPLE: http://whatever.com/events/date/2017-05-25/
+[{'name':'CS Tea', 'location': 'CMC 110', 'date_time': '2017-05-25T09:45', 'department': 'Computer Science'}, 
+{'name':'Music Talk', 'location': 'LDC 306', 'date_time': '2017-05-25T12:45','department': 'Music'},
+ {'name':'German Major Meeting', 'location': 'MUDD 201','date_time': '2017-05-25T17:45', 'department':'German'}]
+
+ 
+3.SYNOPSIS: Get a list of all the posted events of the certain department happening on a given date which should start from today.
+ 
+QUERY (GET): /events/date/department/<date>/<department>
+ 
+RESPONSE: a list of dictionaries, each of which describes one event with keys 'name', 'location' , 'date_time' and 'department'. The dictionaries are  sorted by date.
+ 
+EXAMPLE: http://www.whatever.com/events/date/department/2017-05-25/ComputerScience
+
+[{'name':'CS Tea', 'location': 'CMC 110', 'date_time': '2017-05-25T13:45', 'department': 'Computer Science'}, 
+{'name':'CS Talk', 'location': 'CMC 306', 'date_time': '2017-05-25T16:45','department': 'Computer Science},
+ {'name':'CS Major Meeting', 'location': 'CMC 201','date_time': '2017-05-25T22:30', 'department': 'Computer Science}]
+
+4.SYNOPSIS: Get a list of all the posted events of multiple departments on a given date
+ 
+QUERY (GET): /events/date/number_of_departments/department/<date>/<number_of_departments>/<department1 & department 2 & department3…...>
+ 
+RESPONSE: a list of dictionaries, each of which describes one event with keys 'name', 'location' , 'date_time' and 'department'. The dictionaries are  sorted by date.
+ 
+EXAMPLE: http://www.whatever.com/events/number_of_departments/department/3/<Math&Music&Geology>
+
+[{'name':'CS Tea', 'location': 'CMC 110', 'date_time': '2017-05-25T13:45', 'department': 'Computer Science'}, 
+{'name':'Math Talk', 'location': 'CMC 306', 'date_time': '2017-05-28T09:45','department': 'Mathematics},
+ {'name':'Spring Concert, 'location': Concert Hall','date_time': '2017-05-29T19:30', 'department':'Music'}]
+
+5.SYNOPSIS: Get a list of all the posted events of multiple departments on a given date
+ 
+QUERY (GET): /events/date/number_of_departments/department/<date>/<number_of_departments>/<department1 & department 2 & department3…...>
+ 
+RESPONSE: a list of dictionaries, each of which describes one event with keys 'name', 'location' , 'date_time' and 'department'. The dictionaries are sorted by date.
+
+ EXAMPLE: http://www.whatever.com/events/number_of_departments/department/2017-05-30/3/<Math&Music&Geology>
+
+[{'name':'CS Tea', 'location': 'CMC 110', 'date_time': '2017-05-30T08:45', 'department': 'Computer Science'}, 
+{'name':'Math Talk', 'location': 'CMC 306', 'date_time': '2017-05-30T09:45','department': 'Mathematics},
+ {'name':'Spring Concert', 'location': Concert Hall','date_time': '2017-05-30T19:30', 'department':'Music'},
+ {'name':'Chinese Ensemble', 'location': Concert Hall','date_time': '2017-05-30T22:30', 'department':'Music'}]
+
+6.SYNOPSIS: Get a list of all the posted events
+ 
+QUERY (GET): /events/all
+ 
+RESPONSE: a list of dictionaries, each of which describes one event with keys 'name', 'location' , 'date_time' and 'department'. The dictionaries are sorted by date.
+ 
+EXAMPLE: http://www.whatever.com /events/all
+
+[{'name':'CS Tea', 'location': 'CMC 110', 'date_time': '2017-05-30T08:45', 'department': 'Computer Science'}, 
+{'name':'Math Talk', 'location': 'CMC 306', 'date_time': '2017-05-30T09:45','department': 'Mathematics},
+ {'name':'Spring Concert', 'location': Concert Hall','date_time': '2017-05-30T19:30', 'department':'Music'},
+ {'name':'Chinese Ensemble', 'location': Concert Hall 202','date_time': '2017-05-30T22:30', 'department':'Music'},
+ {'name':' Chemistry talk', 'location': 'Mudd Hall 201','date_time': '2017-05-30T23:30', 'department':'Chemistry'},
+{'name':'Geology Tea', 'location': 'Olin 110', 'date_time': '2017-05-31T08:45', 'department': 'Geology'}, 
+{'name':'Physics talk', 'location': 'CMC 306', 'date_time': '2017-05-31T09:45','department': 'Physics'},
+ {'name':'Japanese talk', 'location':'LDC 111','date_time': '2017-05-31T19:30', 'department':'Japanese'},
+ {'name':'Chinese talk', 'location': 'LDC 202','date_time': '2017-05-31T22:30', 'department':'Chinese'},
+ {'name':' Biology talk', 'location': 'Mudd Hall 201','date_time': '2017-05-31T23:30', 'department':'Biology'}]
+
+
+
+
+
+ 
+
+
