@@ -56,7 +56,7 @@ class TestEventCalender(TestCase):
             # Case 2: Search events by multiple departments
 
     def test_department_event_departments(self):
-        url = 'http://localhost:5000/events/department/EnvironmentalStudies&PoliticalScience/';
+        url = 'http://localhost:5000/events/number_of_departments/department/2/EnvironmentalStudies&PoliticalScience/';
         json_text = urllib.request.urlopen(url).read();
         json_text = json_text.decode('utf-8');
         event_list = json.loads(json_text);
@@ -147,7 +147,7 @@ class TestEventCalender(TestCase):
             # Test if all the events are in the date and departments specified
 
     def test_date_deps_event_date_deps(self):
-        url = 'http://localhost:5000/events/date/department/2017-05-25/Geology&Music'
+        url = 'http://localhost:5000/events/date/number_of_departments/department/2017-05-25/2/Geology&Music'
         json_text = urllib.request.urlopen(url).read()
         json_text = json_text.decode('utf-8')
         event_list = json.loads(json_text)
@@ -167,7 +167,7 @@ class TestEventCalender(TestCase):
             # Test if the returned tyoe is a list
 
     def test_event_sort_date_results_type(self):
-        url = 'http://localhost:5000/events/date/department/2017-05-25/ComputerScience'
+        url = 'http://localhost:5000/events/all'
         json_text = urllib.request.urlopen(url).read()
         json_text = json_text.decode('utf-8')
         python_object = json.loads(json_text);
@@ -177,7 +177,7 @@ class TestEventCalender(TestCase):
         # Test if the first item in the list is a dictionary
 
     def test_event_sort_date_type(self):
-        url = 'http://localhost:5000/events/date/department/2017-05-25/ComputerScience'
+        url = 'http://localhost:5000/events/all'
         json_text = urllib.request.open(url).read()
         json_text = json_text.decode('utf-8')
         python_object = json.loads(json_text)
@@ -186,7 +186,7 @@ class TestEventCalender(TestCase):
         # Test if the events are sorted by date
 
     def test_event_sort_date_correct(self):
-        url = 'http://localhost:5000/events/date/department/2017-05-25/ComputerScience'
+        url = 'http://localhost:5000/events/all'
         json_text = urllib.request.open(url).read()
         json_text = json_text.decode('utf-8')
         event_list = json.loads(json_text)
