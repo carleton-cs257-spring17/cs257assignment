@@ -55,26 +55,14 @@ QUERY (GET): /events/date/number_of_departments/department/<date>/<number_of_dep
  
 RESPONSE: a list of dictionaries, each of which describes one event with keys 'name', 'location' , 'date_time' and 'department'. The dictionaries are  sorted by date.
  
-EXAMPLE: http://www.whatever.com/events/number_of_departments/department/3/<Math&Music&Geology>
+EXAMPLE: http://www.whatever.com/events/date/number_of_departments/department/2017-05-25/2/Geology&Music'
 
 [{'name':'CS Tea', 'location': 'CMC 110', 'date_time': '2017-05-25T13:45', 'department': 'Computer Science'}, 
 {'name':'Math Talk', 'location': 'CMC 306', 'date_time': '2017-05-28T09:45','department': 'Mathematics},
  {'name':'Spring Concert, 'location': Concert Hall','date_time': '2017-05-29T19:30', 'department':'Music'}]
 
-5.SYNOPSIS: Get a list of all the posted events of multiple departments on a given date
- 
-QUERY (GET): /events/date/number_of_departments/department/<date>/<number_of_departments>/<department1 & department 2 & department3…...>
- 
-RESPONSE: a list of dictionaries, each of which describes one event with keys 'name', 'location' , 'date_time' and 'department'. The dictionaries are sorted by date.
 
- EXAMPLE: http://www.whatever.com/events/number_of_departments/department/2017-05-30/3/<Math&Music&Geology>
-
-[{'name':'CS Tea', 'location': 'CMC 110', 'date_time': '2017-05-30T08:45', 'department': 'Computer Science'}, 
-{'name':'Math Talk', 'location': 'CMC 306', 'date_time': '2017-05-30T09:45','department': 'Mathematics},
- {'name':'Spring Concert', 'location': Concert Hall','date_time': '2017-05-30T19:30', 'department':'Music'},
- {'name':'Chinese Ensemble', 'location': Concert Hall','date_time': '2017-05-30T22:30', 'department':'Music'}]
-
-6.SYNOPSIS: Get a list of all the posted events
+5.SYNOPSIS: Get a list of all the posted events
  
 QUERY (GET): /events/all
  
