@@ -40,7 +40,7 @@ def _fetch_all_rows_for_query(query):
     return rows
 
 @app.route('/events/department/<department>/') 
-def get_events_by_department(department_selected):
+def get_events_by_department(department):
     '''
     Returns a list of all events of one specified department
     ordered by date then time
@@ -50,7 +50,7 @@ def get_events_by_department(department_selected):
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments ORDER BY events.date_time
                WHERE '{0}' = department.name
-               AND events.department_id = departments.id'''.format(department_selected)
+               AND events.department_id = departments.id'''.format(department)
 
     events_list = []
     for row in _fetch_all_rows_for_query(query):
@@ -62,7 +62,7 @@ def get_events_by_department(department_selected):
 
 
 @app.route('/events/date/<date>/')
-def get_events_by_date(date_selected):
+def get_events_by_date(date):
     '''
     Returns a list of all events on a specified date ordered in time.
     See get_event_by_id below for description of the event resource representation.
@@ -70,7 +70,7 @@ def get_events_by_date(date_selected):
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments ORDER BY events.time
                WHERE '{0}' = events.date
-               AND events.department_id = departments.id'''.format(date_selected)
+               AND events.department_id = departments.id'''.format(date)
 
     events_list = []
     for row in _fetch_all_rows_for_query(query):
@@ -82,7 +82,7 @@ def get_events_by_date(date_selected):
 
 
 @app.route('/events/date/department/<date>/<department>/')
-def get_events_by_date_department(date_selected, department_selected):
+def get_events_by_date_department(date, department):
     '''
     Returns a list of all events on a specified date of a specified department.
     The events would be ordered in time.
@@ -92,7 +92,7 @@ def get_events_by_date_department(date_selected, department_selected):
                FROM events,departments ORDER BY events.time
                WHERE '{0}' = events.date
                AND '{1}' = departments.name
-               AND events.department_id = departments.id'''.format(date_selected, department_selected)
+               AND events.department_id = departments.id'''.format(date, department)
 
     events_list = []
     for row in _fetch_all_rows_for_query(query):
