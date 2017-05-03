@@ -40,7 +40,7 @@ def _fetch_all_rows_for_query(query):
     return rows
 
 @app.route('/events/department/<department>/') 
-def get_events_by_department():
+def get_events_by_department(department_selected):
     '''
     Returns a list of all events of one specified department
     ordered by date then time
@@ -49,7 +49,7 @@ def get_events_by_department():
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments ORDER BY events.date_time
-               WHERE events.department_id = departments.id'''
+               WHERE events.department_id = departments.id'''.format(department_selected)
 
     events_list = []
     for row in _fetch_all_rows_for_query(query):
