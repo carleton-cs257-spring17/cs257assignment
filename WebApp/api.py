@@ -49,7 +49,8 @@ def get_events_by_department(department_selected):
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments ORDER BY events.date_time
-               WHERE events.department_id = departments.id'''.format(department_selected)
+               WHERE '{0}' = department.date
+               AND events.department_id = departments.id'''.format(department_selected)
 
     events_list = []
     for row in _fetch_all_rows_for_query(query):
