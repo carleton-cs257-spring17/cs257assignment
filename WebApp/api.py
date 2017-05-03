@@ -49,7 +49,7 @@ def get_events_by_department(department_selected):
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments ORDER BY events.date_time
-               WHERE '{0}' = department.date
+               WHERE '{0}' = department.name
                AND events.department_id = departments.id'''.format(department_selected)
 
     events_list = []
