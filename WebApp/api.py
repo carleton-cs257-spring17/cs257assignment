@@ -48,9 +48,10 @@ def get_events_by_department(department):
     for description of the author resource representation.
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
-               FROM events,departments ORDER BY events.date_time
-               WHERE '{0}' = department.name
-               AND events.department_id = departments.id'''.format(department)
+               FROM events,departments
+               WHERE UPPER(departments.name) LIKE UPPER('%{0}%')
+               AND events.department_id = departments.id
+                ORDER BY events.date_time'''.format(department)
 
     events_list = []
     for row in _fetch_all_rows_for_query(query):
@@ -68,9 +69,10 @@ def get_events_by_date(date):
     See get_event_by_id below for description of the event resource representation.
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
-               FROM events,departments ORDER BY events.time
-               WHERE '{0}' = events.date
-               AND events.department_id = departments.id'''.format(date)
+               FROM events,departments
+               WHERE WHERE UPPER(departments.name) LIKE UPPER('%{0}%')
+               AND events.department_id = departments.id
+                ORDER BY events.time'''.format(date)
 
     events_list = []
     for row in _fetch_all_rows_for_query(query):
@@ -89,10 +91,11 @@ def get_events_by_date_department(date, department):
     See get_event_by_id below for description of the event resource representation.
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
-               FROM events,departments ORDER BY events.time
-               WHERE '{0}' = events.date
-               AND '{1}' = departments.name
-               AND events.department_id = departments.id'''.format(date, department)
+               FROM events,departments
+               WHERE UPPER(events.date) LIKE UPPER('%{0}%')
+               AND UPPER(departments.name) LIKE UPPER('%{1}%')
+               AND events.department_id = departments.id
+                ORDER BY events.time'''.format(date, department)
 
     events_list = []
     for row in _fetch_all_rows_for_query(query):
@@ -118,5 +121,5 @@ if __name__ == '__main__':
 
     host = sys.argv[1]
     port = sys.argv[2]
-    app.run(host=host, port=port)
+    app.run(host=host, port=int(port), debug=True)
 
