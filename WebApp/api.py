@@ -70,7 +70,7 @@ def get_events_by_date(date):
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments
-               WHERE WHERE UPPER(departments.name) LIKE UPPER('%{0}%')
+               WHERE UPPER(events.date) LIKE UPPER('%{0}%')
                AND events.department_id = departments.id
                 ORDER BY events.time'''.format(date)
 
@@ -105,9 +105,29 @@ def get_events_by_date_department(date, department):
 
     return json.dumps(events_list)
 
+@app.route('/events/')
+def get_events():
+    '''
+    Returns a list of all events.
+    '''
+    query = '''SELECT events.name, events.location, events.date_time, departments.name
+               FROM events,departments
+                WHERE events.department_id = departments.id
+                ORDER BY events.time'''
+
+    events_list = []
+    for row in _fetch_all_rows_for_query(query):
+        event = {'name':row[0], 'location':row[1],
+                  'date_time':row[2], 'department':row[3]}
+        events_list.append(event)
+
+    return json.dumps(events_list)
 
 @app.route('/help')
 def help():
+    '''
+    help information
+    '''
     rule_list = []
     for rule in app.url_map.iter_rules():
         rule_text = rule.rule.replace('<', '&lt;').replace('>', '&gt;')

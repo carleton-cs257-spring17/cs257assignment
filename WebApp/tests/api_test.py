@@ -1,7 +1,7 @@
 '''
-eventCalender.py
+api_test.py
 @author Yanhan Lyu, Lucy Wu
-Writing unittests for testing API query. We have 5 parts of tests for 5 queries respectively. 
+Writing unittests for testing API query. We have 5 parts of tests for 4 queries respectively. 
 '''
 from unittest import TestCase
 import unittest

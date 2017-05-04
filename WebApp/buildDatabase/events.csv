@@ -1,0 +1,111 @@
+id,name,location,time,date,date_time,department_id
+2,Economics Department Senior Dinner,"Alumni Guest House Meeting Room, Library & Terrace",5:00-7:30pm,20170531,20170531&5:00-7:30pm,2
+3,Economics Department Comps Poster Session,Great Hall,4:00-6:00pm,20170525,20170525&4:00-6:00pm,2
+4,Economics Department Graduates & Family Reception,Burton Terrace,2:30-3:30pm,20170609,20170609&2:30-3:30pm,2
+5,2017-18 Comps Info Mtg,Willis 203,12:00-1:00pm,20170509,20170509&12:00-1:00pm,2
+6,Mandatory Bio Comps Meeting (Junior Majors),Olin 141,7:00-8:00pm,20170514,20170514&7:00-8:00pm,3
+7,Biology Department Picnic,Bald Spot,5:00-6:30pm,20170518,20170518&5:00-6:30pm,3
+8,Senior Biology Reception,AGH,5:00-6:30pm,20170606,20170606&5:00-6:30pm,3
+9,Pace Analytical Visit,Sayles-Hill Great Space,11:30am-1:30pm,20170518,20170518&11:30am-1:30pm,3
+10,Breaking Stereotypes & Improving Girl's & Women's STEM outcomes,Olin 141,12:00-1:00pm,20170511,20170511&12:00-1:00pm,3
+11,Classes Begin,No location,8:30am,20171211,20171211&8:30am,3
+12,Finishing to Start-Up:Identifying value of researcher in new companies,Olin 141,3:30-4:30pm,20170508,20170508&3:30-4:30pm,3
+13,"Mark McKone, PhD",Olin 141,3:30-4:30pm,20171218,20171218&3:30-4:30pm,3
+14,Halls and Houses Close for Seniors at 5 p.m.,No location,5:00pm,20170610,20170610&5:00pm,3
+15,"""Palace into Temple: Architecture at Chan Chan, Peru""","O'Shaughnessy Educational Center Auditorium, University of St. Thomas",6:00-7:00pm,20170428,20170428&6:00-7:00pm,5
+16,CS Tea Talk Series,CMC 209,4:00-5:00pm,20170525,20170525&4:00-5:00pm,6
+17,LatAm Hist talk: Memorializing Rebels/Martyrs-Argentina+Refreshments,"Leighton Hall, Room 304",4:30-5:30pm,20170426,20170426&4:30-5:30pm,7
+18,Against the Grain,Leighton 305,5:00-6:30pm,20170410,20170410&5:00-6:30pm,8
+19,"""Which Came First?  The San Andreas Fault or the Pelona Schist""",Mudd 73,4:00-5:00pm,20170505,20170505&4:00-5:00pm,10
+20,Breaking Stereotypes & Improving Girl's & Women's STEM outcomes,Olin 141,12:00-1:00pm,20170511,20170511&12:00-1:00pm,10
+21,History Dept Open House - Everyone Welcome!,"Leighton 204, History Lounge",9:00am-3:00pm,20170616,20170616&9:00am-3:00pm,11
+22,Hometown Ties: Carleton Celebrates 150 Years with Northfield,Northfield Historical Society,10:00am-5:00pm,20170618,20170618&10:00am-5:00pm,11
+23,History Family / Faculty / Seniors Reception,Front lawn of Leighton Hall,2:30-3:30pm,20170609,20170609&2:30-3:30pm,11
+24,Alice Lovejoy:Military Avant-Garde Experimentation-CzechArmyFilmStudio,Leighton 304,3:30-4:30pm,20170508,20170508&3:30-4:30pm,11
+25,Honors Convocation,Skinner Chapel,3:00-4:00pm,20170526,20170526&3:00-4:00pm,11
+26,History SDAs Welcome New Majors PARTY+All History Majors Pizza Party!,Leighton 204 (History Lounge - reserved),5:00-6:00pm,20170518,20170518&5:00-6:00pm,11
+27,30 Minutes: Tom Ascher ’84,"Career Center, Sayles Hill 50",1:30-3:30pm,20170503,20170503&1:30-3:30pm,11
+28,"History Alumni, Faculty, & Faculty Emeriti Reception",Leighton 204,3:00-4:00pm,20170616,20170616&3:00-4:00pm,11
+29,Faculty hosted Senior History Majors Elegant Cocktail hour,"Alumni Guest House dining room, library, and patio",5:00-6:30pm,20170530,20170530&5:00-6:30pm,11
+30,5 pm History Comps Panel & Celebration!,Leighton 304,5:00-6:00pm,20170511,20170511&5:00-6:00pm,11
+31,"Liberal Arts, Humanities, and Entrepreneurship-Life after Carleton",Leighton 236,4:00-5:00pm,20170503,20170503&4:00-5:00pm,11
+32,Annual History Department Picnic - Rain or Shine!,"2nd Leighton hallway, 202, 204, 218, 236 & front yard",5:00-6:30pm,20170523,20170523&5:00-6:30pm,11
+33,12-1 pm Junior History Majors Mandatory Comps Meeting & Lunch,Leighton 236,12:00-1:00pm,20170511,20170511&12:00-1:00pm,11
+34,The Study of Jewish Ethics: Where have we come? Where are we going?,Boliou Hall #104,3:00-4:45pm,20161230,20161230&3:00-4:45pm,12
+35,Play Between Love & Labor: Practice & Culture of Gold Farming in China,Gould Library Athenaeum,4:30-5:30pm,20170518,20170518&4:30-5:30pm,14
+36,"""Math and Art in Modern Japan""",LDC 104,4:00-5:00pm,20170511,20170511&4:00-5:00pm,14
+37,Mapping Your World:  An Introduction to GIS,Laighton 402,4:30-5:30pm,20170503,20170503&4:30-5:30pm,15
+38,ENTS Picnic,Alumni Guest House Meeting Room,5:00-7:00pm,20170526,20170526&5:00-7:00pm,15
+39,ENTS Poster Session,Great Hall,1:50-3:00pm,20170515,20170515&1:50-3:00pm,15
+40,Linguistics Colloquium: Dr. Sharon Inkelas,TBD,4:00-5:00pm,20170519,20170519&4:00-5:00pm,16
+41,Faculty/Guest Artist Recital: Matthew McCright & Francesca Anderegg,Concert Hall,3:00-4:30pm,20170115,20170115&3:00-4:30pm,17
+42,Green Card Voices Reception,Weitz Center LOME,5:30-6:30pm,20170502,20170502&5:30-6:30pm,18
+43,Breaking Stereotypes & Improving Girl's & Women's STEM outcomes,Olin 141,12:00-1:00pm,20170511,20170511&12:00-1:00pm,18
+44,Elizer Darris Talk,Leighton 305,4:00-5:30pm,20170427,20170427&4:00-5:30pm,19
+45,Convocation: Aparna Nancherla,Skinner Chapel,10:50-11:50am,20170505,20170505&10:50-11:50am,20
+46,Comps Super Friday,Weitz 236,1:30-4:30pm,20170505,20170505&1:30-4:30pm,20
+47,Breaking Stereotypes & Improving Girl's & Women's STEM outcomes,Olin 141,12:00-1:00pm,20170511,20170511&12:00-1:00pm,20
+48,PSYC Majors Picnic,Mudd Outdoor Amphitheater,5:00-7:00pm,20170519,20170519&5:00-7:00pm,20
+49,Goodsell Observatory Open House,Goodsell Observatory,7:00-9:00pm,20171201,20171201&7:00-9:00pm,21
+50,Alice Lovejoy:Military Avant-Garde Experimentation-CzechArmyFilmStudio,Leighton 304,3:30-4:30pm,20170508,20170508&3:30-4:30pm,22
+51,Senior Art Exhibition Opening,Perlman Teaching Museum,7:00-8:00pm,20170519,20170519&7:00-8:00pm,24
+52,Empty Bowls,Bald Spot,11:45am-1:15pm,20170512,20170512&11:45am-1:15pm,24
+53,Guest Chris Sullivan Talk,Boliou 161,1:10-3:20pm,20170505,20170505&1:10-3:20pm,24
+54,Steven Nelson Talk - Art History Guest,Boliou 104,5:30-6:30pm,20170504,20170504&5:30-6:30pm,24
+55,"Steven Caton's talk: Up the Creek:  Land, Water & Development in Dubai",Gould Library Athenaeum,5:00-6:00pm,20170502,20170502&5:00-6:00pm,25
+56,SENIOR RECITAL: Claire O'Brien and Hannah Marty,Chapel,7:00-8:00pm,20170512,20170512&7:00-8:00pm,26
+57,Violin/Viola Recital I & II,Concert Hall,3:00-6:30pm,20170529,20170529&3:00-6:30pm,26
+58,Issam Rafea and Carleton's Middle Eastern Music Ensemble,Concert Hall,7:00-8:30pm,20170530,20170530&7:00-8:30pm,26
+59,JUNIOR RECITAL: Koh Zhi You,Concert Hall,1:00-1:30pm,20170508,20170508&1:00-1:30pm,26
+60,Student Chamber Recital I,Concert Hall,4:30-6:00pm,20170524,20170524&4:30-6:00pm,26
+61,Organ and Harpsichord Studio Recital,Concert Hall,7:00-8:15pm,20170529,20170529&7:00-8:15pm,26
+62,Voice Showcase Recital,Music and Drama Center Gallery,7:30-9:00pm,20170506,20170506&7:30-9:00pm,26
+63,"Symphony Band Concert: Ronald Rodman, director",Concert Hall,7:00-8:30pm,20170512,20170512&7:00-8:30pm,26
+64,SENIOR RECITAL: Molly Hildreth,Concert Hall,4:00-5:00pm,20170506,20170506&4:00-5:00pm,26
+65,Piano Studio Recital,Concert Hall,7:00-8:30pm,20170524,20170524&7:00-8:30pm,26
+66,"Jazz Ensemble Concert : Laura Caviani, director",Concert Hall,3:00-4:30pm,20170521,20170521&3:00-4:30pm,26
+67,SENIOR RECITAL: Vicky Wu,Concert Hall,2:00-3:00pm,20170513,20170513&2:00-3:00pm,26
+68,SENIOR RECITAL: Joe Lowry,Concert Hall,1:30-2:30pm,20170514,20170514&1:30-2:30pm,26
+69,SENIOR RECITAL: Kaylee Shiao,Concert Hall,2:00-3:00pm,20170507,20170507&2:00-3:00pm,26
+70,"Chinese Music Ensemble Concert: Gao Hong, director",Concert Hall,8:00-9:30pm,20170519,20170519&8:00-9:30pm,26
+71,Student Chamber Recital II,Concert Hall,2:00-3:30pm,20170528,20170528&2:00-3:30pm,26
+72,"Orchestra Concert: Hector Valdivia, director",Concert Hall,8:00-9:30pm,20170526,20170526&8:00-9:30pm,26
+73,"West African Drum Ensemble Concert: Jay Johnson, director",Bald Spot,12:15-1:15pm,20170530,20170530&12:15-1:15pm,26
+74,Carleton Players: OUR COUNTRY'S GOOD,Weitz Center Theater,7:30-9:30pm,20170513,20170513&7:30-9:30pm,27
+75,Semaphore: SPRING CONCERT,Weitz Theater,2:00-4:00pm,20170521,20170521&2:00-4:00pm,27
+76,EDB SPRING SHOWCASE,Weitz 165,7:30-9:00pm,20170506,20170506&7:30-9:00pm,27
+77,"Jennifer Hirsch, Ph.D.: The social dynamics of consensual sex",Gould Library Athenaeum,12:00-1:00pm,20170406,20170406&12:00-1:00pm,28
+78,Vocal plasticity of FoxP2 overexpression in adult zebra finch songbird,Olin 002,12:00-1:00pm,20170418,20170418&12:00-1:00pm,29
+79,Women's and Gender Studies Comps Presentations 2017,Leighton 304,4:30-5:30pm,20170424,20170424&4:30-5:30pm,30
+80,"Steven Caton's talk: Up the Creek:  Land, Water & Development in Dubai",Gould Library Athenaeum,5:00-6:00pm,20170502,20170502&5:00-6:00pm,31
+81,Religion Comps Info Session,No location,12:30-1:00pm,20170502,20170502&12:30-1:00pm,31
+82,Gillian Applegate '17 Religion major gives comps presentation,Leighton 402,12:00-12:30pm,20170502,20170502&12:00-12:30pm,31
+83,What Is a Church? Public talk & pizza lunch by Joe Lowry '17,Leighton 305,12:00-1:00pm,20170221,20170221&12:00-1:00pm,32
+84,Rebecca's Liu's Comps Presentation,Gould Library Athenaeum,12:00-1:00pm,20170228,20170228&12:00-1:00pm,33
+85,The Paradox of Humor: A Brief History,Library Athenaeum,7:30-9:00pm,20170509,20170509&7:30-9:00pm,34
+86,Political Science Comps Poster Presentation,Great Hall,4:30-6:00pm,20170503,20170503&4:30-6:00pm,34
+87,The Road to an Inclusive Civil Society in China,Weitz 231,12:00-12:30pm,20170509,20170509&12:00-12:30pm,34
+88,The EU and Asylum,Willis 211,5:00-5:30pm,20170502,20170502&5:00-5:30pm,34
+89,Political Science Dept. Senior Dinner,Great Hall,5:30-7:30pm,20170524,20170524&5:30-7:30pm,34
+90,"Film: ""Hail Caesar""",Weitz Cinema,7:30-9:30pm,20170507,20170507&7:30-9:30pm,34
+91,Political Science Ice Cream Social,Chapel west lawn,4:30-5:30pm,20170529,20170529&4:30-5:30pm,34
+92,A Dictator's Guide to Keeping Power,Willis 204,12:00-12:30pm,20170511,20170511&12:00-12:30pm,34
+93,Foreign Policy Preferences as Determinant in ITC Decision Making,Willis 204,12:00-12:30pm,20170509,20170509&12:00-12:30pm,34
+94,Community Supported Agriculture in Northfield,Willis 203,12:30-1:00pm,20170504,20170504&12:30-1:00pm,34
+95,Can Islam be Democratized?,Willis 203,12:00-12:30pm,20170504,20170504&12:00-12:30pm,34
+96,Comps Meeting for Juniors,Laird 212,12:00-1:00pm,20170504,20170504&12:00-1:00pm,35
+97,English Department Reception for Graduates & Families,South Lawn in front of Laird Hall,2:30-3:30pm,20170609,20170609&2:30-3:30pm,35
+98,English Department Reunion Reception,South Lawn in front of Laird Hall,3:00-4:00pm,20170616,20170616&3:00-4:00pm,35
+99,English Department Comps Symposium,"Laird Hall, Second Floor",9:00am-1:00pm,20170506,20170506&9:00am-1:00pm,35
+100,Banquet for Senior English Majors and Faculty,Alumni Guest House Library and Meeting Room,5:30-8:30pm,20170517,20170517&5:30-8:30pm,35
+101,Carol Rutz's Retirement Party,Alumni Guest House Meeting Room,4:00-6:00pm,20170504,20170504&4:00-6:00pm,35
+102,English Picnic,Bell Field,5:00-8:00pm,20170530,20170530&5:00-8:00pm,35
+103,Periodic Table,LDC,12:00-1:00pm,20170525,20170525&12:00-1:00pm,36
+104,Chemistry Department Seminar:  Catherine Drennan,Olin 149,3:30-5:00pm,20170505,20170505&3:30-5:00pm,36
+105,Breaking Stereotypes & Improving Girl's & Women's STEM outcomes,Olin 141,12:00-1:00pm,20170511,20170511&12:00-1:00pm,36
+106,New Science Complex Ground Breaking,tbd,4:00-4:30pm,20170512,20170512&4:00-4:30pm,36
+107,Chemistry Department Picnic,Sechler Park,4:00-7:00pm,20170519,20170519&4:00-7:00pm,36
+108,No Journal Club today,Mudd 171,12:00-1:00pm,20170504,20170504&12:00-1:00pm,36
+109,Mathematics and Statistics Group Comps Presentations,Olin 141,3:00-8:00pm,20170518,20170518&3:00-8:00pm,37
+110,Mathematics and Statistics Independent Comps Presentations,CMC 206,3:30-5:30pm,20170511,20170511&3:30-5:30pm,37
+111,Mathematics and Statistics Departmental Annual Picnic,CMC/Boliou Terrace,12:00-1:30pm,20170530,20170530&12:00-1:30pm,37
