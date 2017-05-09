@@ -8,7 +8,7 @@ import unittest
 import urllib.request
 import json
 
-ini_url = 'http://thacker.mathcs.carleton.edu:5223'
+ini_url = 'http://thacker.mathcs.carleton.edu:5225'
 
 class TestEventCalender(TestCase):
     
