@@ -123,6 +123,24 @@ def get_events():
 
     return json.dumps(events_list)
 
+@app.route('/events/keyword/<events_keyword>')
+def get_events_by_keyword(events_keyword):
+    '''
+    Returns a list of events searched by keywords.
+    '''
+    query = '''SELECT events.name, events.location, events.date_time, departments.name
+               FROM events,departments
+               WHERE UPPER(events.name) LIKE UPPER('%{0}%')
+               AND events.department_id = departments.id
+                ORDER BY events.time'''.format(events_keyword)
+
+    events_list = []
+    for row in _fetch_all_rows_for_query(query):
+        event = {'name':row[0], 'location':row[1],
+                  'date_time':row[2], 'department':row[3]}
+        events_list.append(event)
+    return json.dumps(events_list)
+
 @app.route('/help')
 def help():
     '''
