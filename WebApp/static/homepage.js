@@ -9,7 +9,7 @@
 // Set this to match the base URL at which your books_api.py is listening.
 var checkvalue[]; 
 var inputString; 
-function onAuthorsButton() {
+function onButton() {
     checkedValue = null; 
     var count = 0;
     var inputElements = document.getElementsByClassName('departmentCheckbox');
