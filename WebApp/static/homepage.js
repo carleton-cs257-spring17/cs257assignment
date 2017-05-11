@@ -71,14 +71,14 @@ function onButton() {
           eventList.add(events);
         } 
       }
-      window.location.href = '/searchpage';
+      window.location.href = '/searchresults';
     } else if (checkedValue.size == 0 && newDate.length != 0 && inputString.length != 0){
       for events in eventListDate{
         if (eventListKeyword.contains(events)){
           eventList.add(events);
         } 
       }
-      window.location.href = '/searchpage';
+      window.location.href = '/searchresults';
     } else if (checkedValue.size != 0 && newDate.length == 0 && inputString.length != 0){
       for events in eventListDepartment{
         if (eventListKeyword.contains(events)){
@@ -91,16 +91,16 @@ function onButton() {
           eventList.add(events);
         } 
       }
-      window.location.href = '/searchpage';
+      window.location.href = '/searchresults';
     }else if (checkedValue.size != 0 && newDate.length == 0 && inputString.length == 0){
         eventList = eventListDepartment; 
-        window.location.href = '/searchpage';
+        window.location.href = '/searchresults';
     }else if (checkedValue.size == 0 && newDate.length != 0 && inputString.length == 0){
         eventList = eventListDate;
-        window.location.href = '/searchpage';
+        window.location.href = '/searchresults';
     }else if (checkedValue.size == 0 && newDate.length == 0 && inputString.length != 0){
         eventList = eventListKeyword;
-        window.location.href = '/searchpage';
+        window.location.href = '/searchresults';
     } else {
       location.reload();
     }
