@@ -3,7 +3,7 @@
 <head>
     <title>Carleton Events</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='homepage.css')}}">
+    <link rel="stylesheet" href="homepage.css">
     <script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"></script>
 </head>
 
@@ -12,62 +12,7 @@
 	  <h1>Search Interesting Events at Carleton</h1>
 		  <div class="fakeInput">
 		      <input type="text" id ="input" class="input" placeholder="Search for events!!">
-	           
-	           <select class="select">
-	           		<option value = "" selected disabled>Year</option>
-	           		<option value="2017">2017</option>
-					 <option value="2018">2018</option>
-	           </select>
-	           <select class="select">
-	           		<option value = "" selected disabled>Month</option>
-	           		<option value="2017">01</option>
-					 <option value="2018">02</option>
-					 <option value="2017">03</option>
-					 <option value="2018">04</option>
-					 <option value="2017">05</option>
-					 <option value="2018">06</option>
-					 <option value="2017">07</option>
-					 <option value="2018">08</option>
-					 <option value="2017">09</option>
-					 <option value="2018">10</option>
-					 <option value="2017">11</option>
-					 <option value="2018">12</option>
-
-	           </select>
-	           <select class="select">
-	           		<option value = "" selected disabled>Day</option>
-	           		<option value="2017">01</option>
-					 <option value="2018">02</option>
-					 <option value="2017">03</option>
-					 <option value="2018">04</option>
-					 <option value="2017">05</option>
-					 <option value="2018">06</option>
-					 <option value="2017">07</option>
-					 <option value="2018">08</option>
-					 <option value="2017">09</option>
-					 <option value="2018">10</option>
-					 <option value="2017">11</option>
-					 <option value="2018">12</option>
-					 <option value="2017">13</option>
-					 <option value="2018">14</option>
-					 <option value="2017">15</option>
-					 <option value="2018">16</option>
-					 <option value="2017">17</option>
-					 <option value="2018">18</option>
-					 <option value="2017">19</option>
-					 <option value="2018">20</option>
-					 <option value="2017">21</option>
-					 <option value="2018">22</option>
-					 <option value="2017">23</option>
-					 <option value="2018">24</option>
-					 <option value="2017">25</option>
-					 <option value="2018">26</option>
-					 <option value="2017">27</option>
-					 <option value="2018">28</option>
-					 <option value="2018">29</option>
-					 <option value="2017">30</option>
-					 <option value="2018">31</option>
-	           </select>
+		      <input type="date" class="select" id = "myDate">
 	           <button type="button input" class="button" onclick="onButton()">Go!!</button>
 		  </div>
   		<div>

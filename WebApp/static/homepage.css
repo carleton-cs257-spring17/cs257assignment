@@ -15,6 +15,17 @@ th, td {
     border-bottom: 1px solid #ddd;
     padding: 15px;
 }
+.select {
+    color: white;
+    float:left; 
+  background: transparent;
+   border: none;
+   font-size: 1.2rem;
+   height: 55px;
+   padding: 5px; 
+   width: 150px;
+   text-align: right; 
+}
 
 #overall {
   background: #222;
@@ -24,12 +35,12 @@ th, td {
 }
 
 .fakeInput {
-  background: white;
-  border: 1px solid #d6dadc;
+  background: #222;
+  border: 1px solid #222;
+vertical-align: middle;
   border-radius: 3px;
   display: table;
   width:815px;
-  
 }
 
 .input {
@@ -38,6 +49,7 @@ th, td {
   font-size: 1.5rem;
   width: 500px; 
   height: 50px;
+  border-radius: 3px;
 }
 .input:focus {
   outline: none;
@@ -53,22 +65,24 @@ th, td {
   color: white;
 }
 
-.button{
+button{
   vertical-align: middle;
-  background:#e7e7e7;
+  background:transparent;
   float:left;  
   height: 55px;
   font-size: 1.1rem;
   width: 80px;
+  border: none
 }
-.select{
-  vertical-align: middle;
-  float:left; 
-  height: 55px;
-  font-size: 1.1rem;
-  width:75px;
 
+.button{
+  color: white;
+  background: gray;
+  border: 2px solid #222;
+
+  border-radius: 3px;
 }
+
 
 
 
