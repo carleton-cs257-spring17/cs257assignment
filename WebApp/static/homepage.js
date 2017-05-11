@@ -9,6 +9,7 @@
 // Set this to match the base URL at which your books_api.py is listening.
 var eventList[] = null;
 function onButton() {
+    console.log("Button Clicked");
     var checkedValue[] = null; 
     var inputString = null;
     var date = null;
@@ -25,10 +26,10 @@ function onButton() {
       }
     }
     for(var i=0; inputElements[i]; ++i){
-          if(inputElements[i].checked){
-               checkedValue[count] = inputElements[i].value;
-               count++;
-          }
+      if(inputElements[i].checked){
+           checkedValue[count] = inputElements[i].value;
+           count++;
+      }
     }
     inputString =  document.getElementById('input');
     if (inputString.length != 0){
@@ -36,33 +37,33 @@ function onButton() {
       xmlHttpRequest = new XMLHttpRequest();
       xmlHttpRequest.open('get', url);
       xmlHttpRequest.onreadystatechange = function() {
-            if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
-                eventListKeyword = keywordCallBack(xmlHttpRequest.responseText);
-            } 
-        };
+        if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+            eventListKeyword = keywordCallBack(xmlHttpRequest.responseText);
+        } 
+    };
+      window.location.href = '/searchpage';
     } else if (checkedValue.size != 0){
       for department in checkedValue{
         var url = api_base_url + 'events/department/'+department;
         xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.open('get', url);
         xmlHttpRequest.onreadystatechange = function() {
-            if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
-                var tempEventList = departmentCallBack(xmlHttpRequest.responseText);
-            } 
-        };
+          if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+              var tempEventList = departmentCallBack(xmlHttpRequest.responseText);
+          } 
+      };
         for events in tempEventList{
           eventListDepartment.add(events);
-        }
-      }
+        } 
     }else if (newDate.length != 0){
       var url = api_base_url + 'events/date/'+newDate;
         xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.open('get', url);
         xmlHttpRequest.onreadystatechange = function() {
-            if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
-                eventListDate = departmentCallBack(xmlHttpRequest.responseText);
-            } 
-        };
+          if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+              eventListDate = departmentCallBack(xmlHttpRequest.responseText);
+          } 
+      };    
     }
     if (checkedValue.size != 0 && newDate.length != 0 && inputString.length != 0){
       for events in eventListDate{
@@ -70,12 +71,14 @@ function onButton() {
           eventList.add(events);
         } 
       }
+      window.location.href = '/searchpage';
     } else if (checkedValue.size == 0 && newDate.length != 0 && inputString.length != 0){
       for events in eventListDate{
         if (eventListKeyword.contains(events)){
           eventList.add(events);
         } 
       }
+      window.location.href = '/searchpage';
     } else if (checkedValue.size != 0 && newDate.length == 0 && inputString.length != 0){
       for events in eventListDepartment{
         if (eventListKeyword.contains(events)){
@@ -88,19 +91,22 @@ function onButton() {
           eventList.add(events);
         } 
       }
+      window.location.href = '/searchpage';
     }else if (checkedValue.size != 0 && newDate.length == 0 && inputString.length == 0){
         eventList = eventListDepartment; 
-      }
+        window.location.href = '/searchpage';
     }else if (checkedValue.size == 0 && newDate.length != 0 && inputString.length == 0){
         eventList = eventListDate;
-      }
+        window.location.href = '/searchpage';
     }else if (checkedValue.size == 0 && newDate.length == 0 && inputString.length != 0){
         eventList = eventListKeyword;
-      }
+        window.location.href = '/searchpage';
     } else {
       location.reload();
     }
-}
+    makeEventList();
+    console.log("Entered makeEventList");
+  }
 
 function keywordCallBack(responseText){
   var eventList = JSON.parse(responseText);

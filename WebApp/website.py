@@ -24,7 +24,7 @@ def get_main_page():
 @app.route('/searchresults') 
 def get_search_page():
     ''' This is the only route intended for human users '''
-    return flask.render_template('index.html')
+    return flask.render_template('searchpage.html')
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:

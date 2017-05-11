@@ -1,0 +1,81 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Carleton Events</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{url_for('static', filename='searchpage.css')}}">
+        <script type="text/javascript" src="{{url_for('static', filename='searchpage.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='events_config.js')}}"></script>
+    </head>
+
+    <body>
+    <div id = "wrapper">
+    <div id = "top_content">
+       <form id ="overall" action = "/searchresults">
+          <h1>Search Interesting Events at Carleton</h1>
+              <div class="fakeInput">
+                <span class="inputWrapper">
+                  <input type="text" id ="input" class="input" placeholder="Search for events!!">
+                </span>
+                <span>
+                   <button type="button input" class="button_go" onclick="onButton()">Go!!</button>
+              </span>
+              </div>
+            <div>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='soccer'/>
+                <span class = "departmentname">Computer Science</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Mathematics' />
+                <span class = "departmentname">Mathematics</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Political Science' />
+                <span class = "departmentname">Political Science</span>
+            </div>           
+            <div>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Music' />
+                <span class = "departmentname">Music</span>
+                <input class = "departmentCheckbox" type="checkbox" name="department" value="Geology" />
+                <span class = "departmentname">Geology</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='History' />
+                <span class = "departmentname">History</span>
+            </div>
+            <div>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Physics' />
+                <span class = "departmentname">Chemistry</span>
+                <input class = "departmentCheckbox" type="checkbox" name="department" value="Chemistry" />
+                <span class = "departmentname">Chemistry</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Philosophy' />
+                <span class = "departmentname">Philosophy</span>
+            </div>
+            <div>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Bilolgy' />
+                <span class = "departmentname">Biology</span>
+                <input class = "departmentCheckbox" type="checkbox" name="department" value="Economy" />
+                <span class = "departmentname">Economy</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Psychology' />
+                <span class = "departmentname">Psychology</span>
+            </div>
+            <div class="middle">
+                
+            </div>   
+        </form>
+        </div>
+
+        <div id = "middle_content">
+            <div id = "eventsBox" class="eventsBox">
+            
+            </div>
+            <div id = "listBox" class="listBox">
+           
+            </div>
+        </div>
+
+
+        <div id = "bottom_content">
+        </div>
+        <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO WISHLIST</button>
+        <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO DESKTOP CALENDAR</button>
+        <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO GOOGLE CALENDAR</button>
+        </div>
+
+    </body>
+    </html>

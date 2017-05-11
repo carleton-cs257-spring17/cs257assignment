@@ -3,12 +3,13 @@
 <head>
     <title>Carleton Events</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='homepage.css')}}">
     <script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='events_config.js')}}"></script>
 </head>
 
 <body>
-   <form id ="overall" action = "/searchresults">
+   <form id ="overall">
 	  <h1>Search Interesting Events at Carleton</h1>
 		  <div class="fakeInput">
 		      <input type="text" id ="input" class="input" placeholder="Search for events!!">
