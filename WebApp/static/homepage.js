@@ -48,7 +48,7 @@ function onButton() {
         if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
             eventListKeyword = keywordCallBack(xmlHttpRequest.responseText);
         } 
-    };
+      };
       //console.log("keyword url: ", url);
     } 
 
@@ -102,7 +102,7 @@ function onButton() {
 
 
     if (checkedValue != null && newDate != null && inputString != null){
-      for (var index = 0; index < eventList.length, index++){
+      for (var index = 0; index < eventList.length; index++){
         if (eventListKeyword.contains(eventListDate[index]) && eventListDepartment.contains(eventListDate[index])){
           eventList.add(eventListDate[index]);
         } 
