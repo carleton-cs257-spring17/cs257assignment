@@ -48,8 +48,6 @@ function onButton() {
             eventListKeyword = keywordCallBack(xmlHttpRequest.responseText);
         } 
     };
-      window.location.href = '/searchpage';
-
       console.log("keyword url: ", url);
     } 
 
@@ -102,42 +100,44 @@ function onButton() {
 
 
 
-    if (checkedValue.length != 0 && newDate.length != 0 && inputString.length != 0){
-      for (events in eventListDate){
-        if (eventListKeyword.contains(eventListDate[events]) && eventListDepartment.contains(eventListDate[events])){
-          eventList.add(eventListDate[events]);
+    if (checkedValue != null && newDate != null && inputString != null){
+      for (var index = 0; index < eventList.length, index++){
+        if (eventListKeyword.contains(eventListDate[index]) && eventListDepartment.contains(eventListDate[index])){
+          eventList.add(eventListDate[index]);
         } 
       }
-      window.location.href = '/searchresults';
-    } else if (checkedValue.length == 0 && newDate.length != 0 && inputString.length != 0){
-      for (events in eventListDate){
-        if (eventListKeyword.contains(eventListDate[events])){
-          eventList.add(eventListDate[events]);
+       window.location.href = webpage_base_url + 'searchpage';
+    } else if (checkedValue == null && newDate != null && inputString != null){
+      for (var index = 0; index < eventListDate.length; index++){
+        if (eventListKeyword.contains(eventListDate[index])){
+          eventList.add(eventListDate[index]);
         } 
       }
-      window.location.href = '/searchresults';
-    } else if (checkedValue.length != 0 && newDate.length == 0 && inputString.length != 0){
-      for (events in eventListDepartment) {
-        if (eventListKeyword.contains(eventListDepartment[events])){
-          eventList.add(eventListDepartment[events]);
+       window.location.href = webpage_base_url + 'searchpage';
+    } else if (checkedValue != null && newDate == null && inputString != null){
+      for (var index = 0; index < eventListDepartment.length; index++){
+        if (eventListKeyword.contains(eventListDepartment[index])){
+          eventList.add(eventListDepartment[index]);
         } 
       }
-    } else if (checkedValue.length != 0 && newDate.length != 0 && inputString.length == 0){
-      for (events in eventListDepartment) {
-        if (eventListDate.contains(eventListDepartment[events])){
-          eventList.add(eventListDepartment[events]);
+       window.location.href = webpage_base_url + 'searchpage';
+    } else if (checkedValue != null && newDate != null && inputString == null){
+      for (var index = 0; index < eventListDepartment.length; index++){
+        if (eventListDate.contains(eventListDepartment[index])){
+          eventList.add(eventListDepartment[index]);
         } 
       }
-      window.location.href = '/searchresults';
-    } else if (checkedValue.length != 0 && newDate.length == 0 && inputString.length == 0){
+       window.location.href = webpage_base_url + 'searchpage';
+    } else if (checkedValue != null && newDate == null && inputString == null){
         eventList = eventListDepartment; 
-        window.location.href = '/searchresults';
-    } else if (checkedValue.length == 0 && newDate.length != 0 && inputString.length == 0){
+         window.location.href = webpage_base_url + 'searchpage';
+    } else if (checkedValue == null && newDate != null && inputString == null){
         eventList = eventListDate;
-        window.location.href = '/searchresults';
-    } else if (checkedValue.length == 0 && newDate.length == 0 && inputString.length != 0){
+         window.location.href = webpage_base_url + 'searchpage';
+    } else if (checkedValue == null && newDate == null && inputString != null){
         eventList = eventListKeyword;
-        window.location.href = '/searchresults';
+        console.log("eventList", eventList);   
+         window.location.href = webpage_base_url + 'searchpage';
     } else {
       location.reload();
     }
