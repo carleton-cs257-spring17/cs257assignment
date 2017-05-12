@@ -9,7 +9,7 @@
 // Set this to match the base URL at which your books_api.py is listening.
 var eventList = [];
 function onButton() {
-    console.log("Button Clicked");
+    //console.log("Button Clicked");
     var checkedValue = []; 
     var inputString = null;
     var date = null;
@@ -20,24 +20,25 @@ function onButton() {
     var inputElements = document.getElementsByClassName('departmentCheckbox');
     var date = document.getElementById("myDate").value; 
     var newDate = null;
-    for (character in date) {
-      if (character != '-'){
-        newDate += character;
+    for (var i = 0, len = date.length; i < len; i++) {
+      if (date.charAt(i) != '-'){
+        newDate += date.charAt(i)
       }
     }
+    console.log(newDate);
     for(var i=0; inputElements[i]; ++i){
       if(inputElements[i].checked){
-          console.log("add checked value");
+          //console.log("add checked value");
            checkedValue[count] = inputElements[i].value;
            count++;
       }
     }
 
-    console.log("Checked Vaue: ", checkedValue);
+    //console.log("Checked Vaue: ", checkedValue);
 
     inputString =  document.getElementById('input').value;
 
-    console.log("Input String: ", inputString);
+    //console.log("Input String: ", inputString);
 
     if (inputString != null){
       var url = api_base_url + 'keyword/'+inputString;
@@ -48,14 +49,14 @@ function onButton() {
             eventListKeyword = keywordCallBack(xmlHttpRequest.responseText);
         } 
     };
-      console.log("keyword url: ", url);
+      //console.log("keyword url: ", url);
     } 
 
     if (checkedValue != null){
       var url = api_base_url + 'department/';
       for (i in checkedValue) {
 
-        console.log("checkedValue.length + department/", checkedValue.length);
+        //console.log("checkedValue.length + department/", checkedValue.length);
         if (i == 0) {
           var url = url + checkedValue[i];
         } else {
@@ -73,9 +74,9 @@ function onButton() {
         } 
       };
 
-      console.log("department url: ", url);
+      //console.log("department url: ", url);
 
-      console.log("tempEventList: ", tempEventList);
+      //console.log("tempEventList: ", tempEventList);
 
         for (events in tempEventList){
           eventListDepartment.add(tempEventList[events]);
@@ -83,8 +84,8 @@ function onButton() {
       }
     }
 
-    console.log("keyword list: " + eventListKeyword);
-    console.log("department list: " + eventListDepartment);
+    //console.log("keyword list: " + eventListKeyword);
+    //console.log("department list: " + eventListDepartment);
 
     if (newDate != null){
       var url = api_base_url + 'date/'+newDate;
@@ -95,7 +96,7 @@ function onButton() {
               eventListDate = departmentCallBack(xmlHttpRequest.responseText);
           } 
       };
-      console.log("date url: ", url);   
+      //console.log("date url: ", url);   
     }
 
 
@@ -142,7 +143,7 @@ function onButton() {
       location.reload();
     }
     makeEventList();
-    console.log("Entered makeEventList");
+    //console.log("Entered makeEventList");
   }
 
 function keywordCallBack(responseText){
