@@ -42,15 +42,15 @@ function onButton() {
   //   xmlHttpRequest = new XMLHttpRequest();
   //   xmlHttpRequest.open('get', url);
   //   //console.log("here!!!!!!!");
-  //   xmlHttpRequest.onreadystatechange = function() {
-  //     //console.log("here!!!!!!!");
-  //     console.log(xmlHttpRequest.readyState);
-  //     console.log(xmlHttpRequest.status);
-  //     console.log(url);
-  //     if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
-  //         saveKeyword(xmlHttpRequest.responseText);
-  //       } 
-  //     }; 
+    xmlHttpRequest.onreadystatechange = function() {
+      //console.log("here!!!!!!!");
+      // console.log(xmlHttpRequest.readyState);
+      // console.log(xmlHttpRequest.status);
+      // console.log(url);
+      // if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+      //     callback(xmlHttpRequest.responseText);
+      //   } 
+      // }; 
   //   xmlHttpRequest.send(null);
   // } 
 

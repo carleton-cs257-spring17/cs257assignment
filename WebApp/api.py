@@ -44,8 +44,6 @@ def get_events_by_department(department):
     '''
     Returns a list of all events of one specified department
     ordered by date then time
-    See get_event_by_id below 
-    for description of the author resource representation.
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments
@@ -61,12 +59,10 @@ def get_events_by_department(department):
 
     return json.dumps(events_list)
 
-
 @app.route('/events/date/<date>/')
 def get_events_by_date(date):
     '''
     Returns a list of all events on a specified date ordered in time.
-    See get_event_by_id below for description of the event resource representation.
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments
@@ -81,14 +77,29 @@ def get_events_by_date(date):
         events_list.append(event)
 
     return json.dumps(events_list)
+@app.route('/events/keyword/<keyword>')
+def get_events_by_keyword(keyword):
+    '''
+    Returns a list of events searched by keywords.
+    '''
+    query = '''SELECT events.name, events.location, events.date_time, departments.name
+               FROM events,departments
+               WHERE UPPER(events.name) LIKE UPPER('%{0}%')
+               AND events.department_id = departments.id
+                ORDER BY events.time'''.format(keyword)
+
+    events_list = []
+    for row in _fetch_all_rows_for_query(query):
+        event = {'name':row[0], 'location':row[1],
+                  'date_time':row[2], 'department':row[3]}
+        events_list.append(event)
+    return json.dumps(events_list)
 
 
 @app.route('/events/date/department/<date>/<department>/')
 def get_events_by_date_department(date, department):
     '''
-    Returns a list of all events on a specified date of a specified department.
-    The events would be ordered in time.
-    See get_event_by_id below for description of the event resource representation.
+    Returns a list of all events on a specified date of a specified department on a specified date
     '''
     query = '''SELECT events.name, events.location, events.date_time, departments.name
                FROM events,departments
@@ -104,6 +115,72 @@ def get_events_by_date_department(date, department):
         events_list.append(event)
 
     return json.dumps(events_list)
+
+@app.route('/events/keyword/department/<keyword>/<department>/')
+def get_events_by_keyword_department(keyword, department):
+    '''
+    Returns a list of all events of a specified department of a specified keyword.
+    The events would be ordered in time.
+    '''
+    query = '''SELECT events.name, events.location, events.date_time, departments.name
+               FROM events,departments
+               WHERE UPPER(events.name) LIKE UPPER('%{0}%')
+               AND UPPER(departments.name) LIKE UPPER('%{1}%')
+               AND events.department_id = departments.id
+                ORDER BY events.time'''.format(keyword, department)
+
+    events_list = []
+    for row in _fetch_all_rows_for_query(query):
+        event = {'name':row[0], 'location':row[1],
+                  'date_time':row[2], 'department':row[3]}
+        events_list.append(event)
+
+    return json.dumps(events_list)
+
+@app.route('/events/keyword/date/<keyword>/<date>/')
+def get_events_by_keyword_date(keyword, date):
+    '''
+    Returns a list of all events on a specified date of a specified keyword.
+    The events would be ordered in time.
+    '''
+    query = '''SELECT events.name, events.location, events.date_time, departments.name
+               FROM events,departments
+               WHERE UPPER(events.name) LIKE UPPER('%{0}%')
+               AND UPPER(events.date) LIKE UPPER('%{1}%')
+               AND events.department_id = departments.id
+                ORDER BY events.time'''.format(keyword, date)
+
+    events_list = []
+    for row in _fetch_all_rows_for_query(query):
+        event = {'name':row[0], 'location':row[1],
+                  'date_time':row[2], 'department':row[3]}
+        events_list.append(event)
+
+    return json.dumps(events_list)
+
+@app.route('/events/keyword/date/department/<keyword>/<date>/<department>')
+def get_events_by_date_keyword_department(keyword, date, department):
+    '''
+    Returns a list of all events on a specified date, of a specified separtment using 
+    a specified keyword.
+    The events would be ordered in time.
+    '''
+    query = '''SELECT events.name, events.location, events.date_time, departments.name
+               FROM events,departments
+               WHERE UPPER(events.name) LIKE UPPER('%{0}%')
+               AND UPPER(events.date) LIKE UPPER('%{1}%')
+               AND UPPER(events.departments) LIKE UPPER('%{2}%')
+               AND events.department_id = departments.id
+                ORDER BY events.time'''.format(keyword, date,department)
+
+    events_list = []
+    for row in _fetch_all_rows_for_query(query):
+        event = {'name':row[0], 'location':row[1],
+                  'date_time':row[2], 'department':row[3]}
+        events_list.append(event)
+
+    return json.dumps(events_list)
+
 
 @app.route('/events/')
 def get_events():
@@ -123,23 +200,6 @@ def get_events():
 
     return json.dumps(events_list)
 
-@app.route('/events/keyword/<events_keyword>')
-def get_events_by_keyword(events_keyword):
-    '''
-    Returns a list of events searched by keywords.
-    '''
-    query = '''SELECT events.name, events.location, events.date_time, departments.name
-               FROM events,departments
-               WHERE UPPER(events.name) LIKE UPPER('%{0}%')
-               AND events.department_id = departments.id
-                ORDER BY events.time'''.format(events_keyword)
-
-    events_list = []
-    for row in _fetch_all_rows_for_query(query):
-        event = {'name':row[0], 'location':row[1],
-                  'date_time':row[2], 'department':row[3]}
-        events_list.append(event)
-    return json.dumps(events_list)
 
 @app.route('/help')
 def help():
