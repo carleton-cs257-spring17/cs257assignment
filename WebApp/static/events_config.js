@@ -8,4 +8,3 @@
 
 // Set this to match the base URL at which your books_api.py is listening.
 var api_base_url = 'http://thacker.mathcs.carleton.edu:5225/events/';
-var webpage_base_url = 'localhost: 5000/';

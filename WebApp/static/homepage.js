@@ -7,157 +7,140 @@
  */
 
 // Set this to match the base URL at which your books_api.py is listening.
-var eventList = [];
+var checkedValue = []; 
+var inputString = "";
+var newDate = "";
 function onButton() {
-    //console.log("Button Clicked");
-    var checkedValue = []; 
-    var inputString = null;
-    var date = null;
-    var eventListDate = [];
-    var eventListKeyword = [];
-    var eventListDepartment = [];
-    var count = 0;
-    var inputElements = document.getElementsByClassName('departmentCheckbox');
-    var date = document.getElementById("myDate").value; 
-    var newDate = null;
-    for (var i = 0, len = date.length; i < len; i++) {
-      if (date.charAt(i) != '-'){
-        newDate += date.charAt(i)
-      }
+  //console.log("Button Clicked");
+  var date = "";
+  var count = 0;
+  var inputElements = document.getElementsByClassName('departmentCheckbox');
+ 
+  var date = document.getElementById("myDate").value; 
+  for (var i = 0, len = date.length; i < len; i++) {
+    if (date.charAt(i) != '-'){
+      newDate += date.charAt(i)
     }
-    console.log(newDate);
-    for(var i=0; inputElements[i]; ++i){
-      if(inputElements[i].checked){
-          //console.log("add checked value");
-           checkedValue[count] = inputElements[i].value;
-           count++;
-      }
-    }
-
-    //console.log("Checked Vaue: ", checkedValue);
-
-    inputString =  document.getElementById('input').value;
-
-    //console.log("Input String: ", inputString);
-
-    if (inputString != null){
-      var url = api_base_url + 'keyword/'+inputString;
-      xmlHttpRequest = new XMLHttpRequest();
-      xmlHttpRequest.open('get', url);
-      xmlHttpRequest.onreadystatechange = function() {
-        if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
-            eventListKeyword = keywordCallBack(xmlHttpRequest.responseText);
-        } 
-      };
-      //console.log("keyword url: ", url);
-    } 
-
-    if (checkedValue != null){
-      var url = api_base_url + 'department/';
-      for (i in checkedValue) {
-
-        //console.log("checkedValue.length + department/", checkedValue.length);
-        if (i == 0) {
-          var url = url + checkedValue[i];
-        } else {
-          var url = url + "&" + checkedValue[i];
-        }
-        
-        xmlHttpRequest = new XMLHttpRequest();
-        xmlHttpRequest.open('get', url);
-
-        var tempEventList = [];
-
-        xmlHttpRequest.onreadystatechange = function() {
-        if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
-          tempEventList = departmentCallBack(xmlHttpRequest.responseText);
-        } 
-      };
-
-      //console.log("department url: ", url);
-
-      //console.log("tempEventList: ", tempEventList);
-
-        for (events in tempEventList){
-          eventListDepartment.add(tempEventList[events]);
-        } 
-      }
-    }
-
-    //console.log("keyword list: " + eventListKeyword);
-    //console.log("department list: " + eventListDepartment);
-
-    if (newDate != null){
-      var url = api_base_url + 'date/'+newDate;
-        xmlHttpRequest = new XMLHttpRequest();
-        xmlHttpRequest.open('get', url);
-        xmlHttpRequest.onreadystatechange = function() {
-          if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
-              eventListDate = departmentCallBack(xmlHttpRequest.responseText);
-          } 
-      };
-      //console.log("date url: ", url);   
-    }
-
-
-
-    if (checkedValue != null && newDate != null && inputString != null){
-      for (var index = 0; index < eventList.length; index++){
-        if (eventListKeyword.contains(eventListDate[index]) && eventListDepartment.contains(eventListDate[index])){
-          eventList.add(eventListDate[index]);
-        } 
-      }
-       window.location.href = webpage_base_url + 'searchpage';
-    } else if (checkedValue == null && newDate != null && inputString != null){
-      for (var index = 0; index < eventListDate.length; index++){
-        if (eventListKeyword.contains(eventListDate[index])){
-          eventList.add(eventListDate[index]);
-        } 
-      }
-       window.location.href = webpage_base_url + 'searchpage';
-    } else if (checkedValue != null && newDate == null && inputString != null){
-      for (var index = 0; index < eventListDepartment.length; index++){
-        if (eventListKeyword.contains(eventListDepartment[index])){
-          eventList.add(eventListDepartment[index]);
-        } 
-      }
-       window.location.href = webpage_base_url + 'searchpage';
-    } else if (checkedValue != null && newDate != null && inputString == null){
-      for (var index = 0; index < eventListDepartment.length; index++){
-        if (eventListDate.contains(eventListDepartment[index])){
-          eventList.add(eventListDepartment[index]);
-        } 
-      }
-       window.location.href = webpage_base_url + 'searchpage';
-    } else if (checkedValue != null && newDate == null && inputString == null){
-        eventList = eventListDepartment; 
-         window.location.href = webpage_base_url + 'searchpage';
-    } else if (checkedValue == null && newDate != null && inputString == null){
-        eventList = eventListDate;
-         window.location.href = webpage_base_url + 'searchpage';
-    } else if (checkedValue == null && newDate == null && inputString != null){
-        eventList = eventListKeyword;
-        console.log("eventList", eventList);   
-         window.location.href = webpage_base_url + 'searchpage';
-    } else {
-      location.reload();
-    }
-    makeEventList();
-    //console.log("Entered makeEventList");
   }
+  //console.log(newDate);
+  for(var i=0; inputElements[i]; ++i){
+    if(inputElements[i].checked){
+        //console.log("add checked value");
+         checkedValue[count] = inputElements[i].value;
+         count++;
+    }
+  }
+  inputString =  document.getElementById('input').value;
 
-function keywordCallBack(responseText){
-  var eventList = JSON.parse(responseText);
-  return eventList;
+  //console.log("Input String: ", inputString);
+
+  // if (inputString.length != 0){
+  //   var url = api_base_url+"keyword/"+inputString;
+  //   xmlHttpRequest = new XMLHttpRequest();
+  //   xmlHttpRequest.open('get', url);
+  //   //console.log("here!!!!!!!");
+  //   xmlHttpRequest.onreadystatechange = function() {
+  //     //console.log("here!!!!!!!");
+  //     console.log(xmlHttpRequest.readyState);
+  //     console.log(xmlHttpRequest.status);
+  //     console.log(url);
+  //     if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+  //         saveKeyword(xmlHttpRequest.responseText);
+  //       } 
+  //     }; 
+  //   xmlHttpRequest.send(null);
+  // } 
+
+
+  // if (checkedValue.length != 0){
+  //   var department_url = api_base_url + 'department/';
+  //   for (i in checkedValue) {
+  //     xmlHttpRequest = new XMLHttpRequest();
+  //     url = department_url+checkedValue[i];
+  //     console.log("department", url);
+  //     xmlHttpRequest.open('get', url);
+  //     var tempEventList = [];
+  //     xmlHttpRequest.onreadystatechange = function() {
+  //       if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+  //         //console.log("here!!!!!!!!dep!!!!!!");
+  //         tempEventList = JSON.parse(xmlHttpRequest.responseText);
+  //         //console.log("temp!!!"+xmlHttpRequest.responseText);
+  //       } 
+  //     };
+  //     xmlHttpRequest.send(null);
+  //     for (events in tempEventList){
+  //       eventListDepartment.add(tempEventList[events]);
+  //       //console.log("dep!!!"+eventListDepartment);
+  //     }
+  //   }
+
+  // }
+  // console.log("key!!!!!!!"+eventListKeyword);
+
+  // if (newDate.length != 0){
+  //   var url = api_base_url + 'date/'+newDate;
+  //   xmlHttpRequest = new XMLHttpRequest();
+  //   xmlHttpRequest.open('get', url);
+  //   xmlHttpRequest.onreadystatechange = function() {
+  //     if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+  //         eventListDate = JSON.parse(xmlHttpRequest.responseText);
+  //     } 
+  //   };
+  //   xmlHttpRequest.send(null);
+  //   //console.log("date url: ", url);   
+  // }
+  // console.log(inputString.length, checkedValue.length, checkedValue.length);
+  // if (checkedValue.length != 0 && newDate.length != 0 && inputString.length != 0){
+  //   for (var index = 0; index < eventListDate.length; index++){
+  //     if (eventListKeyword.contains(eventListDate[index]) && eventListDepartment.contains(eventListDate[index])){
+  //       eventList.add(eventListDate[index]);
+  //     } 
+  //   }
+
+  // } else if (checkedValue.length == 0 && newDate.length != 0 && inputString.length != 0){
+  //   for (var index = 0; index < eventListDate.length; index++){
+  //     if (eventListKeyword.contains(eventListDate[index])){
+  //       eventList.add(eventListDate[index]);
+  //     } 
+  //   }
+
+  // } else if (checkedValue.length != 0 && newDate.length == 0 && inputString.length != 0){
+  //   for (var index = 0; index < eventListDepartment.length; index++){
+  //     if (eventListKeyword.contains(eventListDepartment[index])){
+  //       eventList.add(eventListDepartment[index]);
+  //     } 
+  //   }
+
+  // } else if (checkedValue.length != 0 && newDate.length != 0 && inputString.length == 0){
+  //   for (var index = 0; index < eventListDepartment.length; index++){
+  //     if (eventListDate.contains(eventListDepartment[index])){
+  //       eventList.add(eventListDepartment[index]);
+  //     } 
+  //   }
+  // } else if (checkedValue.length != 0 && newDate.length == 0 && inputString.length == 0){
+  //     eventList = eventListDepartment; 
+  // } else if (checkedValue.length == 0 && newDate.length != 0 && inputString.length == 0){
+  //     eventList = eventListDate;
+  // } else if (checkedValue.length == 0 && newDate.length == 0 && inputString.length != 0){
+  //     console.log("wherel111111"); 
+  //     eventList = eventListKeyword;
+  //     console.log("eventList", eventListKeyword);
+  // } else {
+  //   location.reload();
+  // }  
+  //window.location.href='/searchresults';
+  window.location.href='/searchresults';
+  makeEventList();
 }
 
-function departmentCallBack(responseText){
-  var eventList = JSON.parse(responseText);
-  return eventList;
-}
+// function saveKeyword(responseText){
+//   eventListKeyword = JSON.parse(responseText);
+//   var body = '';
+//   window.location.href='/searchresults';
+//   body = "<input class = 'departmentCheckbox' type='checkbox' name='department' value='Music' />"
+//   var resultsListElement = child.document.getElementById('eventsBox');
+//   resultsListElement.innerHTML = body;
+// }
 
-function dateCallBack(responseText){
-  var eventList = JSON.parse(responseText);
-  return eventList;
-}
+
 

@@ -4,7 +4,6 @@
         <title>Carleton Events</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{{url_for('static', filename='searchpage.css')}}">
-        <script type="text/javascript" src="{{url_for('static', filename='searchpage.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='events_config.js')}}"></script>
     </head>
@@ -76,6 +75,6 @@
         <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO DESKTOP CALENDAR</button>
         <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO GOOGLE CALENDAR</button>
         </div>
-
+        <script type="text/javascript" src="{{url_for('static', filename='searchpage.js')}}"></script>
     </body>
     </html>
