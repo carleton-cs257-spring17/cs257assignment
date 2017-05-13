@@ -5,10 +5,11 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{{url_for('static', filename='searchpage.css')}}">
         <script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='searchpage.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='events_config.js')}}"></script>
     </head>
 
-    <body>
+    <body onload = "makeEventList()">
     <div id = "wrapper">
     <div id = "top_content">
        <form id ="overall" action = "/searchresults">
@@ -18,7 +19,7 @@
                   <input type="text" id ="input" class="input" placeholder="Search for events!!">
                 </span>
                 <span>
-                   <button type="button input" class="button_go" onclick="onButton()">Go!!</button>
+                   <button type="button input" class="button_go">Go!!</button>
               </span>
               </div>
             <div>
@@ -61,8 +62,9 @@
 
         <div id = "middle_content">
             <div id = "eventsBox" class="eventsBox">
-            
+                
             </div>
+           
             <div id = "listBox" class="listBox">
            
             </div>
@@ -75,6 +77,5 @@
         <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO DESKTOP CALENDAR</button>
         <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO GOOGLE CALENDAR</button>
         </div>
-        <script type="text/javascript" src="{{url_for('static', filename='searchpage.js')}}"></script>
     </body>
     </html>

@@ -7,15 +7,15 @@
  */
 
 // Set this to match the base URL at which your books_api.py is listening.
-var checkedValue = []; 
-var inputString = "";
-var newDate = "";
+
 function onButton() {
   //console.log("Button Clicked");
+  var checkedValue = []; 
+  var inputString = "";
+  var newDate = "";
   var date = "";
   var count = 0;
   var inputElements = document.getElementsByClassName('departmentCheckbox');
- 
   var date = document.getElementById("myDate").value; 
   for (var i = 0, len = date.length; i < len; i++) {
     if (date.charAt(i) != '-'){
@@ -31,6 +31,9 @@ function onButton() {
     }
   }
   inputString =  document.getElementById('input').value;
+  localStorage.setItem("input", inputString);
+  localStorage.setItem("date", newDate);
+  localStorage.setItem("department", checkedValue);
 
   //console.log("Input String: ", inputString);
 
@@ -130,7 +133,8 @@ function onButton() {
   // }  
   //window.location.href='/searchresults';
   window.location.href='/searchresults';
-  makeEventList();
+  //passparameter();
+  
 }
 
 // function saveKeyword(responseText){
