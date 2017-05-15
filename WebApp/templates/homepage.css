@@ -11,10 +11,6 @@ h1 {
   color: #FFF;
 }
 
-th, td {
-    border-bottom: 1px solid #ddd;
-    padding: 15px;
-}
 .select {
     color: white;
     float:left; 
