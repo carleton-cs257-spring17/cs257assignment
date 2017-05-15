@@ -169,7 +169,7 @@ def get_events_by_date_keyword_department(keyword, date, department):
                FROM events,departments
                WHERE UPPER(events.name) LIKE UPPER('%{0}%')
                AND UPPER(events.date) LIKE UPPER('%{1}%')
-               AND UPPER(events.departments) LIKE UPPER('%{2}%')
+               AND UPPER(departments.name) LIKE UPPER('%{2}%')
                AND events.department_id = departments.id
                 ORDER BY events.time'''.format(keyword, date,department)
 

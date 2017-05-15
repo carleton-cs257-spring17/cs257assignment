@@ -28,12 +28,16 @@ function onButton() {
         //console.log("add checked value");
          checkedValue[count] = inputElements[i].value;
          count++;
+         localStorage.setItem(count, inputElements[i].value);
+         console.log(localStorage.getItem(count));
     }
   }
   inputString =  document.getElementById('input').value;
   localStorage.setItem("input", inputString);
   localStorage.setItem("date", newDate);
-  localStorage.setItem("department", checkedValue);
+  localStorage.setItem('departmentLength', checkedValue.length);
+
+
 
   //console.log("Input String: ", inputString);
 

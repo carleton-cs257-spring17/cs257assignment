@@ -5,21 +5,124 @@
  */
 
   function makeEventList(){
-
-    console.log("input"+localStorage.getItem("input"));
-    console.log("date"+localStorage.getItem("date"));
-    console.log("department"+localStorage.getItem("department"));
-      //var body = "";
-      //body = "<p>"+inputString;
-    // for (var k = 0; k < eventList.length; k++) {
-    //   body += "<input class = 'eventCheckbox' type='checkbox'";
-    //   body += " name='eventCheckbox" + k.toString() + "'";
-    //   body += " value=" + eventList[k] + ">";
-    //   body += "name: " + eventList[k][name] + "location: " + eventList[k][location] + "date_time: " + eventList[k][date_time] + "department: " + eventList[k][department];
-    // }
-    var resultsListElement = document.getElementById('eventsBox');
-    resultsListElement.innerHTML = "<input class = 'eventCheckbox' type='checkbox'>";
+    var keyword = localStorage.getItem("input");
+    var date = localStorage.getItem("date");
+    var departmentLength = localStorage.getItem("departmentLength");
+    //resultsListElement.innerHTML = "<input class = 'eventCheckbox' type='checkbox'>";
+    var url = "";
     // console.log("resultsListElement" + resultsListElement);
+    if (keyword.length != 0 && date.length != 0 && departmentLength != 0){
+
+        for (var index = 0; index < departmentLength; index++){
+            url = api_base_url + "keyword/date/department/"+keyword+"/"+date+"/"+localStorage.getItem(index);
+            console.log(url);
+            xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.open('get', url);
+            xmlHttpRequest.onreadystatechange = function() {
+                if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+                    callback(xmlHttpRequest.responseText);
+                }
+            }; 
+            xmlHttpRequest.send(null);
+        }
+    } else if (keyword.length != 0 && date.length != 0 && departmentLength == 0){
+        console.log("2");
+        url = api_base_url + "keyword/date/"+keyword+"/"+date;
+        console.log(url);
+        xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.open('get', url);
+        xmlHttpRequest.onreadystatechange = function() {
+            if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+                callback(xmlHttpRequest.responseText);
+            } 
+        }; 
+        xmlHttpRequest.send(null);
+    } else if (keyword.length != 0 && date.length == 0 && departmentLength != 0){
+        console.log("3");
+        for (var index = 0; index < departmentLength; index++){
+            url = api_base_url + "keyword/department/"+keyword+"/"+localStorage.getItem(index);
+            console.log(url);
+            xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.open('get', url);
+            xmlHttpRequest.onreadystatechange = function() {
+                if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+                    callback(xmlHttpRequest.responseText);
+                } 
+            }; 
+        }
+        xmlHttpRequest.send(null);
+    }else if (keyword.length == 0 && date.length != 0 && departmentLength != 0){
+        console.log("4");
+        for (var index = 0; index < departmentLength; index++){
+        url = api_base_url + "date/department/"+date+"/"+localStorage.getItem(index);
+        console.log(url);
+        xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.open('get', url);
+        xmlHttpRequest.onreadystatechange = function() {
+            if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+                callback(xmlHttpRequest.responseText);
+            } 
+        }; 
+        }
+        xmlHttpRequest.send(null);
+    } else if (keyword.length != 0 && date.length == 0 && departmentLength == 0){
+        console.log("5");
+        url = api_base_url + "keyword/"+keyword;
+        console.log(url);
+        xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.open('get', url);
+            xmlHttpRequest.onreadystatechange = function() {
+                if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+                    callback(xmlHttpRequest.responseText);
+                } 
+            }; 
+        xmlHttpRequest.send(null);
+    } else if (keyword.length == 0 && date.length != 0 && departmentLength == 0){
+        console.log("6");
+        url = api_base_url + "date/"+date;
+        console.log(url);
+        xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.open('get', url);
+            xmlHttpRequest.onreadystatechange = function() {
+                if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+                    callback(xmlHttpRequest.responseText);
+                } 
+            }; 
+        xmlHttpRequest.send(null);
+    } else if (keyword.length == 0 && date.length == 0 && departmentLength != 0){
+        console.log("7");
+        //console.log("departmentLength");
+        for (var index = 0; index < departmentLength; index++){
+            url = api_base_url + "department/"+localStorage.getItem(index);
+            console.log(url);
+            xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.open('get', url);
+            xmlHttpRequest.onreadystatechange = function() {
+                if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) { 
+                    callback(xmlHttpRequest.responseText);
+                } 
+            }; 
+            xmlHttpRequest.send(null);
+        }
+    } else {
+        console.log("8");
+        alert("Please give us some information")
+    }
+}
+
+
+function callback(responseText){
+    console.log(responseText);
+    var eventList = JSON.parse(responseText);
+    var body = '';
+    for (var k = 0; k < eventList.length; k++) {
+        body += "<input class = 'eventCheckbox' type='checkbox'" + "value = '"+eventList[k]['name']+"'>";
+        body += "<span>"+eventList[k]['name']+"</span>"
+    }
+    var resultsListElement = document.getElementById('eventsBox');
+    resultsListElement.innerHTML = body;
+    console.log(body);
+
 }
 
 
