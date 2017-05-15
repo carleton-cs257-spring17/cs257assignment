@@ -5,10 +5,16 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height:100%;
-  width: 100%;
+  height:100%;
   margin:0;
   background: #222;
+}
+
+h1 {
+  color: #FFF;
+  padding: 10;
+  font-size: 66px;
+  line-height: 50px;
 }
 
 #wrapper{
@@ -17,24 +23,11 @@ body, html {
   width: all;
   height: all;
   background: #222;
-}
-
-#top_content {
-  align-items: center;
-  justify-content: center;
-  height: 30%;
-}
-
-h1 {
-  color: #FFF;
-  padding: 0;
-  font-size: 35px;
-  line-height: 50px;
+  height:80%;
 }
 
 #middle_content {
-  width: auto;
-  height: 60%
+  height:100%;
 }
 
 /* Box styles */
@@ -43,7 +36,7 @@ border: none;
 padding: 10px;
 font: 24px/36px sans-serif;
 width: 600px;
-height: 500px;
+height:100%;
 float: left;
 color: white;
 background-color: #e7e7e7;
@@ -55,7 +48,7 @@ border: none;
 padding: 10px;
 font: 24px/36px sans-serif;
 width: 400px;
-height: 500px;
+height:100%;
 float: left;
 color: white;
 background-color: #ccc;
@@ -64,7 +57,7 @@ overflow: auto;
 
 #bottom_content {
   width: auto;
-  height: 10%
+  height:20%;
 }
 
 
@@ -110,16 +103,16 @@ table {
 }
 
 .departmentname{
-  width:125px;
+  width:129px;
   display:inline-block;
-  font-size:15px;
+  font-size:1rem;
   color:#e7e7e7;
 }
 
 
 
 .button_addlist{
-  background-color: #e7e7e7; 
+  background-color: gray; 
     border: none;
     color: black;
     padding: 15px 32px;
@@ -128,6 +121,7 @@ table {
     display: inline-block;
     font-size: 16px;
     float: left;
+    width:347px;
 }
 
 .button{
@@ -144,6 +138,7 @@ table {
 }
 
 .select {
+  background: transparent;
     float:right; 
    border: none;
    font-size: 1.2rem;

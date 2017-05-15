@@ -122,7 +122,7 @@ function callback(responseText){
     var body = resultsListElement.innerHTML;
     for (var k = 0; k < eventList.length; k++) {
         body += "<input class = 'eventCheckbox' type='checkbox' style= 'display: block'" + " value = '"+eventList[k]['name']+"'>";
-        body += "<label style='color:black'>"+eventList[k]['department']+": "+eventList[k]['name']+" location: "+eventList[k]['location']+ " time: "+eventList[k]['date_time']+"</label>"
+        body += "<label style='color:black'>"+eventList[k]['department']+": "+eventList[k]['name']+", location: "+eventList[k]['location']+ ", time: "+eventList[k]['date_time']+"</label>"
     }
     resultsListElement.innerHTML = body;
     console.log(body);
@@ -137,7 +137,7 @@ function onEventsButtonWishList(){
         if(inputElements[i].checked){
             console.log("here");
             body += "<input class = 'eventCheckbox' type='checkbox' style= 'display: table'" + "value = '"+inputElements[i].value+"'>";
-            body += "<span style='color:black'>"+inputElements[i].value+"</span>"
+            body += "<span style='color:black, size:1.2rem'>"+inputElements[i].value+"</span>"
         }
     }
     var resultsListElement = document.getElementById('listBox');
