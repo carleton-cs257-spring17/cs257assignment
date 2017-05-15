@@ -29,7 +29,6 @@ function onButton() {
          checkedValue[count] = inputElements[i].value;
          localStorage.setItem(count, inputElements[i].value);
          count++;
-         console.log(localStorage.getItem(count));
     }
   }
   inputString =  document.getElementById('input').value;
