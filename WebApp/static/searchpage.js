@@ -130,18 +130,29 @@ function callback(responseText){
 }
 
 function onEventsButtonWishList(){
-    console.log("clicked");
     var inputElements = document.getElementsByClassName('eventCheckbox');
     var body = '';
     for(var i=0; inputElements[i]; ++i){
         if(inputElements[i].checked){
             console.log("here");
-            body += "<input class = 'eventCheckbox' type='checkbox' style= 'display: table'" + "value = '"+inputElements[i].value+"'>";
+            body += "<input class = 'wishCheckbox' type='checkbox' style= 'display: table'" + "value = '"+inputElements[i].value+"'>";
             body += "<span style='color:black, size:1.2rem'>"+inputElements[i].value+"</span>"
         }
     }
     var resultsListElement = document.getElementById('listBox');
     resultsListElement.innerHTML = body;
+}
+
+function onCalender(){
+    var inputElements = document.getElementsByClassName('wishCheckbox');
+    for(var i=0; inputElements[i]; ++i){
+        if(inputElements[i].checked){
+            window.open(
+              "http://www.google.com/calendar/event?action=TEMPLATE&text="+inputElements[i].value,
+              '_blank' // <- This is what makes it open in a new window.
+            );
+        }
+    }
 }
 
 

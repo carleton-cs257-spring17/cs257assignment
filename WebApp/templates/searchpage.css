@@ -48,7 +48,7 @@ h1 {
 border: none;
 padding: 10px;
 font: 24px/36px sans-serif;
-width: 600px;
+width: 500px;
 height: 500px;
 float: left;
 color: white;
@@ -62,7 +62,7 @@ color: black;
 border: none;
 padding: 10px;
 font: 24px/36px sans-serif;
-width: 400px;
+width: 500px;
 height: 500px;
 float: left;
 color: white;
@@ -159,11 +159,6 @@ button{
   border-radius: 3px;
 }
 
-
-
-
-
-
 .button_addlist{
   background-color: #e7e7e7; 
     border: none;
@@ -174,6 +169,7 @@ button{
     display: inline-block;
     font-size: 16px;
     float: left;
+    width:200px;
 }
 
 .eventCheckbox{

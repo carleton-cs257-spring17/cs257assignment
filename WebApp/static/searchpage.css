@@ -35,7 +35,7 @@ h1 {
 border: none;
 padding: 10px;
 font: 24px/36px sans-serif;
-width: 600px;
+width: 500px;
 height:100%;
 float: left;
 color: white;
@@ -47,7 +47,7 @@ overflow: auto;
 border: none;
 padding: 10px;
 font: 24px/36px sans-serif;
-width: 400px;
+width: 500px;
 height:100%;
 float: left;
 color: white;
@@ -121,7 +121,7 @@ table {
     display: inline-block;
     font-size: 16px;
     float: left;
-    width:347px;
+    width:520px;
 }
 
 .button{
