@@ -9,7 +9,7 @@
 // Set this to match the base URL at which your books_api.py is listening.
 
 function onButton() {
-  //console.log("Button Clicked");
+  console.log("Button Clicked");
   var checkedValue = []; 
   var inputString = "";
   var newDate = "";

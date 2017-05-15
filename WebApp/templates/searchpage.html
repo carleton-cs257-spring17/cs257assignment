@@ -12,23 +12,22 @@
     <body onload = "makeEventList()">
     <div id = "wrapper">
     <div id = "top_content">
-       <form id ="overall" action = "/searchresults">
+       <div id ="overall">
           <h1>Search Interesting Events at Carleton</h1>
               <div class="fakeInput">
-                <span class="inputWrapper">
                   <input type="text" id ="input" class="input" placeholder="Search for events!!">
-                </span>
-                <span>
-                   <button type="button input" class="button_go">Go!!</button>
-              </span>
+                  <input type="date" class="select" id = "myDate">
+                  <button class="button" onclick="onButton()">Go!!</button>
               </div>
             <div>
-                <input class = "departmentCheckbox" type='checkbox' name='department' value='soccer'/>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Computer Science'/>
                 <span class = "departmentname">Computer Science</span>
                 <input class = "departmentCheckbox" type='checkbox' name='department' value='Mathematics' />
                 <span class = "departmentname">Mathematics</span>
                 <input class = "departmentCheckbox" type='checkbox' name='department' value='Political Science' />
                 <span class = "departmentname">Political Science</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Studio Art' />
+                <span class = "departmentname">Studio Art</span>
             </div>           
             <div>
                 <input class = "departmentCheckbox" type='checkbox' name='department' value='Music' />
@@ -37,6 +36,8 @@
                 <span class = "departmentname">Geology</span>
                 <input class = "departmentCheckbox" type='checkbox' name='department' value='History' />
                 <span class = "departmentname">History</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Art History' />
+                <span class = "departmentname">Art History</span>
             </div>
             <div>
                 <input class = "departmentCheckbox" type='checkbox' name='department' value='Physics' />
@@ -45,20 +46,21 @@
                 <span class = "departmentname">Chemistry</span>
                 <input class = "departmentCheckbox" type='checkbox' name='department' value='Philosophy' />
                 <span class = "departmentname">Philosophy</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='European Study' />
+                <span class = "departmentname">European Study</span>
             </div>
             <div>
-                <input class = "departmentCheckbox" type='checkbox' name='department' value='Bilolgy' />
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Biololgy' />
                 <span class = "departmentname">Biology</span>
                 <input class = "departmentCheckbox" type="checkbox" name="department" value="Economy" />
                 <span class = "departmentname">Economy</span>
                 <input class = "departmentCheckbox" type='checkbox' name='department' value='Psychology' />
                 <span class = "departmentname">Psychology</span>
+                <input class = "departmentCheckbox" type='checkbox' name='department' value='Ohters'/>
+                <span class = "departmentname">Others</span>
             </div>
-            <div class="middle">
-                
-            </div>   
-        </form>
         </div>
+    </div>
 
         <div id = "middle_content">
             <div id = "eventsBox" class="eventsBox">
@@ -73,7 +75,7 @@
 
         <div id = "bottom_content">
         </div>
-        <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO WISHLIST</button>
+        <button type="button input" class="button_addlist" onclick="onEventsButtonWishList()">ADD TO WISHLIST</button>
         <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO DESKTOP CALENDAR</button>
         <button type="button input" class="button_addlist" onclick="onEventsButton()">ADD TO GOOGLE CALENDAR</button>
         </div>

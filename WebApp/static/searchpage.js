@@ -125,6 +125,21 @@ function callback(responseText){
 
 }
 
+function onEventsButtonWishList(){
+    console.log("clicked");
+    var inputElements = document.getElementsByClassName('eventCheckbox');
+    var body = '';
+    for(var i=0; inputElements[i]; ++i){
+        if(inputElements[i].checked){
+            console.log("here");
+            body += "<input class = 'eventCheckbox' type='checkbox'" + "value = '"+inputElements[i].value+"'>";
+            body += "<span>"+eventList[k]['name']+"</span>"
+        }
+    }
+    var resultsListElement = document.getElementById('listBox');
+    resultsListElement.innerHTML = body;
+}
+
 
 
 
