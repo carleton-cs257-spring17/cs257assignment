@@ -9,8 +9,8 @@
     console.log("input"+localStorage.getItem("input"));
     console.log("date"+localStorage.getItem("date"));
     console.log("department"+localStorage.getItem("department"));
-      var body = "";
-      body = "<p>"+inputString;
+      //var body = "";
+      //body = "<p>"+inputString;
     // for (var k = 0; k < eventList.length; k++) {
     //   body += "<input class = 'eventCheckbox' type='checkbox'";
     //   body += " name='eventCheckbox" + k.toString() + "'";

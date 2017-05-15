@@ -42,7 +42,7 @@ function onButton() {
   //   xmlHttpRequest = new XMLHttpRequest();
   //   xmlHttpRequest.open('get', url);
   //   //console.log("here!!!!!!!");
-    xmlHttpRequest.onreadystatechange = function() {
+    //xmlHttpRequest.onreadystatechange = function() {
       //console.log("here!!!!!!!");
       // console.log(xmlHttpRequest.readyState);
       // console.log(xmlHttpRequest.status);
