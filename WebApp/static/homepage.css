@@ -1,5 +1,10 @@
+/*
+    homepage.css
+    Yanhan Lyu, Lucy Wu, 15 May 2016
 
-/* Generic styles */
+    Styles for the home page of "search interesting events at Carleton" webapp
+    for CS 257, Spring 2017. 
+*/
 body, html {
   display: flex;
   align-items: center;

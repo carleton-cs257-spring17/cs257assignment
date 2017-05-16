@@ -1,21 +1,32 @@
 /*
  *  searchpage.js
- *  Lucy Wu, 25 April 2017
+ *  Yanhan Lyu, Lucy Wu, 15 May 2017
  *
  */
 var body = "";
-  function makeEventList(){
+
+// Function that would take in the data passed by homepage
+// and create list of event checkboxes in the left lower block of searchpage
+function makeEventList(){
+
+    // Get data stored by homepage earlier
     var keyword = localStorage.getItem("input");
     var date = localStorage.getItem("date");
     var departmentLength = localStorage.getItem("departmentLength");
-    //resultsListElement.innerHTML = "<input class = 'eventCheckbox' type='checkbox'>";
+    
     var url = "";
-    // console.log("resultsListElement" + resultsListElement);
+    
+    // Check 8 cases of if any of the three of the input is not enterd
+    // and call api correspondingly
+
+    // Case 1: all three input are entered
     if (keyword.length != 0 && date.length != 0 && departmentLength != 0){
 
         for (var index = 0; index < departmentLength; index++){
+
+            // Set appropirate url to call api
             url = api_base_url + "keyword/date/department/"+keyword+"/"+date+"/"+localStorage.getItem(index);
-            console.log(url);
+
             xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.open('get', url);
             xmlHttpRequest.onreadystatechange = function() {
@@ -25,10 +36,14 @@ var body = "";
             }; 
             xmlHttpRequest.send(null);
         }
-    } else if (keyword.length != 0 && date.length != 0 && departmentLength == 0){
-        console.log("2");
+    } 
+
+    // Case 2: missing department input
+    else if (keyword.length != 0 && date.length != 0 && departmentLength == 0){
+
+        // Set appropirate url to call api
         url = api_base_url + "keyword/date/"+keyword+"/"+date;
-        console.log(url);
+
         xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.open('get', url);
         xmlHttpRequest.onreadystatechange = function() {
@@ -37,11 +52,15 @@ var body = "";
             } 
         }; 
         xmlHttpRequest.send(null);
-    } else if (keyword.length != 0 && date.length == 0 && departmentLength != 0){
-        console.log("3");
+    } 
+
+    // Case 3: missing date input
+    else if (keyword.length != 0 && date.length == 0 && departmentLength != 0){
         for (var index = 0; index < departmentLength; index++){
+
+            // Set appropirate url to call api
             url = api_base_url + "keyword/department/"+keyword+"/"+localStorage.getItem(index);
-            console.log(url);
+
             xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.open('get', url);
             xmlHttpRequest.onreadystatechange = function() {
@@ -52,11 +71,15 @@ var body = "";
             xmlHttpRequest.send(null);
         }
         
-    }else if (keyword.length == 0 && date.length != 0 && departmentLength != 0){
-        console.log("4");
+    }
+
+    // Case 4: missing keyword input
+    else if (keyword.length == 0 && date.length != 0 && departmentLength != 0){
         for (var index = 0; index < departmentLength; index++){
+
+            // Set appropirate url to call api
             url = api_base_url + "date/department/"+date+"/"+localStorage.getItem(index);
-            console.log(url);
+
             xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.open('get', url);
             xmlHttpRequest.onreadystatechange = function() {
@@ -66,10 +89,13 @@ var body = "";
             }; 
             xmlHttpRequest.send(null);
         }
-    } else if (keyword.length != 0 && date.length == 0 && departmentLength == 0){
-        console.log("5");
+    } 
+
+    // Case 5: missing date input and department input
+    else if (keyword.length != 0 && date.length == 0 && departmentLength == 0){
+        // Set appropirate url to call api
         url = api_base_url + "keyword/"+keyword;
-        console.log(url);
+
         xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.open('get', url);
             xmlHttpRequest.onreadystatechange = function() {
@@ -78,10 +104,14 @@ var body = "";
                 } 
             }; 
         xmlHttpRequest.send(null);
-    } else if (keyword.length == 0 && date.length != 0 && departmentLength == 0){
-        console.log("6");
+    } 
+
+    // Case 6: missing keyword input and department input
+    else if (keyword.length == 0 && date.length != 0 && departmentLength == 0){
+
+        // Set appropirate url to call api
         url = api_base_url + "date/"+date;
-        console.log(url);
+
         xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.open('get', url);
             xmlHttpRequest.onreadystatechange = function() {
@@ -90,13 +120,16 @@ var body = "";
                 } 
             }; 
         xmlHttpRequest.send(null);
-    } else if (keyword.length == 0 && date.length == 0 && departmentLength != 0){
-        console.log("7");
-        //var xhr = [];
-        //console.log("departmentLength");
+    } 
+
+    // Case 7: missing keyword input and date input
+    else if (keyword.length == 0 && date.length == 0 && departmentLength != 0){
+        
         for (var index = 0; index < departmentLength; index++){
+
+            // Set appropirate url to call api
             url = api_base_url + "department/"+localStorage.getItem(index);
-            console.log(url);
+
             xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.open('get', url);
             xmlHttpRequest.onreadystatechange = function() {
@@ -107,34 +140,41 @@ var body = "";
             xmlHttpRequest.send(null);
         }
         
-    } else {
-        console.log("8");
+    } 
+
+    // Case 8: missing all three input
+    else {
         alert("Please give us some information")
     }
 }
 
 
+// Function that takes in the JSON object
+// and parse it to add text in html file
+// to create checkboxes for events
 function callback(responseText){
-    console.log(responseText);
+
+    //parse JSON object into js object
     var eventList = JSON.parse(responseText);
     var resultsListElement = document.getElementById('eventsBox');
-    console.log(resultsListElement);
     var body = resultsListElement.innerHTML;
+
+
     for (var k = 0; k < eventList.length; k++) {
         body += "<input class = 'eventCheckbox' type='checkbox' style= 'display: block'" + " value = '"+eventList[k]['name']+"'>";
         body += "<label style='color:black'>"+eventList[k]['department']+": "+eventList[k]['name']+", location: "+eventList[k]['location']+ ", time: "+eventList[k]['date_time']+"</label>"
     }
     resultsListElement.innerHTML = body;
-    console.log(body);
 
 }
 
+// Function gets called when "ADD TO WISHLIST" button is clicked
+// It would add the events checked on the left block area to right block area
 function onEventsButtonWishList(){
     var inputElements = document.getElementsByClassName('eventCheckbox');
     var body = '';
     for(var i=0; inputElements[i]; ++i){
         if(inputElements[i].checked){
-            console.log("here");
             body += "<input class = 'wishCheckbox' type='checkbox' style= 'display: table'" + "value = '"+inputElements[i].value+"'>";
             body += "<span style='color:black, size:1.2rem'>"+inputElements[i].value+"</span>"
         }
@@ -143,6 +183,8 @@ function onEventsButtonWishList(){
     resultsListElement.innerHTML = body;
 }
 
+// Function gets called when "ADD TO GOOGLE CALENDAR" button is clicked
+// It would take the searchopage to google calendar page to add the event
 function onCalender(){
     var inputElements = document.getElementsByClassName('wishCheckbox');
     for(var i=0; inputElements[i]; ++i){
