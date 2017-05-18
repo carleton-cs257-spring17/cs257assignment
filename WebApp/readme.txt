@@ -5,7 +5,7 @@ Yanhan Lyu, Lucy Wu
 ==== Run this app on your own computer ====
 
 
-1. Chrome has bugs, Safari works well. But Safari does not support html date input, you need to type the date by yourself.
+1. Chrome has bugs, Safari works well. But Safari does not support html date input, you need to type the date by yourself. I also disable cache when using Safari.
 
 2. Allow pop-ups in Chrome in order to enable Google calendar page to show up. Add extension Allow-Control-Allow-Origin to make API work properly. Disable cross-origin restrictions when using Safari.
 
