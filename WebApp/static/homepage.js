@@ -45,7 +45,7 @@ function onButton() {
   localStorage.setItem('departmentLength', checkedValue.length);
   
   // Direct the homepage to searchpage
-  window.location.href='/searchresults';
+
   
 }
 
