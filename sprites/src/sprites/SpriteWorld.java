@@ -110,20 +110,20 @@ public class SpriteWorld extends Application {
             Point2D velocity = sprite.getVelocity();
             if (position.getX() + size.getX() >= SCENE_WIDTH && velocity.getX() > 0) {
                 sprite.setVelocity(-velocity.getX(), velocity.getY());
-                sprite.setSize(size.getX()+15, size.getY()+15);
+                sprite.setSize(size.getX()+25, size.getY()+25);
                 sprite.makeSound();
             } else if (position.getX() < 0  && velocity.getX() < 0) {
-                sprite.setSize(size.getX()-15, size.getY()-15);
+                sprite.setSize(size.getX()-25, size.getY()-25);
                 sprite.setVelocity(-velocity.getX(), velocity.getY());
                 sprite.makeSound();
             } else if (position.getY() + size.getY() >= SCENE_HEIGHT && velocity.getY() > 0) {
                 sprite.setVelocity(velocity.getX(), -velocity.getY());
-                sprite.setSize(size.getX()+15, size.getY()+15);
+                sprite.setSize(size.getX()+25, size.getY()+25);
                 sprite.makeSound();
 
             } else if (position.getY() < 0 && velocity.getY() < 0) {
                 sprite.setVelocity(velocity.getX(), -velocity.getY());
-                sprite.setSize(size.getX()-15, size.getY()-15);
+                sprite.setSize(size.getX()-25, size.getY()-25);
                 sprite.makeSound();
             }
             //System.out.println(velocity);

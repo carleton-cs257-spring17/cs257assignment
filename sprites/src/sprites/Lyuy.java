@@ -29,8 +29,8 @@ public class Lyuy extends Sprite {
 
     public void setSize(double width, double height) {
         super.setSize(width, height);
-        this.imageView.setFitWidth(2*width);
-        this.imageView.setFitHeight(2*height);
+        this.imageView.setFitWidth(width);
+        this.imageView.setFitHeight(height);
     }
 
     public void setImage(String pictureName){
@@ -43,11 +43,14 @@ public class Lyuy extends Sprite {
 
     @Override
     public void step() {
+        // I change the size in controller in SpriteWord.java
         double width = this.getScene().getWidth();
         double x1 = width * 0.4;
         double x2 = width * 0.6;
         double distance1 = Math.abs(2*this.getVelocity().getX())+1;
         this.setSound("/res/bomb.wav");
+        // can not solve the rotate and transform stuff until I see the code from Martin Choffman. Credit to and thanks to him.
+        // if in the expected rotation position, make the bomb sound
         if (this.getPosition().getX() > x1 && this.getPosition().getX() < x1 + distance1
                 && this.getVelocity().getX() > 0) {
             this.getTransforms().add(new Rotate(180, this.getSize().getX() / 2.0, this.getSize().getY() / 2.0));
@@ -57,7 +60,7 @@ public class Lyuy extends Sprite {
             this.getTransforms().add(new Rotate(180, this.getSize().getX() / 2.0, this.getSize().getY() / 2.0));
             this.makeSound();
         }
-
+        // change images for different velocity
         double velovityX = this.getVelocity().getX();
         double velovityY = this.getVelocity().getY();
         if (velovityX >= 0 && velovityY >= 0) {
@@ -73,7 +76,9 @@ public class Lyuy extends Sprite {
         super.step();
     }
 
-
+    /*
+    * set sound according to the file name
+    * */
     public void setSound(String nameSound){
         this.audioClip = new AudioClip(getClass().getResource(nameSound).toString());
     }
