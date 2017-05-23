@@ -1,6 +1,6 @@
 /**
- * SpinningMoose.java
- * Jeff Ondich, 16 May 2017
+ * Lyuy.java
+ * YanhanLyu
  *
  * A sample subclass of Sprite for CS257.
  */

@@ -25,7 +25,6 @@ public class SpriteWorld extends Application {
     final private double SCENE_WIDTH = 500;
     final private double SCENE_HEIGHT = 400;
     final private double FRAMES_PER_SECOND = 20.0;
-    private int count = 0;
 
     @Override
     public void start(Stage primaryStage) {
@@ -45,43 +44,22 @@ public class SpriteWorld extends Application {
 
         this.spriteList = new ArrayList<Sprite>();
 
-        Sprite sprite = new Ball();
-        sprite.setName("Mr. Bouncy");
-        sprite.setSize(60.0, 60.0);
-        sprite.setPosition(300.0, 200.0);
-        sprite.setVelocity(-12, 8);
-        root.getChildren().add(sprite);
-        this.spriteList.add(sprite);
 
-        double mooseX = 100.0;
-        double mooseY = 75.0;
-        double mooseWidth = 50.0;
-        double mooseHeight = 50.0;
-        double mooseVelocityX = 3.0;
-        double mooseVelocityY = 5.0;
-
-        sprite = new SpinningMoose();
-        sprite.setName("Bullwinkle");
-        sprite.setSize(mooseWidth, mooseHeight);
-        sprite.setPosition(mooseX, mooseY);
-        sprite.setVelocity(mooseVelocityX, mooseVelocityY);
-        root.getChildren().add(sprite);
-        this.spriteList.add(sprite);
-
-        sprite = new Box();
-        sprite.setName("Bullwinkle Box");
-        sprite.setSize(mooseWidth, mooseHeight);
-        sprite.setPosition(mooseX, mooseY);
-        sprite.setVelocity(mooseVelocityX, mooseVelocityY);
-        root.getChildren().add(sprite);
-        this.spriteList.add(sprite);
 
         double yanhanX = 0.0;
         double yanhanY = 0.0;
-        double yanhanWidth = 100.0;
-        double yanhanHeight = 100.0;
-        double yanhanVelocityX = 5.0;
-        double yanhanVelocityY = 7.0;
+        double yanhanWidth = 50.0;
+        double yanhanHeight = 50.0;
+        double yanhanVelocityX = 5;
+        double yanhanVelocityY = 7;
+
+        Sprite sprite = new Box();
+        sprite.setName("Yanhan Box");
+        sprite.setSize(yanhanWidth, yanhanHeight);
+        sprite.setPosition(yanhanX, yanhanY);
+        sprite.setVelocity(yanhanVelocityX, yanhanVelocityY);
+        root.getChildren().add(sprite);
+        this.spriteList.add(sprite);
 
         sprite = new Lyuy();
         sprite.setName("Yanhan");
@@ -90,15 +68,6 @@ public class SpriteWorld extends Application {
         sprite.setVelocity(yanhanVelocityX, yanhanVelocityY);
         root.getChildren().add(sprite);
         this.spriteList.add(sprite);
-
-        sprite = new Box();
-        sprite.setName("Yanhan Box");
-        sprite.setSize(yanhanWidth, yanhanHeight);
-        sprite.setPosition(yanhanX, yanhanY);
-        sprite.setVelocity(yanhanVelocityX, yanhanVelocityY);
-        root.getChildren().add(sprite);
-        this.spriteList.add(sprite);
-
 
         // Show the UI.
         primaryStage.setScene(scene);
@@ -134,8 +103,6 @@ public class SpriteWorld extends Application {
     }
 
     private void updateAnimation() {
-        count ++;
-        System.out.println(count);
         for (Sprite sprite : this.spriteList) {
             // Change sprite's velocity to create a bounce if it has hit a wall.
             Point2D position = sprite.getPosition();
@@ -143,23 +110,25 @@ public class SpriteWorld extends Application {
             Point2D velocity = sprite.getVelocity();
             if (position.getX() + size.getX() >= SCENE_WIDTH && velocity.getX() > 0) {
                 sprite.setVelocity(-velocity.getX(), velocity.getY());
+                sprite.setSize(size.getX()+15, size.getY()+15);
+                sprite.makeSound();
             } else if (position.getX() < 0  && velocity.getX() < 0) {
+                sprite.setSize(size.getX()-15, size.getY()-15);
                 sprite.setVelocity(-velocity.getX(), velocity.getY());
+                sprite.makeSound();
             } else if (position.getY() + size.getY() >= SCENE_HEIGHT && velocity.getY() > 0) {
                 sprite.setVelocity(velocity.getX(), -velocity.getY());
+                sprite.setSize(size.getX()+15, size.getY()+15);
+                sprite.makeSound();
+
             } else if (position.getY() < 0 && velocity.getY() < 0) {
                 sprite.setVelocity(velocity.getX(), -velocity.getY());
+                sprite.setSize(size.getX()-15, size.getY()-15);
                 sprite.makeSound();
             }
-            if (sprite.getName().equals(("Yanhan"))){
-                sprite.setSize(sprite.getSize().getX()+100, sprite.getSize().getY()+100);
-                System.out.println(sprite.getSize());
-                sprite.setSize(sprite.getSize().getX()-100, sprite.getSize().getY()-100);
-                System.out.println(sprite.getSize());
-            }
-
-            // Move the sprite.
+            //System.out.println(velocity);
             sprite.step();
+
         }
     }
 }
