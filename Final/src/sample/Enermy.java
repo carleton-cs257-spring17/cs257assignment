@@ -6,17 +6,25 @@ import java.util.ArrayList;
  * Created by yanhanlyu on 28/05/2017.
  */
 public class Enermy{
-    int getDensity(){
-        return 1;
+    private int density;
+    private int speed;
+    private ArrayList<Zombie> zombies;
+    public int getDensity(){
+        return density;
     }
-    void setDensity(int density){}
-    int getSpeed(){
-        return 1;
+    public void setDensity(int density){
+        this.density = density;
     }
-    void setSpeed(int speed){}
-    ArrayList getPlants(){
-        return null;
+    public int getSpeed(){
+        return speed;
     }
-    void addPlants(Zombie zombie){}
-
+    public void setSpeed(int speed){
+        this.speed = speed;
+    }
+    public ArrayList<Zombie> getZombies(){
+        return zombies;
+    }
+    public void addZombies(Zombie zombie){
+        zombies.add(zombie);
+    }
 }

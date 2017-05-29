@@ -6,19 +6,20 @@ import java.util.ArrayList;
  * Created by yanhanlyu on 28/05/2017.
  */
 public class Player {
-    int getSun(){
-        return 0;
-    }
-    ArrayList getPlants(){
-        return null;
-    }
-    void setScore(int score){
+    private int sun;
+    private ArrayList<Plant> listPlants;
 
+    public int getSun(){
+        return sun;
     }
-    void setSun(int money){
-
+    public ArrayList<Plant> getPlants(){
+        return listPlants;
     }
-    void addPlants(Plant plant){
 
+    public void setSun(int sun){
+        this.sun = sun;
+    }
+    public void addPlants(Plant plant){
+        listPlants.add(plant);
     }
 }

@@ -11,6 +11,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 
+import javax.swing.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,15 +21,13 @@ public class Controller implements EventHandler<KeyEvent> {
     @FXML private Button pauseButton;
     @FXML private Label scoreLabel;
     @FXML private AnchorPane gameBoard;
-    @FXML private Rectangle paddle;
+    @FXML private Button menuButton;
+    @FXML private Button waveButton;
 
-    private int score;
-    private boolean paused;
     private Timer timer;
 
     public Controller() {
-        this.paused = false;
-        this.score = 0;
+
     }
 
     public void initialize() {
@@ -56,36 +55,8 @@ public class Controller implements EventHandler<KeyEvent> {
 
     @Override
     public void handle(KeyEvent keyEvent) {
-        KeyCode code = keyEvent.getCode();
-        double paddlePosition = this.paddle.getLayoutX();
-        double stepSize = 15.0;
-        if (code == KeyCode.LEFT || code == KeyCode.A) {
-            // move paddle left
-            if (paddlePosition > stepSize) {
-                this.paddle.setLayoutX(this.paddle.getLayoutX() - stepSize);
-            } else {
-                this.paddle.setLayoutX(0);
-            }
-            keyEvent.consume();
-        } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
-            // move paddle right
-            if (paddlePosition + this.paddle.getWidth() + stepSize < this.gameBoard.getWidth()) {
-                this.paddle.setLayoutX(this.paddle.getLayoutX() + stepSize);
-            } else {
-                this.paddle.setLayoutX(this.gameBoard.getWidth() - this.paddle.getWidth());
-            }
-            keyEvent.consume();
-        }
+
     }
 
-    public void onPauseButton(ActionEvent actionEvent) {
-        if (this.paused) {
-            this.pauseButton.setText("Pause");
-            this.startTimer();
-        } else {
-            this.pauseButton.setText("Continue");
-            this.timer.cancel();
-        }
-        this.paused = !this.paused;
-    }
+
 }

@@ -1,0 +1,8 @@
+#gameView {
+    -fx-background-image: url('./Users/yanhanlyu/Desktop/cs257assignments-YanhanLyu/Final/res/background.jpg');
+    -fx-background-repeat: stretch;
+        -fx-background-size: 900 506;
+        -fx-background-position: center center;
+        -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+    }
+}
