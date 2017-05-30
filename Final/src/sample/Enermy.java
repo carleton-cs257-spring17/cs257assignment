@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by yanhanlyu on 28/05/2017.
+ * Class that lists the general behavior of the Zombies
  */
 public class Enermy{
     private int density;

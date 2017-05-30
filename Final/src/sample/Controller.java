@@ -15,6 +15,10 @@ import javax.swing.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Class that updates the status of game in general
+ */
+
 public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 60.0;
 

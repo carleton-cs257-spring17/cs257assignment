@@ -2,6 +2,7 @@ package sample;
 
 /**
  * Created by yanhanlyu on 29/05/2017.
+ * Class that specifies the character of potato mine.
  */
 public class PotatoMine implements Plant{
     public void setPosition(int x, int y){}

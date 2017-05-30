@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 /**
  * Created by yanhanlyu on 29/05/2017.
+ * Class that specifies the behavior of Sunflower
  */
 public class Sunflower implements Plant {
     private int price;

@@ -2,6 +2,7 @@ package sample;
 import java.util.ArrayList;
 /**
  * Created by yanhanlyu on 28/05/2017.
+ * Interface for the characters of Plant
  */
 public interface Plant {
     public void setPosition(int x, int y);

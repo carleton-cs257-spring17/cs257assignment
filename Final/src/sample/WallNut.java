@@ -2,6 +2,7 @@ package sample;
 
 /**
  * Created by yanhanlyu on 29/05/2017.
+ * Class that specifies the character of Wallnut
  */
 public class WallNut implements  Plant {
     private int price;

@@ -2,6 +2,7 @@ package sample;
 
 /**
  * Created by yanhanlyu on 28/05/2017.
+ * Interface that lists the general characters and behaviors of a Zombie
  */
 public interface Zombie {
     public void setPosition(int x, int y);

@@ -2,6 +2,7 @@ package sample;
 
 /**
  * Created by yanhanlyu on 29/05/2017.
+ * Class that specifies the behavior of strong Zombie
  */
 public class StrongZombie {
     private int[] position = new int[2];

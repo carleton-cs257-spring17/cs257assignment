@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by yanhanlyu on 28/05/2017.
+ * Class that sets player's status of sun and plants;
  */
 public class Player {
     private int sun;

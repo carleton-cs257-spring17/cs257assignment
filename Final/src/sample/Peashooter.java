@@ -2,6 +2,7 @@ package sample;
 
 /**
  * Created by yanhanlyu on 29/05/2017.
+ * Class that specifies the behavior of Peashooter
  */
 public class Peashooter implements Plant {
     private int price;
