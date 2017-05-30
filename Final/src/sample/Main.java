@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 /**
+ * Created by yanhanlyu on 28/05/2017.
  * Main function
  */
 
@@ -28,7 +29,7 @@ public class Main extends Application {
         Parent root = (Parent)loader.load();
         Controller controller = loader.getController();
 
-        // Set up a KeyEvent handler so we can respond to keyboard activity.
+        // Set up a KeyEvent handler
         root.setOnKeyPressed(controller);
         root.setId("gameView");
 
@@ -38,7 +39,9 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
+    /**
+     * Main function not implemented
+     */
     public static void main(String[] args) {
         launch(args);
     }

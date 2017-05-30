@@ -16,17 +16,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
+ * Created by yanhanlyu on 28/05/2017.
  * Class that updates the status of game in general
  */
 
 public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 60.0;
-
-    @FXML private Button pauseButton;
-    @FXML private Label scoreLabel;
-    @FXML private AnchorPane gameBoard;
-    @FXML private Button menuButton;
-    @FXML private Button waveButton;
 
     private Timer timer;
 
@@ -34,12 +29,16 @@ public class Controller implements EventHandler<KeyEvent> {
 
     }
 
-    // Call the method to start the timer
+    /**
+     * initialize timer
+     */
     public void initialize() {
         this.startTimer();
     }
 
-    // Initialize timer for updating game image
+    /**
+     * run starterTimer
+     */
     private void startTimer() {
         this.timer = new java.util.Timer();
         TimerTask timerTask = new TimerTask() {
@@ -56,11 +55,15 @@ public class Controller implements EventHandler<KeyEvent> {
         this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
     }
 
-    // Update animation
+    /**
+     * Update animation in this method
+     */
     private void updateAnimation() {
     }
 
-    // Handle event
+    /**
+     * handle events
+     */
     @Override
     public void handle(KeyEvent keyEvent) {
 

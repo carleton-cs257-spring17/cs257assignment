@@ -10,22 +10,31 @@ public class Player {
     private int sun;
     private ArrayList<Plant> listPlants;
 
-    // Get the sun status
+    /**
+     * Get the sun status
+     */
     public int getSun(){
         return sun;
     }
 
-    // Get the plants that the player owns
+
+    /**
+     *Get the plants that the player owns
+     */
     public ArrayList<Plant> getPlants(){
         return listPlants;
     }
 
-    // Set the sun status
+    /**
+     * set the sun status
+     */
     public void setSun(int sun){
         this.sun = sun;
     }
-    
-    // Add the plants that the player bought
+
+    /**
+     * add the plant that the player bought
+     */
     public void addPlants(Plant plant){
         listPlants.add(plant);
     }
