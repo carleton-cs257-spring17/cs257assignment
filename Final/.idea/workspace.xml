@@ -12,6 +12,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Player.java">
@@ -28,6 +29,14 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="206">
               <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+=======
+    <leaf>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2106#2107#0" expanded="true" />
@@ -37,6 +46,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="GameStage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/GameStage.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,16 +122,31 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="563">
               <caret line="966" column="0" lean-forward="false" selection-start-line="966" selection-start-column="0" selection-end-line="966" selection-end-column="0" />
+=======
+      <file leaf-file-name="Plant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Plant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Enermy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Enermy.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
               <caret line="43" column="35" lean-forward="false" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+=======
+      <file leaf-file-name="Enermy.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/Enermy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
               <folding />
             </state>
           </provider>
@@ -152,7 +177,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/sample/Peashooter.java" />
+=======
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/Peashooter.java" />
+        <option value="$PROJECT_DIR$/src/sample/Zombie.java" />
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
         <option value="$PROJECT_DIR$/src/sample/SimpleService.java" />
         <option value="$PROJECT_DIR$/src/sample/NormalZombie.java" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
@@ -166,18 +197,33 @@
         <option value="$PROJECT_DIR$/src/sample/Sunflower.java" />
         <option value="$PROJECT_DIR$/src/sample/StrongZombie.java" />
         <option value="$PROJECT_DIR$/src/sample/PotatoMine.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/sample/welcome.css" />
         <option value="$PROJECT_DIR$/src/sample/welcome.fxml" />
         <option value="$PROJECT_DIR$/src/sample/initiateGame.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/GameStage.java" />
+=======
+        <option value="$PROJECT_DIR$/src/sample/Sunflower.java" />
+        <option value="$PROJECT_DIR$/src/sample/WallNut.java" />
+        <option value="$PROJECT_DIR$/src/sample/Player.java" />
+        <option value="$PROJECT_DIR$/src/sample/Plant.java" />
+        <option value="$PROJECT_DIR$/src/sample/Enermy.java" />
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="717" />
+=======
+    <option name="x" value="-6" />
+    <option name="y" value="23" />
+    <option name="width" value="1260" />
+    <option name="height" value="672" />
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -346,6 +392,9 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -368,12 +417,12 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -498,7 +547,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="23" width="1280" height="717" extended-state="6" />
+=======
+    <frame x="-6" y="23" width="1260" height="672" extended-state="0" />
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -551,6 +604,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -559,6 +613,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
     <entry file="file://$PROJECT_DIR$/src/sample/Peashooter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -567,6 +623,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/sample/Enermy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -584,6 +641,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/StrongZombie.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/sample/SimpleService.java">
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
@@ -816,6 +876,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Player.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="435">
           <caret line="35" column="43" lean-forward="false" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
           <folding />
@@ -876,11 +937,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+=======
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+>>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1245#1246#0" expanded="true" />
             <element signature="e#1281#1282#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Plant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Enermy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
