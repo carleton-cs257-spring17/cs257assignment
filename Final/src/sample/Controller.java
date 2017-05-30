@@ -34,10 +34,12 @@ public class Controller implements EventHandler<KeyEvent> {
 
     }
 
+    // Call the method to start the timer
     public void initialize() {
         this.startTimer();
     }
 
+    // Initialize timer for updating game image
     private void startTimer() {
         this.timer = new java.util.Timer();
         TimerTask timerTask = new TimerTask() {
@@ -54,13 +56,13 @@ public class Controller implements EventHandler<KeyEvent> {
         this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
     }
 
+    // Update animation
     private void updateAnimation() {
     }
 
+    // Handle event
     @Override
     public void handle(KeyEvent keyEvent) {
 
     }
-
-
 }
