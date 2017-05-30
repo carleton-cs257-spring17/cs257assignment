@@ -8,8 +8,9 @@ import javafx.scene.web.WebView;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-
+import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
+import javafx.scene.text.Font;
 
 /**
  * Main function
@@ -23,6 +24,7 @@ public class Main extends Application {
         final WebView webView = new WebView();
         VBox root = addContent(webView);
         Scene scene = new Scene(root, 1000, 600);
+        scene.getStylesheets().add(Main.class.getResource("welcome.css").toExternalForm());
         primaryStage.setTitle("Welcome!");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -30,13 +32,17 @@ public class Main extends Application {
         welcomeStage = primaryStage;
     }
 
-    /* add the main content */
     private static VBox addContent(WebView webView) {
         VBox box = new VBox();
-        Text titleHolder = new Text("Welcome to Zombie's world");
+        box.prefWidth(600);
+        box.setAlignment(Pos.CENTER);
+        box.setSpacing(50);
+        Text title= new Text("Plants vs. Zombies");
         Button startGameButton = addStartButton(webView);
         Button helpButton = addDifficultyButton();
-        box.getChildren().addAll(titleHolder,startGameButton, helpButton);
+        title.setFont(Font.font ("Verdana", 50));
+        title.setId("fancytext");
+        box.getChildren().addAll(title,startGameButton, helpButton);
         return box;
     }
     private static Button addStartButton(WebView webView) {
