@@ -24,7 +24,7 @@ public class Player {
     public void setSun(int sun){
         this.sun = sun;
     }
-
+    
     // Add the plants that the player bought
     public void addPlants(Plant plant){
         listPlants.add(plant);
