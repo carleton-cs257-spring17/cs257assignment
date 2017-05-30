@@ -32,13 +32,9 @@ public class Player {
         this.sun = sun;
     }
 
-<<<<<<< HEAD
     /**
      * add the plant that the player bought
      */
-=======
-    // Add the plants that the player bought
->>>>>>> 78f8817b075b07b7ce8154f2419f3749a8e9e0af
     public void addPlants(Plant plant){
         listPlants.add(plant);
     }
