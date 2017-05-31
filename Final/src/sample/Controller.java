@@ -22,11 +22,12 @@ import java.util.TimerTask;
 
 public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 60.0;
+    private int difficulty;
 
     private Timer timer;
 
-    public Controller() {
-
+    public Controller(int difficulty) {
+        this.difficulty = difficulty;
     }
 
     /**
@@ -59,6 +60,7 @@ public class Controller implements EventHandler<KeyEvent> {
      * Update animation in this method
      */
     private void updateAnimation() {
+        System.out.println("here");
     }
 
     /**

@@ -29,7 +29,7 @@ public class GameStage extends Application{
     final private double SCENE_WIDTH = 500;
     final private double SCENE_HEIGHT = 400;
     final private double FRAMES_PER_SECOND = 20.0;
-    private Controller controller = new Controller();
+    private Controller controller = new Controller(1);
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -135,6 +135,8 @@ public class GameStage extends Application{
         //drop
         theScene.setOnDragOver(new PlantDragDrop());
         initiateStage = primaryStage;
+        Controller controller = new Controller(1);
+        controller.initialize();
 
     }
 
