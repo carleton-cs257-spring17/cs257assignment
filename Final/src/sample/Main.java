@@ -23,7 +23,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         final WebView webView = new WebView();
         VBox root = addContent(webView);
-        Scene scene = new Scene(root, 1000, 600);
+        Scene scene = new Scene(root, 900, 800);
         scene.getStylesheets().add(Main.class.getResource("welcome.css").toExternalForm());
         primaryStage.setTitle("Welcome!");
         primaryStage.setScene(scene);
