@@ -12,11 +12,11 @@ package sample;
         import javafx.scene.layout.StackPane;
 
 
-public class PlantController implements EventHandler<MouseEvent> {
+public class PlantDrag implements EventHandler<MouseEvent> {
     private StackPane stackPane;
     private Image image;
 
-    public PlantController(StackPane stackPane, Image image) {
+    public PlantDrag(StackPane stackPane, Image image) {
         this.stackPane = stackPane;
         this.image = image;
     }

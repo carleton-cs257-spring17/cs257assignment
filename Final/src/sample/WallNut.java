@@ -50,4 +50,5 @@ public class WallNut implements  Plant {
     public void setPrice(int price){
         this.price = price;
     }
+    public void step(){}
 }

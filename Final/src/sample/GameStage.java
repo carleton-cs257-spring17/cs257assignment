@@ -66,9 +66,19 @@ public class GameStage extends Application{
         s3.getChildren().add(wallnut1);
         s3.setMaxSize(90, 160);
         s3.setTranslateX(20);
+        // img potato mine
+        StackPane s4 = new StackPane();
+        Image potatoMine = new Image("potatoMine.png");
+        ImageView potatoMine1 = new  ImageView(potatoMine);
+        s4.getChildren().add(potatoMine1);
+        s4.setMaxSize(90, 160);
+        s4.setTranslateX(115);
+
         Label cent= new Label("100");
         Label fifty_1 = new Label("50");
         Label fifty = new Label("50");
+        Label twoHundred= new Label("200");
+
         root.getChildren().add(iv1);
         Image down = new Image("bar.png");
         ImageView iv2 = new ImageView();
@@ -90,20 +100,29 @@ public class GameStage extends Application{
         s3.getChildren().add(fifty);
         fifty.setTranslateY(50);
         fifty.setTextFill(Color.WHITE);
-        sun.setTop(sunPrice);
+
+        drag.getChildren().add(s4);
+        s4.getChildren().add(twoHundred);
+        twoHundred.setTranslateY(50);
+        twoHundred.setTextFill(Color.WHITE);
+        //sun.setTop(sunPrice);
         s1.setId("peashooter");
         s2.setId("sunflower");
         s3.setId("wallnut");
+        s4.setId("potatoMine");
         sunPrice.setTranslateX(90);
         sunPrice.setTranslateY(110);
         primaryStage.setScene( theScene );
         primaryStage.setResizable(false);
         primaryStage.show();
         //buy stuff???????? solved from google
-        s1.setOnDragDetected(new PlantController(s1, peashooter));
-        s2.setOnDragDetected(new PlantController(s2, sunflower));
-        s3.setOnDragDetected(new PlantController(s3, wallnut));
-
+        s1.setOnDragDetected(new PlantDrag(s1, peashooter));
+        s2.setOnDragDetected(new PlantDrag(s2, sunflower));
+        s3.setOnDragDetected(new PlantDrag(s3, wallnut));
+        s4.setOnDragDetected(new PlantDrag(s4, potatoMine));
+        theScene.setOnDragOver(new PlantDragOver());
+        //drop
+        theScene.setOnDragOver(new PlantDragDrop());
         initiateStage = primaryStage;
     }
 

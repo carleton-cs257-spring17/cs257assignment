@@ -1,10 +1,11 @@
 package sample;
 import java.util.ArrayList;
+import javafx.scene.Group;
 /**
  * Created by yanhanlyu on 28/05/2017.
  * Interface for the characters of Plant
  */
-public interface Plant {
+public interface Plant{
     /**
      * set the position of the plant
      */
@@ -37,4 +38,6 @@ public interface Plant {
      * set the price of the plant
      */
     public void setPrice(int price);
+
+    public void step();
 }

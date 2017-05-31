@@ -41,4 +41,5 @@ public class PotatoMine implements Plant{
     // Set the price value of potato mine*/
     public void setPrice(int price){
     }
+    public void step(){}
 }
