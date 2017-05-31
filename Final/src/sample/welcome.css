@@ -1,5 +1,15 @@
 .root {
     -fx-background-image: url("background.jpg");
+    -fx-background-repeat: stretch;
+    /*-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); */
+}
+
+.button {
+    -fx-background-color: #28FF28;
+    -fx-border-color:#53FF53;
+    -fx-text-fill: gray;
+    -fx-font-size: 25;
+    -fx-border-radius: 10;
 }
 
 .button:hover {
@@ -8,21 +18,13 @@
 }
 
 .button:pressed {
+-fx-border-color: #00BB00;
     -fx-background-color: #00A600;
-    -fx-border-color: #00BB00;
-}
-
-.button {
-    -fx-background-color: #28FF28;
-    -fx-border-radius: 8;
-    -fx-border-color:#53FF53;
-    -fx-text-fill: black;
-    -fx-font-size: 20;
 }
 
 #fancytext {
-    -fx-font: 100px Tahoma;
-    -fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);
+    -fx-font: 100px Helvetica;
+    -fx-fill: linear-gradient( to left top, green, red);
     -fx-stroke: black;
     -fx-stroke-width: 1;
 }

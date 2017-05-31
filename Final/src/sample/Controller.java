@@ -68,21 +68,4 @@ public class Controller implements EventHandler<KeyEvent> {
     public void handle(KeyEvent keyEvent) {
 
     }
-    public void onMenuButton(ActionEvent actionEvent) {
-
-    }
-    /* Facilitates buying towers feature
-     * updates money
-     * Lets user place tower
-     */
-    public void onBuyTowerButton(ActionEvent actionEvent) {
-
-    }
-    /* Triggers waves of enemies
-     * Determines number of enemies in each wave
-     * Checks to make sure previous wave is over
-     */
-    public void onWaveButton(ActionEvent actionEvent) {
-
-    }
 }

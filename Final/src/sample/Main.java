@@ -21,7 +21,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        final WebView webView = new WebView();
+        WebView webView = new WebView();
         VBox root = addContent(webView);
         Scene scene = new Scene(root, 900, 800);
         scene.getStylesheets().add(Main.class.getResource("welcome.css").toExternalForm());
@@ -32,9 +32,9 @@ public class Main extends Application {
         welcomeStage = primaryStage;
     }
 
-    private static VBox addContent(WebView webView) {
+    private VBox addContent(WebView webView) {
         VBox box = new VBox();
-        box.prefWidth(600);
+        box.prefWidth(500);
         box.setAlignment(Pos.CENTER);
         box.setSpacing(50);
         Text title= new Text("Plants vs. Zombies");
@@ -45,27 +45,28 @@ public class Main extends Application {
         box.getChildren().addAll(title,startGameButton, helpButton);
         return box;
     }
-    private static Button addStartButton(WebView webView) {
+    private Button addStartButton(WebView webView) {
         Button startGameButton = new StartButton("START", webView);
         startGameButton.setOnAction(event -> {
-            GameStage initiateGame = new GameStage();
+            GameStage game = new GameStage();
             try{
-                initiateGame.start(initiateGame.initiateStage);
+                game.start(game.getInitiateStage());
             } catch (Exception e){
                 e.printStackTrace();
+                System.err.println("Can not initiate game");
             }
             welcomeStage.close();
         });
         return startGameButton;
     }
 
-    private static class StartButton extends Button {
-        public StartButton(String textOnButton, final WebView webView) {
+    private class StartButton extends Button {
+        public StartButton(String textOnButton, WebView webView) {
             setText(textOnButton);
             webView.getEngine().load(textOnButton);
         }
     }
-    private static Button addDifficultyButton() {
+    private Button addDifficultyButton() {
         Button helpButton = new Button("Set Difficulty");
         return helpButton;
     }

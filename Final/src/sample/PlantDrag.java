@@ -32,6 +32,8 @@ public class PlantDrag implements EventHandler<MouseEvent> {
             content.putString("sunflower");
         } else if (id == "wallnut"){
             content.putString("wallnut");
+        } else if (id == "potatoMine"){
+            content.putString("potatoMine");
         }
         drag.setContent(content);
 

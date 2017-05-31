@@ -26,7 +26,6 @@ public class PlantDragOver implements EventHandler<DragEvent> {
         //}
 
         event.consume();
-        event.consume();
 
     }
 

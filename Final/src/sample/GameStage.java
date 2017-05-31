@@ -7,7 +7,8 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 import java.io.IOException;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -16,6 +17,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 
 /**
@@ -24,6 +26,10 @@ import javafx.scene.text.Font;
 public class GameStage extends Application{
     private Group root;
     static Stage initiateStage = new Stage();
+    final private double SCENE_WIDTH = 500;
+    final private double SCENE_HEIGHT = 400;
+    final private double FRAMES_PER_SECOND = 20.0;
+    private Controller controller = new Controller();
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -39,12 +45,10 @@ public class GameStage extends Application{
         Scene theScene = new Scene(root,900,800);
         //set image
         Image background = new Image("wallp.png");
-        ImageView iv1 = new ImageView();
-        iv1.setImage(background);
-        iv1.setTranslateY(100);
-        Label sunPrice =new Label("how much now?????");
-        //sunPrice.setPrefWidth(10);
-        sunPrice.setFont(new Font(20));
+        ImageView backgroundView = new ImageView();
+        backgroundView.setImage(background);
+        backgroundView.setTranslateY(100);
+        // Set up a KeyEvent handler so we can respond to keyboard activity.
         // img peashooter
         StackPane s1 = new StackPane();
         Image peashooter = new Image("peashooter.png");
@@ -74,20 +78,27 @@ public class GameStage extends Application{
         s4.setMaxSize(90, 160);
         s4.setTranslateX(115);
 
-        Label cent= new Label("100");
-        Label fifty_1 = new Label("50");
-        Label fifty = new Label("50");
-        Label twoHundred= new Label("200");
 
-        root.getChildren().add(iv1);
+        Label sunPrice =new Label("how much now?????");
+        sunPrice.setFont(Font.font("Cambria", 32));
+        Label cent= new Label("100");
+        cent.setFont(Font.font("Cambria", 20));
+        Label fifty_1 = new Label("50");
+        fifty_1.setFont(Font.font("Cambria", 20));
+        Label fifty = new Label("50");
+        fifty.setFont(Font.font("Cambria", 20));
+        Label twoHundred= new Label("200");
+        twoHundred.setFont(Font.font("Cambria", 20));
+
+        root.getChildren().add(backgroundView);
         Image down = new Image("bar.png");
-        ImageView iv2 = new ImageView();
-        iv2.setImage(down);
+        ImageView barView = new ImageView();
+        barView.setImage(down);
         StackPane drag = new StackPane();
         BorderPane sun = new BorderPane();
         root.getChildren().add(drag);
         drag.getChildren().add(sun);
-        drag.getChildren().add(iv2);
+        drag.getChildren().add(barView);
         drag.getChildren().add(s1);
         s1.getChildren().add(cent);
         cent.setTranslateY(50);
@@ -124,11 +135,14 @@ public class GameStage extends Application{
         //drop
         theScene.setOnDragOver(new PlantDragDrop());
         initiateStage = primaryStage;
+
     }
 
     public Stage getInitiateStage() {
         return initiateStage;
     }
+
+
     
 
     public static void main(String[] args) {launch(args);}
