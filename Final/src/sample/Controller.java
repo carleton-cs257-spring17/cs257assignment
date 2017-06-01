@@ -66,6 +66,20 @@ public class Controller implements EventHandler<KeyEvent> {
      */
     private void updateAnimation() {
 
+        ArrayList<Plant> listOfPlants = checkPlants();
+        ArrayList<Zombie> listOfZombies = checkZombies();
+        runFight(listOfPlants, listOfZombies);
+        listOfPlants = checkPlants();
+        listOfZombies = checkZombies();
+
+        for (Plant plant : listOfPlants){
+            //System.out.println("here?????");
+            plant.step();
+        }
+
+        for (Zombie zombie : listOfZombies){
+            zombie.step();
+        }
 //        ArrayList<Plant> listOfPlants = checkPlants();
 //        ArrayList<Zombie> listOfZombies = checkZombies();
 //        runFight(listOfPlants, listOfZombies);
@@ -129,7 +143,6 @@ public class Controller implements EventHandler<KeyEvent> {
 //                }
             }
         }
-
     }
 
     /**

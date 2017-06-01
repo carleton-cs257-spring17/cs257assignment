@@ -14,10 +14,8 @@ import javafx.scene.layout.StackPane;
 
 public class PlantDragOver implements EventHandler<DragEvent> {
 
-    public PlantDragOver(){
 
-    }
-
+    @Override
     public void handle(DragEvent event) {
         System.out.println("x: "+event.getX());
         System.out.println("y: "+event.getY());

@@ -4,9 +4,9 @@ package sample;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the character of Wallnut
  */
-
 public class WallNut extends Sprite implements Plant {
-    private int price = 100;
+    private int price=100;
+
     private int[] position = new int[2];
     private int health = 500;
     private int power = 0;

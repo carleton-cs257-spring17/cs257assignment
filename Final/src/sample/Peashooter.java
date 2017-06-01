@@ -4,7 +4,6 @@ package sample;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the behavior of Peashooter
  */
-
 public class Peashooter extends Sprite implements Plant{
     private int price = 100;
     private int[] position = new int[2];

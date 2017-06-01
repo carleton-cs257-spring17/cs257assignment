@@ -81,3 +81,4 @@ public abstract class Sprite extends Group {
      */
     abstract public void makeSound();
 }
+

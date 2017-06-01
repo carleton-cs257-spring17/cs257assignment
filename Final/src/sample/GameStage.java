@@ -2,7 +2,6 @@ package sample;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.input.DragEvent;
 import javafx.stage.Stage;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -136,6 +135,8 @@ public class GameStage extends Application{
         s4.setOnDragDetected(new PlantDrag(s4, potatoMine));
         theScene.setOnDragOver(new PlantDragOver());
         //drop
+        Player player = new Player();
+        Enermy enermy = new Enermy();
         theScene.setOnDragDropped(new PlantDragDrop(root, player));
         initiateStage = primaryStage;
         controller.initialize();

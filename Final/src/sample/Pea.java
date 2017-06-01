@@ -5,11 +5,17 @@ package sample;
  */
 import javafx.scene.shape.Circle;
 
-public class Pea extends Circle {
+public class Pea extends Sprite {
     private double velocityX;
     private double velocityY;
 
     public Pea() {
+
+    }
+
+    @Override
+    public void makeSound() {
+
     }
 
     public void step() {
