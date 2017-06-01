@@ -29,7 +29,8 @@ public class Controller implements EventHandler<KeyEvent> {
 
     private Timer timer;
 
-    public Controller(int difficulty) {
+    public Controller(int difficulty, Player player, Enermy enermy) {
+
         this.difficulty = difficulty;
     }
 

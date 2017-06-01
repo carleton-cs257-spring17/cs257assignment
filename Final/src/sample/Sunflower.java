@@ -1,4 +1,6 @@
 package sample;
+import sun.security.provider.Sun;
+
 import java.util.ArrayList;
 
 /**
@@ -10,6 +12,10 @@ public class Sunflower implements Plant {
     private int[] position = new int[2];
     private int health = 100;
     private int power = 0;
+    public Sunflower(int x, int y){
+        this.position[0] = x;
+        this.position[1] = y;
+    }
 
     /** Set the position of Sunflower given coordinates*/
     public void setPosition(int x, int y){

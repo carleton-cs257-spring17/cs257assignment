@@ -29,7 +29,9 @@ public class GameStage extends Application{
     final private double SCENE_WIDTH = 500;
     final private double SCENE_HEIGHT = 400;
     final private double FRAMES_PER_SECOND = 20.0;
-    private Controller controller = new Controller(1);
+    Player player = new Player();
+    Enermy enermy = new Enermy();
+    private Controller controller = new Controller(1,player, enermy);
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -133,9 +135,10 @@ public class GameStage extends Application{
         s4.setOnDragDetected(new PlantDrag(s4, potatoMine));
         theScene.setOnDragOver(new PlantDragOver());
         //drop
-        theScene.setOnDragOver(new PlantDragDrop());
+        Player player = new Player();
+        Enermy enermy = new Enermy();
+        theScene.setOnDragDropped(new PlantDragDrop(root, player));
         initiateStage = primaryStage;
-        Controller controller = new Controller(1);
         controller.initialize();
 
     }

@@ -9,6 +9,10 @@ public class Peashooter implements Plant {
     private int[] position = new int[2];
     private int health = 100;
     private int power = 20;
+    public Peashooter(int x, int y){
+        this.position[0] = x;
+        this.position[1] = y;
+    }
     public void setPosition(int x, int y){
         position[0] = x;
         position[1] = y;

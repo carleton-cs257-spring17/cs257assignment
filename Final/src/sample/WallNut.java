@@ -10,6 +10,10 @@ public class WallNut implements  Plant {
     private int health = 500;
     private int power = 0;
 
+    public WallNut(int x, int y){
+        this.position[0] = x;
+        this.position[1] = y;
+    }
     /** Set the position of Wallnut given coordinates*/
     public void setPosition(int x, int y){
         position[0] = x;
