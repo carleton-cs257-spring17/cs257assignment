@@ -52,4 +52,8 @@ public class NormalZombie implements Zombie {
         this.speed = speed;
 
     }
+
+    public void step(){
+
+    }
 }

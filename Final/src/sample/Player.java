@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Player {
     private int sun;
     private ArrayList<Plant> listPlants;
+    private ArrayList<Pea> listPeas;
 
     /**
      * Get the sun status
@@ -25,6 +26,10 @@ public class Player {
         return listPlants;
     }
 
+    public ArrayList<Pea> getPeas(){
+        return listPeas;
+    }
+
     /**
      * set the sun status
      */
@@ -37,5 +42,13 @@ public class Player {
      */
     public void addPlants(Plant plant){
         listPlants.add(plant);
+    }
+
+    public void addPea(Pea pea){
+        listPeas.add(pea);
+    }
+
+    public void removePlants(Plant plant){
+        listPlants.remove(plant);
     }
 }
