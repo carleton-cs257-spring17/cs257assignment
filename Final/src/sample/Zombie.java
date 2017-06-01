@@ -37,4 +37,8 @@ public interface Zombie {
      * set the speed value of the zombie
      */
     public void setSpeed(int speed);
+
+    public void step();
+
+
 }

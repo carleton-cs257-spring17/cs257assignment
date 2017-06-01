@@ -5,10 +5,10 @@ package sample;
  * Class that specifies the character of Wallnut
  */
 public class WallNut implements  Plant {
-    private int price;
+    private int price = 100;
     private int[] position = new int[2];
-    private int health;
-    private int power;
+    private int health = 500;
+    private int power = 0;
 
     /** Set the position of Wallnut given coordinates*/
     public void setPosition(int x, int y){

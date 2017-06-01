@@ -46,4 +46,9 @@ public class Enermy{
     public void addZombies(Zombie zombie){
         zombies.add(zombie);
     }
+
+    public void removeZombie(Zombie zombie){
+        zombies.remove(zombie);
+    }
+
 }

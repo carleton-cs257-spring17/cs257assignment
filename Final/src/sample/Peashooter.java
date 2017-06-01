@@ -5,10 +5,10 @@ package sample;
  * Class that specifies the behavior of Peashooter
  */
 public class Peashooter implements Plant {
-    private int price;
+    private int price = 100;
     private int[] position = new int[2];
-    private int health;
-    private int power;
+    private int health = 100;
+    private int power = 20;
     public void setPosition(int x, int y){
         position[0] = x;
         position[1] = y;

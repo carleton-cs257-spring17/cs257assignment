@@ -50,4 +50,8 @@ public class StrongZombie {
         this.speed = speed;
 
     }
+
+    public void step(){
+
+    }
 }

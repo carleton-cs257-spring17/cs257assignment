@@ -6,10 +6,10 @@ import java.util.ArrayList;
  * Class that specifies the behavior of Sunflower
  */
 public class Sunflower implements Plant {
-    private int price;
+    private int price = 50;
     private int[] position = new int[2];
-    private int health;
-    private int power;
+    private int health = 100;
+    private int power = 0;
 
     /** Set the position of Sunflower given coordinates*/
     public void setPosition(int x, int y){
