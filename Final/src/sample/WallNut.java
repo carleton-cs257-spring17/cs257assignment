@@ -4,8 +4,13 @@ package sample;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the character of Wallnut
  */
+<<<<<<< HEAD
+public class WallNut extends Sprite implements Plant {
+    private int price;
+=======
 public class WallNut implements  Plant {
     private int price = 100;
+>>>>>>> bbd18a413f0d24b1adcd7b2c19631409d0f97f1e
     private int[] position = new int[2];
     private int health = 500;
     private int power = 0;
@@ -55,4 +60,9 @@ public class WallNut implements  Plant {
         this.price = price;
     }
     public void step(){}
+
+    @Override
+    public void makeSound() {
+
+    }
 }

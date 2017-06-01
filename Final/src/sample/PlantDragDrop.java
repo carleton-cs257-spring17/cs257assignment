@@ -23,6 +23,7 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
     }
     @Override
     public void handle(DragEvent event) {
+<<<<<<< HEAD
         int row=1;
         int column=(int)event.getX()-40;
         String type = event.getDragboard().getString();
@@ -94,6 +95,9 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                 root.getChildren().add(s1);
             }
         }
+=======
+        //System.out.println(event.getX());
+>>>>>>> 052c7ff00c910e02d45789ff9f0a8b12db4608a5
     }
 
 }

@@ -1,8 +1,6 @@
 package sample;
 
-
-
-        import javafx.event.EventHandler;
+import javafx.event.EventHandler;
         import javafx.scene.image.Image;
         import javafx.scene.image.ImageView;
         import javafx.scene.input.ClipboardContent;
@@ -10,7 +8,6 @@ package sample;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.input.TransferMode;
         import javafx.scene.layout.StackPane;
-
 
 public class PlantDrag implements EventHandler<MouseEvent> {
     private StackPane stackPane;
