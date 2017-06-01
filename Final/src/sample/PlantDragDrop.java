@@ -19,7 +19,7 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
     }
     @Override
     public void handle(DragEvent event) {
-        System.out.println(event.getX());
+        //System.out.println(event.getX());
     }
 
 }

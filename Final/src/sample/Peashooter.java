@@ -4,7 +4,7 @@ package sample;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the behavior of Peashooter
  */
-public class Peashooter implements Plant {
+public class Peashooter extends Sprite implements Plant{
     private int price;
     private int[] position = new int[2];
     private int health;
@@ -36,5 +36,10 @@ public class Peashooter implements Plant {
         this.price = price;
     }
     public void step(){}
+
+    @Override
+    public void makeSound() {
+
+    }
 }
 

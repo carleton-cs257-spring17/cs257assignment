@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the behavior of Sunflower
  */
-public class Sunflower implements Plant {
+public class Sunflower extends Sprite implements Plant {
     private int price;
     private int[] position = new int[2];
     private int health;
@@ -52,4 +52,9 @@ public class Sunflower implements Plant {
         this.price = price;
     }
     public void step(){}
+
+    @Override
+    public void makeSound() {
+
+    }
 }

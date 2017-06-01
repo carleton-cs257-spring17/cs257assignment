@@ -60,7 +60,8 @@ public class Controller implements EventHandler<KeyEvent> {
      * Update animation in this method
      */
     private void updateAnimation() {
-        System.out.println("here");
+
+        //System.out.println("here");
     }
 
     /**

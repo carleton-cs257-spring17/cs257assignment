@@ -2,6 +2,7 @@ package sample;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.DragEvent;
 import javafx.stage.Stage;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -133,7 +134,12 @@ public class GameStage extends Application{
         s4.setOnDragDetected(new PlantDrag(s4, potatoMine));
         theScene.setOnDragOver(new PlantDragOver());
         //drop
-        theScene.setOnDragOver(new PlantDragDrop());
+        theScene.setOnDragOver(new EventHandler<DragEvent>() {
+            @Override
+            public void handle(DragEvent event) {
+
+            }
+        });
         initiateStage = primaryStage;
         Controller controller = new Controller(1);
         controller.initialize();
