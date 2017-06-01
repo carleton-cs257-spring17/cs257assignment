@@ -4,13 +4,8 @@ package sample;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the character of potato mine.
  */
-<<<<<<< HEAD
-public class PotatoMine implements Plant{
-=======
+
 public class PotatoMine extends Sprite implements Plant{
-    /** Set the position of potato mine given coordinates*/
-    public void setPosition(int x, int y){}
->>>>>>> 052c7ff00c910e02d45789ff9f0a8b12db4608a5
 
     private int price = 100;
     private int[] position = new int[2];

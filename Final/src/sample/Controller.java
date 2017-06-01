@@ -65,10 +65,7 @@ public class Controller implements EventHandler<KeyEvent> {
      * Update animation in this method
      */
     private void updateAnimation() {
-<<<<<<< HEAD
 
-        //System.out.println("here");
-=======
 //        ArrayList<Plant> listOfPlants = checkPlants();
 //        ArrayList<Zombie> listOfZombies = checkZombies();
 //        runFight(listOfPlants, listOfZombies);
@@ -132,7 +129,7 @@ public class Controller implements EventHandler<KeyEvent> {
 //                }
             }
         }
->>>>>>> bbd18a413f0d24b1adcd7b2c19631409d0f97f1e
+
     }
 
     /**

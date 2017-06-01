@@ -136,18 +136,7 @@ public class GameStage extends Application{
         s4.setOnDragDetected(new PlantDrag(s4, potatoMine));
         theScene.setOnDragOver(new PlantDragOver());
         //drop
-<<<<<<< HEAD
-        Player player = new Player();
-        Enermy enermy = new Enermy();
         theScene.setOnDragDropped(new PlantDragDrop(root, player));
-=======
-        theScene.setOnDragOver(new EventHandler<DragEvent>() {
-            @Override
-            public void handle(DragEvent event) {
-
-            }
-        });
->>>>>>> 052c7ff00c910e02d45789ff9f0a8b12db4608a5
         initiateStage = primaryStage;
         controller.initialize();
 
