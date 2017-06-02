@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Iterator;
+
+
 
 /**
  * Created by yanhanlyu on 28/05/2017.
@@ -67,34 +70,21 @@ public class Controller implements EventHandler<KeyEvent> {
      */
     private void updateAnimation() {
 
-//        ArrayList<Plant> listOfPlants = checkPlants();
-//        ArrayList<Zombie> listOfZombies = checkZombies();
-//        runFight(listOfPlants, listOfZombies);
-//        listOfPlants = checkPlants();
-//        listOfZombies = checkZombies();
-//
-//        for (Plant plant : listOfPlants){
-//            //System.out.println("here?????");
-//            plant.step();
-//        }
-//
-//        for (Zombie zombie : listOfZombies){
-//            zombie.step();
-//        }
-//        ArrayList<Plant> listOfPlants = checkPlants();
-//        ArrayList<Zombie> listOfZombies = checkZombies();
-//        runFight(listOfPlants, listOfZombies);
-//        listOfPlants = checkPlants();
-//        listOfZombies = checkZombies();
-//
-//        for (Plant plant : listOfPlants){
-//            //System.out.println("here?????");
-//            plant.step();
-//        }
-//
-//        for (Zombie zombie : listOfZombies){
-//            zombie.step();
-//        }
+        ArrayList<Plant> listOfPlants = checkPlants();
+        ArrayList<Zombie> listOfZombies = checkZombies();
+       // System.out.println(listOfPlants.size());
+        runFight(listOfPlants, listOfZombies);
+        listOfPlants = checkPlants();
+        listOfZombies = checkZombies();
+
+        for (Plant plant : listOfPlants){
+            //System.out.println("here?????");
+            plant.step();
+        }
+
+        for (Zombie zombie : listOfZombies){
+            zombie.step();
+        }
 
         for (Iterator<Plant> iterator = player.getPlants().iterator(); iterator.hasNext();){
             Plant plant = iterator.next();
@@ -113,41 +103,53 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     private void runFight(ArrayList<Plant> plants, ArrayList<Zombie> zombies){
-//        for (Plant plant : plants){
-//            for (Zombie zombie: zombies){
-//                int[] plantPosition = plant.getPosition();
-//                int plantY = plantPosition[2];
-//                int[] zombiePosition = zombie.getPosition();
-//                int zombieY = zombiePosition[1];
-//
-//                int plantX = plantPosition[2];
-//                int zombieX = zombiePosition[0];
+        ArrayList<Integer> dieZombie = new ArrayList<Integer>();
+        ArrayList<Integer> diePlant = new ArrayList<Integer>();
 
-//                if (plantY == zombieY && plantX != zombieX ){
-////                    if plant is Peashooer{
-////                        initialize a pea and add it into listPea
-////                        set the position of Pea as the position of this peashooter
-////                        pea.step();
-////                        if pea position == zombie position{
-////                            int zombieHealth = zombie.getHealth();
-////                            int plantPower = plant.getPower();
-////                            zombie.setHealth(zombieHealth - plantPower);
-////                            if (zombie.getHealth() <= 0){
-////                                enermy.removeZombie(zombie);
-////                            }
-////                        }
-//                    }
-//
-//                } else if (plantY == zombieY && plantX == zombieX ){
-//                    int plantHealth = plant.getHealth();
-//                    int zombiePower = zombie.getPower();
-//                    plant.setHealth(plantHealth-zombiePower);
-//                    if (plant.getHealth() <= 0){
-//                        player.removePlants(plant);
-//                    }
-//                }
-//            }
-//        }
+        for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
+
+            Plant plant = iterator.next();
+
+            for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
+                Zombie zombie = iterator2.next();
+                int plantRow = plant.getRow();
+                int plantColumn = plant.getColumn();
+                int zombieRow = zombie.getRow();
+                int zombieColumn = zombie.getColumn();
+
+                if (plantRow == zombieRow && plantColumn != zombieColumn  ){
+                    int zombieHealth = zombie.getHealth();
+                    int plantPower = plant.getPower();
+                    zombie.setHealth(zombieHealth - plantPower);
+                    if (zombie.getHealth() <= 0){
+                        iterator2.remove();
+                        enermy.removeZombie(zombie);
+                        zombie.removeImage();
+//                        int index = zombies.indexOf(zombie);
+//                        dieZombie.add(index);
+                    }
+                } else if (plantColumn == zombieColumn && plantRow == zombieRow) {
+                    System.out.println("here!!");
+                    int plantHealth = plant.getHealth();
+                    int zombiePower = zombie.getPower();
+                    plant.setHealth(plantHealth-zombiePower);
+                    if (plant.getHealth() <= 0) {
+                        System.out.println("plant is dying");
+                        iterator.remove();
+                        player.removePlants(plant);
+                        plant.removeImage();
+                    }
+                    int zombieHealth = zombie.getHealth();
+                    int plantPower = plant.getPower();
+                    zombie.setHealth(zombieHealth - plantPower);
+                    if (zombie.getHealth() <= 0) {
+                        iterator2.remove();
+                        enermy.removeZombie(zombie);
+                        zombie.removeImage();
+                    }
+                }
+            }
+        }
     }
 
     /**

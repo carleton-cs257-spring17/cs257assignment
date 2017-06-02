@@ -10,10 +10,12 @@ import javafx.scene.layout.StackPane;
  * Class that specifies the behavior of normal Zombie
  */
 public class NormalZombie implements Zombie {
+    int row;
+    int column;
     private int price = 100;
     private int[] position = new int[2];
     private int health = 500;
-    private int power = 0;
+    private int power = 2;
     private StackPane s = new StackPane();
     private Group root = new Group();
     private Image zombie;
@@ -21,13 +23,13 @@ public class NormalZombie implements Zombie {
 
 
     public NormalZombie(int row, int column, Group root){
-        this.position[0] = row;
-        this.position[1] = column;
-        this.zombie = new Image("strongZombie.png");
+        this.row = row;
+        this.column = column;
+        this.zombie = new Image("/res/normalZombie.png");
         this.zombieView = new  ImageView(zombie);
         s.getChildren().add(zombieView);
         root.getChildren().add(s);
-        s.setTranslateY((int) (135+(row-1)*110+55)-40);
+        s.setTranslateY((int) (135+(row-1)*110+55)-40+1);
         s.setTranslateX((int) (60+(column-1)*80+40)-40);
     }
 
@@ -36,15 +38,17 @@ public class NormalZombie implements Zombie {
         this.root.getChildren().remove(this.s);
     }
 
-    // Set the position of Zombie given coordinates
-    public void setPosition(int x, int y){
-        position[0] = x;
-        position[1] = y;
+    public void setPosition(int row, int column){
+        this.row = row;
+        this.column = column;
     }
 
-    // Get the position of Zombie
-    public int[] getPosition(){
-        return position;
+    public int getRow(){
+        return this.row;
+    }
+
+    public int getColumn(){
+        return this.column;
     }
 
     // Get the health value of Zombie

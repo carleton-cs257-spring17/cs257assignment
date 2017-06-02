@@ -3,15 +3,18 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import sun.security.provider.Sun;
+import javafx.scene.input.MouseEvent;
 
-import java.util.ArrayList;
+import javafx.event.EventHandler;
+
 
 /**
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the behavior of Sunflower
  */
 public class Sunflower extends Sprite implements Plant {
+    private int row;
+    private int column;
     private int price = 100;
     private int[] position = new int[2];
     private int health = 500;
@@ -31,8 +34,8 @@ public class Sunflower extends Sprite implements Plant {
 
     public Sunflower(int row, int column, Group root, Player player){
         this.player = player;
-        this.position[0] = row;
-        this.position[1] = column;
+        this.row = row;
+        this.column = column;
         this.plant = new Image("/res/sunflower.png");
         this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
@@ -51,10 +54,18 @@ public class Sunflower extends Sprite implements Plant {
         this.root.getChildren().remove(this.s);
     }
 
+    public int getRow(){
+        return this.row;
+    }
+
+    public int getColumn(){
+        return this.column;
+    }
+
     /** Set the position of Sunflower given coordinates*/
-    public void setPosition(int x, int y){
-        position[0] = x;
-        position[1] = y;
+    public void setPosition(int row, int column){
+        this.row = row;
+        this.column = column;
     }
 
      /** Get the position of Sunflower*/

@@ -14,9 +14,10 @@ import javafx.util.Duration;
  */
 public class Peashooter extends Sprite implements Plant{
     private int price = 100;
-    private int[] position = new int[2];
+    private int row;
+    private int column;
     private int health = 500;
-    private int power = 0;
+    private int power = 1;
     private StackPane s = new StackPane();
     private  Group root = new Group();
     private Image plant;
@@ -33,8 +34,8 @@ public class Peashooter extends Sprite implements Plant{
 
     public Peashooter(int row, int column, Group root, Player player){
         this.player = player;
-        this.position[0] = row;
-        this.position[1] = column;
+        this.row = row;
+        this.column = column;
         this.plant = new Image("/res/peashooter.png");
         this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
@@ -52,9 +53,9 @@ public class Peashooter extends Sprite implements Plant{
         this.s.getChildren().remove(this.plantView);
         this.root.getChildren().remove(this.s);
     }
-    public void setPosition(int x, int y){
-        position[0] = x;
-        position[1] = y;
+    public void setPosition(int row, int column){
+        this.row = row;
+        this.column = column;
     }
 
     public void setSize(double width, double height) {
@@ -63,11 +64,14 @@ public class Peashooter extends Sprite implements Plant{
         this.plantView.setFitHeight(height);
     }
 
-
-
-    public int[] getPosition(){
-        return position;
+    public int getRow(){
+        return this.row;
     }
+
+    public int getColumn(){
+        return this.column;
+    }
+
     public int getHealth(){
         return health;
     }

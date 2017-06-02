@@ -42,7 +42,6 @@ public class Player {
      */
     public void addPlants(Plant plant){
         listPlants.add(plant);
-
     }
 
     public void addPea(Pea pea){

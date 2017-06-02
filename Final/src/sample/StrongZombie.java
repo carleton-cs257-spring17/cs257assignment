@@ -9,11 +9,13 @@ import javafx.scene.layout.StackPane;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the behavior of strong Zombie
  */
-public class StrongZombie {
+public class StrongZombie implements Zombie{
     private int price = 100;
+    private int row;
+    private int column;
     private int[] position = new int[2];
     private int health = 500;
-    private int power = 0;
+    private int power = 50;
     private StackPane s = new StackPane();
     private Group root = new Group();
     private Image zombie;
@@ -21,13 +23,13 @@ public class StrongZombie {
 
 
     public StrongZombie(int row, int column, Group root){
-        this.position[0] = row;
-        this.position[1] = column;
+        this.row = row;
+        this.column = column;
         this.zombie = new Image("/res/strongZombie.png");
         this.zombieView = new  ImageView(zombie);
         s.getChildren().add(zombieView);
         root.getChildren().add(s);
-        s.setTranslateY((int) (135+(row-1)*110+55)-40);
+        s.setTranslateY((int) (135+(row-1)*110+55)-40+1);
         s.setTranslateX((int) (60+(column-1)*80+40)-40);
     }
 
@@ -36,41 +38,49 @@ public class StrongZombie {
         this.root.getChildren().remove(this.s);
     }
 
-    /** Get the position of Zombie*/
-    public int[] getPosition(){
-        return position;
+
+    public void setPosition(int row, int column){
+        this.row = row;
+        this.column = column;
     }
 
-    /** Get the health value of Zombie*/
+    public int getRow(){
+        return this.row;
+    }
+
+    public int getColumn(){
+        return this.column;
+    }
+
+    // Get the health value of Zombie
     public int getHealth(){
         return health;
     }
 
-     /** Set the health value of Zombie*/
+    // Get the health value of Zombie
     public void setHealth(int health){
         this.health = health;
 
     }
 
-     /** Get the power value of Zombie*/
+    // Get the power value of Zombie
     public int getPower(){
         return power;
     }
 
-     /** Set the power value of Zombie*/
+    // Set the power value of Zombie
     public void setPower(int power){
         this.power = power;
     }
 
-     /** Get the speed value of Zombie*/
+    // Get the speed value of Zombie
     public int getSpeed(){
-        //return speed;
-        return 1;
+        return 1;//speed;
     }
 
-     /** Set the speed value of Zombie*/
+    // Set the speed value of Zombie
     public void setSpeed(int speed){
-        //this.speed = speed;
+//        this.speed = speed;
 
     }
 

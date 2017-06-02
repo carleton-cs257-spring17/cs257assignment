@@ -43,7 +43,6 @@ public class Pea extends Sprite implements Plant{
 
     }
 
-    @Override
     public int[] getPosition() {
         return new int[0];
     }
@@ -80,6 +79,21 @@ public class Pea extends Sprite implements Plant{
 
     public void step() {
         this.setPosition(this.getPosition()[0] + this.velocityX, this.getPosition()[1] + this.velocityY);
+    }
+
+    @Override
+    public void removeImage() {
+
+    }
+
+    @Override
+    public int getRow() {
+        return 0;
+    }
+
+    @Override
+    public int getColumn() {
+        return 0;
     }
 
     public double getVelocityX() {
