@@ -69,27 +69,27 @@ public class Controller implements EventHandler<KeyEvent> {
      * Update animation in this method
      */
     private void updateAnimation() {
-
+        System.out.println(this.player.getSun());
         ArrayList<Plant> listOfPlants = checkPlants();
         ArrayList<Zombie> listOfZombies = checkZombies();
        // System.out.println(listOfPlants.size());
         runFight(listOfPlants, listOfZombies);
         listOfPlants = checkPlants();
-        listOfZombies = checkZombies();
-
+//        listOfZombies = checkZombies();
+//
         for (Plant plant : listOfPlants){
             //System.out.println("here?????");
             plant.step();
         }
-
-        for (Zombie zombie : listOfZombies){
-            zombie.step();
-        }
-
-        for (Iterator<Plant> iterator = player.getPlants().iterator(); iterator.hasNext();){
-            Plant plant = iterator.next();
-            plant.step();
-        }
+//
+//        for (Zombie zombie : listOfZombies){
+//            zombie.step();
+//        }
+//
+////        for (Iterator<Plant> iterator = player.getPlants().iterator(); iterator.hasNext();){
+////            Plant plant = iterator.next();
+////            plant.step();
+////        }
     }
 
     private ArrayList<Plant> checkPlants(){
@@ -109,6 +109,7 @@ public class Controller implements EventHandler<KeyEvent> {
         for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
 
             Plant plant = iterator.next();
+            System.out.println("bullet"+this.player.getPeas().size());
 
             for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
                 Zombie zombie = iterator2.next();

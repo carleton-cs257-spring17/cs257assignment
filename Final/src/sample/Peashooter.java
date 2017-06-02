@@ -109,9 +109,9 @@ public class Peashooter extends Sprite implements Plant{
         if (shoot) {
             count --;
             System.out.println("SHOOT");
-//            Pea pea = new Pea (this.position[0], this.position[1], this.root);
+           Pea pea = new Pea (10, 10, this.root);
 //            pea.makeSound();
-//            this.player.addPlants(pea);
+            this.player.addPea(pea);
         } else {
             System.out.println("NOT SHOOT");
             count ++;

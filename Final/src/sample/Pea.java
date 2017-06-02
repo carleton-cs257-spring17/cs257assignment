@@ -78,7 +78,7 @@ public class Pea extends Sprite implements Plant{
     }
 
     public void step() {
-        this.setPosition(this.getPosition()[0] + this.velocityX, this.getPosition()[1] + this.velocityY);
+        this.setPosition(0,0);
     }
 
     @Override
