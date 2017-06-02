@@ -15,6 +15,9 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Iterator;
+
+
 
 /**
  * Created by yanhanlyu on 28/05/2017.
@@ -98,62 +101,48 @@ public class Controller implements EventHandler<KeyEvent> {
     private void runFight(ArrayList<Plant> plants, ArrayList<Zombie> zombies){
         ArrayList<Integer> dieZombie = new ArrayList<Integer>();
         ArrayList<Integer> diePlant = new ArrayList<Integer>();
-        //System.out.println("here");
-        for (Plant plant : plants){
-            boolean zombieDie = false;
-            for (Zombie zombie: zombies){
+
+        for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
+
+            Plant plant = iterator.next();
+
+            for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
+                Zombie zombie = iterator2.next();
                 int plantRow = plant.getRow();
                 int plantColumn = plant.getColumn();
                 int zombieRow = zombie.getRow();
                 int zombieColumn = zombie.getColumn();
-//                System.out.println("zombierow: "+zombieRow);
-//                System.out.println("zombiecolumn: "+zombieColumn);
-//                System.out.println("plantrow: "+plantRow);
-//                System.out.println("plantcolumn: "+plantColumn);
 
-                if (plantRow == zombieRow && plantColumn == zombieColumn  ){
+                if (plantRow == zombieRow && plantColumn != zombieColumn  ){
                     int zombieHealth = zombie.getHealth();
                     int plantPower = plant.getPower();
                     zombie.setHealth(zombieHealth - plantPower);
-//                    System.out.println("zombiehealth"+zombie.getHealth());
-//                    System.out.println(plant.getPower());
                     if (zombie.getHealth() <= 0){
+                        iterator2.remove();
                         enermy.removeZombie(zombie);
                         zombie.removeImage();
-                        int index = zombies.indexOf(zombie);
-                        dieZombie.add(index);
+//                        int index = zombies.indexOf(zombie);
+//                        dieZombie.add(index);
                     }
-//                } else if (plantColumn == zombieColumn && plantRow == zombieRow) {
-//                    System.out.println("here!!");
-//
-//                    //System.out.println("here!!!!!!");
-////                    if plant is Peashooter{
-////                        initialize a pea and add it into listPea
-////                        set the position of Pea as the position of this peashooter
-////                        pea.step();
-////                        if pea position == zombie position{
-//                    if (zombies.contains(zombie) && plants.contains(plant)){
-//                        int plantHealth = plant.getHealth();
-//                        int zombiePower = zombie.getPower();
-//                        plant.setHealth(plantHealth-zombiePower);
-//                        if (plant.getHealth() <= 0){
-//                            System.out.println("plant is dying");
-//                            player.removePlants(plant);
-//                            plant.removeImage();
-//                        }
-//                    }
-//                    if (zombies.contains(zombie) && plants.contains(plant)) {
-//                        int zombieHealth = zombie.getHealth();
-//                        int plantPower = plant.getPower();
-//                        zombie.setHealth(zombieHealth - plantPower);
-//                        //                    System.out.println("zombiehealth"+zombie.getHealth());
-//                        //                    System.out.println(plant.getPower());
-//                        if (zombie.getHealth() <= 0) {
-//                            enermy.removeZombie(zombie);
-//                            zombie.removeImage();
-//                        }
-//                    }
-
+                } else if (plantColumn == zombieColumn && plantRow == zombieRow) {
+                    System.out.println("here!!");
+                    int plantHealth = plant.getHealth();
+                    int zombiePower = zombie.getPower();
+                    plant.setHealth(plantHealth-zombiePower);
+                    if (plant.getHealth() <= 0) {
+                        System.out.println("plant is dying");
+                        iterator.remove();
+                        player.removePlants(plant);
+                        plant.removeImage();
+                    }
+                    int zombieHealth = zombie.getHealth();
+                    int plantPower = plant.getPower();
+                    zombie.setHealth(zombieHealth - plantPower);
+                    if (zombie.getHealth() <= 0) {
+                        iterator2.remove();
+                        enermy.removeZombie(zombie);
+                        zombie.removeImage();
+                    }
                 }
             }
         }
