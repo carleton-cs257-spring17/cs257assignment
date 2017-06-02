@@ -61,37 +61,24 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                 }else if (event.getX()<=780) {
                     column = 9;
                 }
-                Image plant = null;
-                ImageView plant1 = null;
-
                 switch (type) {
                     case "peashooter":
-                        plant = new Image("peashooter.png");
-                        plant1 = new  ImageView(plant);
-                        Peashooter peashooter = new Peashooter(row, column);
+                        Peashooter peashooter = new Peashooter(row, column,root);
+                        player.addPlants(peashooter);
                         break;
                     case "wallnut":
-                        plant = new Image("wallnut.png");
-                        plant1 = new  ImageView(plant);
-                        WallNut wallnut = new WallNut(row, column);
+                        WallNut wallnut = new WallNut(row, column,root);
+                        player.addPlants(wallnut);
                         break;
                     case "sunflower":
-                        plant = new Image("sunflower.png");
-                        plant1 = new  ImageView(plant);
-                        Sunflower sunflower = new Sunflower(row, column);
+                        Sunflower sunflower = new Sunflower(row, column,root);
+                        player.addPlants(sunflower);
                         break;
                     case "potatoMine":
-                        plant = new Image("potatoMine.png");
-                        plant1 = new  ImageView(plant);
-                        PotatoMine potatoMine = new PotatoMine(row, column);
+                        PotatoMine potatoMine = new PotatoMine(row, column,root);
+                        player.addPlants(potatoMine);
                         break;
                 }
-
-                s1.getChildren().add(plant1);
-                s1.setMaxSize(90, 160);
-                s1.setTranslateY((int) (135+(row-1)*110+55)-40);
-                s1.setTranslateX((int) (60+(column-1)*80+40)-40);
-                root.getChildren().add(s1);
             }
         }
     }

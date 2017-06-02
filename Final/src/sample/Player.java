@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 public class Player {
     private int sun;
-    private ArrayList<Plant> listPlants;
-    private ArrayList<Pea> listPeas;
+    private ArrayList<Plant> listPlants = new ArrayList<Plant>();
+    private ArrayList<Pea> listPeas = new ArrayList<Pea>();
 
     /**
      * Get the sun status
@@ -42,6 +42,7 @@ public class Player {
      */
     public void addPlants(Plant plant){
         listPlants.add(plant);
+
     }
 
     public void addPea(Pea pea){

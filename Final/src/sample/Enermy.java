@@ -1,7 +1,10 @@
 package sample;
 
 import java.util.ArrayList;
-
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 /**
  * Created by yanhanlyu on 28/05/2017.
  * Class that lists the general behavior of the Zombies
@@ -9,8 +12,25 @@ import java.util.ArrayList;
 public class Enermy{
     private int density;
     private int speed;
-    private ArrayList<Zombie> zombies;
+    private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
+    Group root = new Group();
+
+    public Enermy(Group root){
+        this.root = root;
+        zombies = generateZombies(100);
+    }
+
+    public ArrayList<Zombie> generateZombies(int density){
+        ArrayList<Zombie> zombies = new ArrayList<Zombie>();
+        for (int i = 0; i < density; i++){
+            
+            StrongZombie zombie = new StrongZombie(1,1, root);
+        }
+
+        return zombies;
+    }
     /**
+     *
      * return the density of the group of zombies
      */
     public int getDensity(){

@@ -30,8 +30,9 @@ public class Controller implements EventHandler<KeyEvent> {
     private Timer timer;
 
     public Controller(int difficulty, Player player, Enermy enermy) {
-
         this.difficulty = difficulty;
+        this.player = player;
+        this.enermy = enermy;
     }
 
     /**
@@ -39,7 +40,7 @@ public class Controller implements EventHandler<KeyEvent> {
      */
     public void initialize() {
         this.startTimer();
-        Player player = new Player();
+
     }
 
     /**
@@ -66,20 +67,20 @@ public class Controller implements EventHandler<KeyEvent> {
      */
     private void updateAnimation() {
 
-        ArrayList<Plant> listOfPlants = checkPlants();
-        ArrayList<Zombie> listOfZombies = checkZombies();
-        runFight(listOfPlants, listOfZombies);
-        listOfPlants = checkPlants();
-        listOfZombies = checkZombies();
-
-        for (Plant plant : listOfPlants){
-            //System.out.println("here?????");
-            plant.step();
-        }
-
-        for (Zombie zombie : listOfZombies){
-            zombie.step();
-        }
+//        ArrayList<Plant> listOfPlants = checkPlants();
+//        ArrayList<Zombie> listOfZombies = checkZombies();
+//        runFight(listOfPlants, listOfZombies);
+//        listOfPlants = checkPlants();
+//        listOfZombies = checkZombies();
+//
+//        for (Plant plant : listOfPlants){
+//            //System.out.println("here?????");
+//            plant.step();
+//        }
+//
+//        for (Zombie zombie : listOfZombies){
+//            zombie.step();
+//        }
 //        ArrayList<Plant> listOfPlants = checkPlants();
 //        ArrayList<Zombie> listOfZombies = checkZombies();
 //        runFight(listOfPlants, listOfZombies);
@@ -108,15 +109,15 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     private void runFight(ArrayList<Plant> plants, ArrayList<Zombie> zombies){
-        for (Plant plant : plants){
-            for (Zombie zombie: zombies){
-                int[] plantPosition = plant.getPosition();
-                int plantY = plantPosition[2];
-                int[] zombiePosition = zombie.getPosition();
-                int zombieY = zombiePosition[1];
-
-                int plantX = plantPosition[2];
-                int zombieX = zombiePosition[0];
+//        for (Plant plant : plants){
+//            for (Zombie zombie: zombies){
+//                int[] plantPosition = plant.getPosition();
+//                int plantY = plantPosition[2];
+//                int[] zombiePosition = zombie.getPosition();
+//                int zombieY = zombiePosition[1];
+//
+//                int plantX = plantPosition[2];
+//                int zombieX = zombiePosition[0];
 
 //                if (plantY == zombieY && plantX != zombieX ){
 ////                    if plant is Peashooer{
@@ -141,8 +142,8 @@ public class Controller implements EventHandler<KeyEvent> {
 //                        player.removePlants(plant);
 //                    }
 //                }
-            }
-        }
+//            }
+//        }
     }
 
     /**

@@ -6,6 +6,7 @@ import javafx.scene.Group;
  * Interface for the characters of Plant
  */
 public interface Plant{
+
     /**
      * set the position of the plant
      */

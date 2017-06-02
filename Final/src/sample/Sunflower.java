@@ -1,4 +1,8 @@
 package sample;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import sun.security.provider.Sun;
 
 import java.util.ArrayList;
@@ -8,13 +12,30 @@ import java.util.ArrayList;
  * Class that specifies the behavior of Sunflower
  */
 public class Sunflower implements Plant {
-    private int price = 50;
+    private int price = 100;
     private int[] position = new int[2];
-    private int health = 100;
+    private int health = 500;
     private int power = 0;
-    public Sunflower(int x, int y){
-        this.position[0] = x;
-        this.position[1] = y;
+    private StackPane s = new StackPane();
+    private Group root = new Group();
+    private Image plant;
+    private ImageView plantView;
+
+
+    public Sunflower(int row, int column, Group root){
+        this.position[0] = row;
+        this.position[1] = column;
+        this.plant = new Image("potatoMine.png");
+        this.plantView = new  ImageView(plant);
+        s.getChildren().add(plantView);
+        root.getChildren().add(s);
+        s.setTranslateY((int) (135+(row-1)*110+55)-40);
+        s.setTranslateX((int) (60+(column-1)*80+40)-40);
+    }
+
+    public void removeImage(){
+        this.s.getChildren().remove(this.plantView);
+        this.root.getChildren().remove(this.s);
     }
 
     /** Set the position of Sunflower given coordinates*/
