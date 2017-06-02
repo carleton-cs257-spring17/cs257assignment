@@ -3,9 +3,10 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import sun.security.provider.Sun;
+import javafx.scene.input.MouseEvent;
 
-import java.util.ArrayList;
+import javafx.event.EventHandler;
+
 
 /**
  * Created by yanhanlyu on 29/05/2017.
@@ -22,11 +23,13 @@ public class Sunflower implements Plant {
     private Group root = new Group();
     private Image plant;
     private ImageView plantView;
+    private Player player;
 
 
     public Sunflower(int row, int column, Group root){
-        this.position[0] = row;
-        this.position[1] = column;
+        this.player = player;
+        this.row = row;
+        this.column = column;
         this.plant = new Image("sunflower.png");
         this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
@@ -89,4 +92,6 @@ public class Sunflower implements Plant {
         this.price = price;
     }
     public void step(){}
+
+
 }

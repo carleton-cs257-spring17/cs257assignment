@@ -135,10 +135,10 @@ public class GameStage extends Application{
         Player player = new Player();
         Enermy enermy = new Enermy(root);
         theScene.setOnDragDropped(new PlantDragDrop(root, player));
+        theScene.setOnMouseClicked(new SunController(player));
         initiateStage = primaryStage;
         Controller controller = new Controller(1,player,enermy);
         controller.initialize();
-
     }
 
     public Stage getInitiateStage() {
