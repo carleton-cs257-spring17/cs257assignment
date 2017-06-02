@@ -1,18 +1,14 @@
 package sample;
 
+import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
+import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
-import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -62,6 +58,10 @@ public class Controller implements EventHandler<KeyEvent> {
         this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
     }
 
+    public Player getPlayer(){
+        return player;
+    }
+
     /**
      * Update animation in this method
      */
@@ -96,6 +96,10 @@ public class Controller implements EventHandler<KeyEvent> {
 //            zombie.step();
 //        }
 
+        for (Iterator<Plant> iterator = player.getPlants().iterator(); iterator.hasNext();){
+            Plant plant = iterator.next();
+            plant.step();
+        }
     }
 
     private ArrayList<Plant> checkPlants(){

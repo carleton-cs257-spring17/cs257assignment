@@ -18,17 +18,27 @@ public class WallNut extends Sprite implements Plant {
     private Group root = new Group();
     private Image plant;
     private ImageView plantView;
+    private double osizeX;
+    private double osizeY;
+    private double sizeX;
+    private double sizeY;
+    private boolean shrink = false;
 
 
     public WallNut(int row, int column, Group root){
         this.position[0] = row;
         this.position[1] = column;
-        this.plant = new Image("potatoMine.png");
+        this.plant = new Image("/res/wallnut.png");
         this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
+        this.root = root;
         root.getChildren().add(s);
         s.setTranslateY((int) (135+(row-1)*110+55)-40);
         s.setTranslateX((int) (60+(column-1)*80+40)-40);
+        this.osizeX = 90;
+        this.osizeY = 90;
+        this.sizeX = 90;
+        this.sizeY = 90;
     }
 
     public void removeImage(){
@@ -39,6 +49,12 @@ public class WallNut extends Sprite implements Plant {
     public void setPosition(int x, int y){
         position[0] = x;
         position[1] = y;
+    }
+
+    public void setSize(double width, double height) {
+        super.setSize(width, height);
+        this.plantView.setFitWidth(width);
+        this.plantView.setFitHeight(height);
     }
 
     /** Get the position of Wallnut*/
@@ -75,7 +91,25 @@ public class WallNut extends Sprite implements Plant {
     public void setPrice(int price){
         this.price = price;
     }
-    public void step(){}
+    public void step(){
+        System.out.println("WALNIUT STEP");
+        super.step();
+
+        if (this.sizeX > (1.1 * osizeX) || this.sizeY > (1.1 * osizeY)){
+            this.shrink = true;
+        } else if (this.sizeX < (0.8 * osizeX) || this.sizeY < (0.8 * osizeY)) {
+            this.shrink = false;
+        }
+
+        if (shrink) {
+            this.setSize(1 * this.sizeX - 0.1, this.sizeY);
+
+            this.sizeX = this.sizeX - 0.1;
+        } else {
+            this.setSize(1 * this.sizeX + 0.1, this.sizeY);
+            this.sizeX = this.sizeX + 0.1;
+        }
+    }
 
     @Override
     public void makeSound() {

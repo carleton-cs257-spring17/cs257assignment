@@ -23,7 +23,7 @@ public class StrongZombie {
     public StrongZombie(int row, int column, Group root){
         this.position[0] = row;
         this.position[1] = column;
-        this.zombie = new Image("strongZombie.png");
+        this.zombie = new Image("/res/strongZombie.png");
         this.zombieView = new  ImageView(zombie);
         s.getChildren().add(zombieView);
         root.getChildren().add(s);

@@ -63,15 +63,19 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                 }
                 switch (type) {
                     case "peashooter":
-                        Peashooter peashooter = new Peashooter(row, column,root);
+                        Peashooter peashooter = new Peashooter(row, column,root, player);
                         player.addPlants(peashooter);
+                        peashooter.setSize(90, 90);
+                        Pea pea = new Pea (row, column, this.root);
+                        pea.makeSound();
+                        this.player.addPlants(pea);
                         break;
                     case "wallnut":
                         WallNut wallnut = new WallNut(row, column,root);
                         player.addPlants(wallnut);
                         break;
                     case "sunflower":
-                        Sunflower sunflower = new Sunflower(row, column,root);
+                        Sunflower sunflower = new Sunflower(row, column,root,player);
                         player.addPlants(sunflower);
                         break;
                     case "potatoMine":

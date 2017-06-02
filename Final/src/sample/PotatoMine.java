@@ -3,11 +3,13 @@ import javafx.scene.Group;
 import javafx.scene.layout.StackPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.transform.Rotate;
+
 /**
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the character of potato mine.
  */
-public class PotatoMine implements Plant{
+public class PotatoMine extends Sprite implements Plant{
 
     private int price = 100;
     private int[] position = new int[2];
@@ -22,9 +24,10 @@ public class PotatoMine implements Plant{
     public PotatoMine(int row, int column, Group root){
         this.position[0] = row;
         this.position[1] = column;
-        this.plant = new Image("potatoMine.png");
+        this.plant = new Image("/res/potatoMine.png");
         this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
+        this.root = root;
         root.getChildren().add(s);
         s.setTranslateY((int) (135+(row-1)*110+55)-40);
         s.setTranslateX((int) (60+(column-1)*80+40)-40);
@@ -73,5 +76,12 @@ public class PotatoMine implements Plant{
     public void setPrice(int price){
         this.price = price;
     }
-    public void step(){}
+    public void step(){
+        super.step();
+    }
+
+    @Override
+    public void makeSound() {
+
+    }
 }

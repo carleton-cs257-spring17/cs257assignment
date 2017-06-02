@@ -3,31 +3,90 @@ package sample;
 /**
  * Created by yanhanlyu on 01/06/2017.
  */
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Circle;
 
-public class Pea extends Sprite {
-    private double velocityX;
-    private double velocityY;
+public class Pea extends Sprite implements Plant{
+    private int velocityX = 1;
+    private int velocityY = 1;
+    private double[] position = new double[2];
+    private Image plant;
+    private  ImageView plantView;
+    private AudioClip audioClip;
+    private  Group root = new Group();
+    private StackPane s = new StackPane();
 
-    public Pea() {
-
+    public Pea(double x, double y, Group root) {
+        this.position[0] = x;
+        this.position[1] = y;
+        this.plant = new Image("/res/pea.png");
+        this.plantView = new ImageView(plant);
+        s.getChildren().add(plantView);
+        this.root = root;
+        root.getChildren().add(s);
+        s.setTranslateY((int) (135+(x-1)*110+55)-40);
+        s.setTranslateX((int) (60+(y-1)*80+40)-40 + 90);
+        this.audioClip = new AudioClip(getClass().getResource("/res/shoot.wav").toString());
     }
 
     @Override
     public void makeSound() {
+        this.audioClip.play();
+    }
+
+    @Override
+    public void setPosition(int x, int y) {
+
+    }
+
+    @Override
+    public int[] getPosition() {
+        return new int[0];
+    }
+
+    @Override
+    public int getHealth() {
+        return 0;
+    }
+
+    @Override
+    public void setHealth(int health) {
+
+    }
+
+    @Override
+    public int getPower() {
+        return 0;
+    }
+
+    @Override
+    public void setPower(int power) {
+
+    }
+
+    @Override
+    public int getPrice() {
+        return 0;
+    }
+
+    @Override
+    public void setPrice(int price) {
 
     }
 
     public void step() {
-//        this.setCenterX(this.getCenterX() + this.velocityX);
-//        this.setCenterY(this.getCenterY() + this.velocityY);
+        this.setPosition(this.getPosition()[0] + this.velocityX, this.getPosition()[1] + this.velocityY);
     }
 
     public double getVelocityX() {
         return velocityX;
     }
 
-    public void setVelocityX(double velocityX) {
+    public void setVelocityX(int velocityX) {
         this.velocityX = velocityX;
     }
 
@@ -35,7 +94,7 @@ public class Pea extends Sprite {
         return velocityY;
     }
 
-    public void setVelocityY(double velocityY) {
+    public void setVelocityY(int velocityY) {
         this.velocityY = velocityY;
     }
 }

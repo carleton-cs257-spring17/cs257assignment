@@ -71,10 +71,10 @@ public abstract class Sprite extends Group {
 //     * of its velocity.  Subclasses may override this method, which can
 //     * call super.step() and then perform any desired additional actions.
 //     */
-//    public void step() {
+    public void step() {
 //        Point2D position = this.getPosition();
 //        this.setPosition(position.getX() + this.velocity.getX(), position.getY() + this.velocity.getY());
-//    }
+    }
 
     /**
      * Play a sound suitable for this sprite.

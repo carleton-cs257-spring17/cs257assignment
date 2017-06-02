@@ -1,6 +1,8 @@
 package sample;
 
+import javafx.animation.ScaleTransition;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.application.Platform;
@@ -18,6 +20,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 
 /**
@@ -43,35 +46,35 @@ public class GameStage extends Application{
         this.root = new Group();
         Scene theScene = new Scene(root,900,800);
         //set image
-        Image background = new Image("wallp.png");
+        Image background = new Image("/res/wallp.png");
         ImageView backgroundView = new ImageView();
         backgroundView.setImage(background);
         backgroundView.setTranslateY(100);
         // Set up a KeyEvent handler so we can respond to keyboard activity.
         // img peashooter
         StackPane s1 = new StackPane();
-        Image peashooter = new Image("peashooter.png");
+        Image peashooter = new Image("/res/peashooter.png");
         ImageView peashooter1 = new  ImageView(peashooter);
         s1.getChildren().add(peashooter1);
         s1.setMaxSize(90, 160);
         s1.setTranslateX(-170);
         // img sunflower
         StackPane s2 = new StackPane();
-        Image sunflower = new Image("sunflower.png");
+        Image sunflower = new Image("/res/sunflower.png");
         ImageView sunflower1 = new  ImageView(sunflower);
         s2.getChildren().add(sunflower1);
         s2.setMaxSize(90, 160);
         s2.setTranslateX(-75);
         // img wallnut
         StackPane s3 = new StackPane();
-        Image wallnut = new Image("wallnut.png");
+        Image wallnut = new Image("/res/wallnut.png");
         ImageView wallnut1 = new  ImageView(wallnut);
         s3.getChildren().add(wallnut1);
         s3.setMaxSize(90, 160);
         s3.setTranslateX(20);
         // img potato mine
         StackPane s4 = new StackPane();
-        Image potatoMine = new Image("potatoMine.png");
+        Image potatoMine = new Image("/res/potatoMine.png");
         ImageView potatoMine1 = new  ImageView(potatoMine);
         s4.getChildren().add(potatoMine1);
         s4.setMaxSize(90, 160);
@@ -90,7 +93,7 @@ public class GameStage extends Application{
         twoHundred.setFont(Font.font("Cambria", 20));
 
         root.getChildren().add(backgroundView);
-        Image down = new Image("bar.png");
+        Image down = new Image("/res/bar.png");
         ImageView barView = new ImageView();
         barView.setImage(down);
         StackPane drag = new StackPane();
@@ -138,7 +141,6 @@ public class GameStage extends Application{
         initiateStage = primaryStage;
         Controller controller = new Controller(1,player,enermy);
         controller.initialize();
-
     }
 
     public Stage getInitiateStage() {

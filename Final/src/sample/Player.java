@@ -47,6 +47,7 @@ public class Player {
 
     public void addPea(Pea pea){
         listPeas.add(pea);
+
     }
 
     public void removePlants(Plant plant){

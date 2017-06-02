@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the behavior of Sunflower
  */
-public class Sunflower implements Plant {
+public class Sunflower extends Sprite implements Plant {
     private int price = 100;
     private int[] position = new int[2];
     private int health = 500;
@@ -20,17 +20,30 @@ public class Sunflower implements Plant {
     private Group root = new Group();
     private Image plant;
     private ImageView plantView;
+    private double osizeX;
+    private double osizeY;
+    private double sizeX;
+    private double sizeY;
+    private boolean shrink = false;
+    private Player player;
 
 
-    public Sunflower(int row, int column, Group root){
+
+    public Sunflower(int row, int column, Group root, Player player){
+        this.player = player;
         this.position[0] = row;
         this.position[1] = column;
-        this.plant = new Image("potatoMine.png");
+        this.plant = new Image("/res/sunflower.png");
         this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
+        this.root = root;
         root.getChildren().add(s);
         s.setTranslateY((int) (135+(row-1)*110+55)-40);
         s.setTranslateX((int) (60+(column-1)*80+40)-40);
+        this.osizeX = 90;
+        this.osizeY = 90;
+        this.sizeX = 90;
+        this.sizeY = 90;
     }
 
     public void removeImage(){
@@ -78,5 +91,36 @@ public class Sunflower implements Plant {
     public void setPrice(int price){
         this.price = price;
     }
-    public void step(){}
+
+    public void setSize(double width, double height) {
+        super.setSize(width, height);
+        this.plantView.setFitWidth(width);
+        this.plantView.setFitHeight(height);
+    }
+
+    public void step(){
+        super.step();
+
+        if (this.sizeX > (1.1 * osizeX) || this.sizeY > (1.1 * osizeY)){
+            this.shrink = true;
+        } else if (this.sizeX < (0.8 * osizeX) || this.sizeY < (0.8 * osizeY)) {
+            this.shrink = false;
+        }
+
+        if (shrink) {
+            this.setSize(1 * this.sizeX - 0.1, this.sizeY - 0.1);
+
+            this.sizeX = this.sizeX - 0.1;
+            this.sizeY = this.sizeY - 0.1;
+        } else {
+            this.setSize(1 * this.sizeX + 0.1, this.sizeY + 0.1);
+            this.sizeX = this.sizeX + 0.1;
+            this.sizeY = this.sizeY + 0.1;
+        }
+    }
+
+    @Override
+    public void makeSound() {
+
+    }
 }
