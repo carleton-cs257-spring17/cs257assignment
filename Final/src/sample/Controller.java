@@ -67,34 +67,21 @@ public class Controller implements EventHandler<KeyEvent> {
      */
     private void updateAnimation() {
 
-//        ArrayList<Plant> listOfPlants = checkPlants();
-//        ArrayList<Zombie> listOfZombies = checkZombies();
-//        runFight(listOfPlants, listOfZombies);
-//        listOfPlants = checkPlants();
-//        listOfZombies = checkZombies();
-//
-//        for (Plant plant : listOfPlants){
-//            //System.out.println("here?????");
-//            plant.step();
-//        }
-//
-//        for (Zombie zombie : listOfZombies){
-//            zombie.step();
-//        }
-//        ArrayList<Plant> listOfPlants = checkPlants();
-//        ArrayList<Zombie> listOfZombies = checkZombies();
-//        runFight(listOfPlants, listOfZombies);
-//        listOfPlants = checkPlants();
-//        listOfZombies = checkZombies();
-//
-//        for (Plant plant : listOfPlants){
-//            //System.out.println("here?????");
-//            plant.step();
-//        }
-//
-//        for (Zombie zombie : listOfZombies){
-//            zombie.step();
-//        }
+        ArrayList<Plant> listOfPlants = checkPlants();
+        ArrayList<Zombie> listOfZombies = checkZombies();
+       // System.out.println(listOfPlants.size());
+        runFight(listOfPlants, listOfZombies);
+        listOfPlants = checkPlants();
+        listOfZombies = checkZombies();
+
+        for (Plant plant : listOfPlants){
+            //System.out.println("here?????");
+            plant.step();
+        }
+
+        for (Zombie zombie : listOfZombies){
+            zombie.step();
+        }
 
     }
 
@@ -109,41 +96,67 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     private void runFight(ArrayList<Plant> plants, ArrayList<Zombie> zombies){
-//        for (Plant plant : plants){
-//            for (Zombie zombie: zombies){
-//                int[] plantPosition = plant.getPosition();
-//                int plantY = plantPosition[2];
-//                int[] zombiePosition = zombie.getPosition();
-//                int zombieY = zombiePosition[1];
-//
-//                int plantX = plantPosition[2];
-//                int zombieX = zombiePosition[0];
+        ArrayList<Integer> dieZombie = new ArrayList<Integer>();
+        ArrayList<Integer> diePlant = new ArrayList<Integer>();
+        //System.out.println("here");
+        for (Plant plant : plants){
+            boolean zombieDie = false;
+            for (Zombie zombie: zombies){
+                int plantRow = plant.getRow();
+                int plantColumn = plant.getColumn();
+                int zombieRow = zombie.getRow();
+                int zombieColumn = zombie.getColumn();
+//                System.out.println("zombierow: "+zombieRow);
+//                System.out.println("zombiecolumn: "+zombieColumn);
+//                System.out.println("plantrow: "+plantRow);
+//                System.out.println("plantcolumn: "+plantColumn);
 
-//                if (plantY == zombieY && plantX != zombieX ){
-////                    if plant is Peashooer{
+                if (plantRow == zombieRow && plantColumn == zombieColumn  ){
+                    int zombieHealth = zombie.getHealth();
+                    int plantPower = plant.getPower();
+                    zombie.setHealth(zombieHealth - plantPower);
+//                    System.out.println("zombiehealth"+zombie.getHealth());
+//                    System.out.println(plant.getPower());
+                    if (zombie.getHealth() <= 0){
+                        enermy.removeZombie(zombie);
+                        zombie.removeImage();
+                        int index = zombies.indexOf(zombie);
+                        dieZombie.add(index);
+                    }
+//                } else if (plantColumn == zombieColumn && plantRow == zombieRow) {
+//                    System.out.println("here!!");
+//
+//                    //System.out.println("here!!!!!!");
+////                    if plant is Peashooter{
 ////                        initialize a pea and add it into listPea
 ////                        set the position of Pea as the position of this peashooter
 ////                        pea.step();
 ////                        if pea position == zombie position{
-////                            int zombieHealth = zombie.getHealth();
-////                            int plantPower = plant.getPower();
-////                            zombie.setHealth(zombieHealth - plantPower);
-////                            if (zombie.getHealth() <= 0){
-////                                enermy.removeZombie(zombie);
-////                            }
-////                        }
+//                    if (zombies.contains(zombie) && plants.contains(plant)){
+//                        int plantHealth = plant.getHealth();
+//                        int zombiePower = zombie.getPower();
+//                        plant.setHealth(plantHealth-zombiePower);
+//                        if (plant.getHealth() <= 0){
+//                            System.out.println("plant is dying");
+//                            player.removePlants(plant);
+//                            plant.removeImage();
+//                        }
 //                    }
-//
-//                } else if (plantY == zombieY && plantX == zombieX ){
-//                    int plantHealth = plant.getHealth();
-//                    int zombiePower = zombie.getPower();
-//                    plant.setHealth(plantHealth-zombiePower);
-//                    if (plant.getHealth() <= 0){
-//                        player.removePlants(plant);
+//                    if (zombies.contains(zombie) && plants.contains(plant)) {
+//                        int zombieHealth = zombie.getHealth();
+//                        int plantPower = plant.getPower();
+//                        zombie.setHealth(zombieHealth - plantPower);
+//                        //                    System.out.println("zombiehealth"+zombie.getHealth());
+//                        //                    System.out.println(plant.getPower());
+//                        if (zombie.getHealth() <= 0) {
+//                            enermy.removeZombie(zombie);
+//                            zombie.removeImage();
+//                        }
 //                    }
-//                }
-//            }
-//        }
+
+                }
+            }
+        }
     }
 
     /**

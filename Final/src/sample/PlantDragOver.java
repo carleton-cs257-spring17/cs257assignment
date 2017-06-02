@@ -17,8 +17,8 @@ public class PlantDragOver implements EventHandler<DragEvent> {
 
     @Override
     public void handle(DragEvent event) {
-        System.out.println("x: "+event.getX());
-        System.out.println("y: "+event.getY());
+//        System.out.println("x: "+event.getX());
+//        System.out.println("y: "+event.getY());
         event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
         event.consume();
 

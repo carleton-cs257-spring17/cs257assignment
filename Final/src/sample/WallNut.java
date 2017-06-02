@@ -10,6 +10,8 @@ import javafx.scene.layout.StackPane;
  * Class that specifies the character of Wallnut
  */
 public class WallNut extends Sprite implements Plant {
+    private int row;
+    private int column;
     private int price = 100;
     private int[] position = new int[2];
     private int health = 500;
@@ -21,24 +23,30 @@ public class WallNut extends Sprite implements Plant {
 
 
     public WallNut(int row, int column, Group root){
-        this.position[0] = row;
-        this.position[1] = column;
-        this.plant = new Image("potatoMine.png");
+        this.row = row;
+        this.column = column;
+        this.plant = new Image("wallNut.png");
         this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
         root.getChildren().add(s);
         s.setTranslateY((int) (135+(row-1)*110+55)-40);
         s.setTranslateX((int) (60+(column-1)*80+40)-40);
     }
+    public int getRow(){
+        return this.row;
+    }
+
+    public int getColumn(){
+        return this.column;
+    }
 
     public void removeImage(){
         this.s.getChildren().remove(this.plantView);
         this.root.getChildren().remove(this.s);
     }
-    /** Set the position of Wallnut given coordinates*/
-    public void setPosition(int x, int y){
-        position[0] = x;
-        position[1] = y;
+    public void setPosition(int row, int column){
+        this.row = row;
+        this.column = column;
     }
 
     /** Get the position of Wallnut*/

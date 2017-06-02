@@ -81,6 +81,7 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                 }
             }
         }
+        //System.out.println(player.getPlants().size());
     }
 
 }

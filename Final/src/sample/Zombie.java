@@ -12,10 +12,11 @@ public interface Zombie {
     /**
      * get the position of the zombie
      */
-    public int[] getPosition();
-    /**
-     * get the health value of the zombie
-     */
+
+    public int getRow();
+
+    public int getColumn();
+
     public int getHealth();
     /**
      * set the health value of the zombie
@@ -39,6 +40,10 @@ public interface Zombie {
     public void setSpeed(int speed);
 
     public void step();
+
+    public void removeImage();
+
+
 
 
 }

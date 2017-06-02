@@ -8,7 +8,8 @@ import javafx.scene.image.ImageView;
  * Class that specifies the character of potato mine.
  */
 public class PotatoMine implements Plant{
-
+    private int row;
+    private int column;
     private int price = 100;
     private int[] position = new int[2];
     private int health = 500;
@@ -38,6 +39,14 @@ public class PotatoMine implements Plant{
     public void setPosition(int x, int y){
         position[0] = x;
         position[1] = y;
+    }
+
+    public int getRow(){
+        return this.row;
+    }
+
+    public int getColumn(){
+        return this.column;
     }
     /** Get the position of Wallnut*/
     public int[] getPosition(){

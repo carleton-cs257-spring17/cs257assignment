@@ -14,7 +14,6 @@ public interface Plant{
     /**
      * return the position of the plant
      */
-    public int[] getPosition();
     /**
      * return the health of the plant
      */
@@ -41,4 +40,10 @@ public interface Plant{
     public void setPrice(int price);
 
     public void step();
+
+    public void removeImage();
+
+    public int getRow();
+
+    public int getColumn();
 }

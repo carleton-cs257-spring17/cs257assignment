@@ -12,6 +12,8 @@ import java.util.ArrayList;
  * Class that specifies the behavior of Sunflower
  */
 public class Sunflower implements Plant {
+    private int row;
+    private int column;
     private int price = 100;
     private int[] position = new int[2];
     private int health = 500;
@@ -25,7 +27,7 @@ public class Sunflower implements Plant {
     public Sunflower(int row, int column, Group root){
         this.position[0] = row;
         this.position[1] = column;
-        this.plant = new Image("potatoMine.png");
+        this.plant = new Image("sunflower.png");
         this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
         root.getChildren().add(s);
@@ -38,10 +40,18 @@ public class Sunflower implements Plant {
         this.root.getChildren().remove(this.s);
     }
 
+    public int getRow(){
+        return this.row;
+    }
+
+    public int getColumn(){
+        return this.column;
+    }
+
     /** Set the position of Sunflower given coordinates*/
-    public void setPosition(int x, int y){
-        position[0] = x;
-        position[1] = y;
+    public void setPosition(int row, int column){
+        this.row = row;
+        this.column = column;
     }
 
      /** Get the position of Sunflower*/
