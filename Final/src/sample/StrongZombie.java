@@ -13,6 +13,7 @@ public class StrongZombie implements Zombie{
     private int price = 100;
     private int row;
     private int column;
+    private double x_position;
     private int[] position = new int[2];
     private int health = 500;
     private int power = 1;
@@ -26,9 +27,9 @@ public class StrongZombie implements Zombie{
     private double ispeed = -0.02;
 
 
-    public StrongZombie(int row, int column, Group root){
+    public StrongZombie(int row, double column, Group root){
         this.row = row;
-        this.column = column;
+        this.x_position = column;
         this.zombie = new Image("/res/strongZombie.png");
         this.zombieView = new  ImageView(zombie);
         s.getChildren().add(zombieView);
@@ -100,7 +101,7 @@ public class StrongZombie implements Zombie{
 
     // Set the speed value of Zombie
     public void setSpeed(double speed){
-        System.out.println("SET SPEED");
+        System.out.println("SET SPEED - STRONG" + speed);
         this.speed = speed;
 
     }

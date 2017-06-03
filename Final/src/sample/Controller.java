@@ -4,6 +4,7 @@ import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 import sun.security.provider.Sun;
@@ -26,6 +27,7 @@ public class Controller implements EventHandler<KeyEvent> {
     private int difficulty;
     private Player player;
     private Enermy enermy;
+    private boolean win = false;
 
     private Timer timer;
 
@@ -41,6 +43,10 @@ public class Controller implements EventHandler<KeyEvent> {
     public void initialize() {
         this.startTimer();
 
+    }
+
+    public boolean getWin(){
+        return win;
     }
 
     /**
@@ -126,13 +132,12 @@ public class Controller implements EventHandler<KeyEvent> {
         ArrayList<Integer> diePlant = new ArrayList<Integer>();
 
 
-        for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
-
-            Plant plant = iterator.next();
+        for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
+            Zombie zombie = iterator2.next();
             //System.out.println("bullet"+this.player.getPeas().size());
 
-            for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
-                Zombie zombie = iterator2.next();
+            for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
+                Plant plant = iterator.next();
 
                 int plantRow = plant.getRow();
                 int plantColumn = plant.getColumn();
@@ -205,26 +210,31 @@ public class Controller implements EventHandler<KeyEvent> {
                     plant.setHealth(plantHealth-zombiePower);
                     if (plant.getHealth() <= 0) {
                         System.out.println("plant is dying");
-//                        iterator.remove();
+                        iterator.remove();
+                        int count = 0;
+
+                        zombie.setSpeed(zombie.getISpeed());
+                        System.out.println("ZERO SPEED ZOMBIE COUNT: " + count);
+
                         player.removePlants(plant);
                         plant.removeImage();
                         if (plant.getName().equals("sunflower")){
                             plant.removeStar();
                         }
-                        zombie.setSpeed(zombie.getISpeed());
-                    }
-                    int zombieHealth = zombie.getHealth();
-                    int plantPower = plant.getPower();
-                    zombie.setHealth(zombieHealth - plantPower);
-                    if (zombie.getHealth() <= 0) {
-//                        iterator2.remove();
-                        enermy.removeZombie(zombie);
-                        zombie.removeImage();
                     }
                 }
 
             }
 
+        }
+
+        if (enermy.getZombies().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Plants vs Zombies");
+            alert.setContentText("YOU WIN!");
+
+            alert.showAndWait();
         }
     }
 

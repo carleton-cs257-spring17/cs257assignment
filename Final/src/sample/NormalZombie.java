@@ -10,8 +10,9 @@ import javafx.scene.layout.StackPane;
  * Class that specifies the behavior of normal Zombie
  */
 public class NormalZombie implements Zombie {
-    int row;
-    int column;
+    private int row;
+    private int column;
+    double x_position;
     private int price = 100;
     private int[] position = new int[2];
     private int health = 500;
@@ -26,9 +27,9 @@ public class NormalZombie implements Zombie {
     private double ispeed = -0.01;
 
 
-    public NormalZombie(int row, int column, Group root){
+    public NormalZombie(int row, double column, Group root){
         this.row = row;
-        this.column = column;
+        this.x_position = column;
         this.zombie = new Image("/res/normalZombie.png");
         this.zombieView = new  ImageView(zombie);
         s.getChildren().add(zombieView);
@@ -104,7 +105,7 @@ public class NormalZombie implements Zombie {
 
     // Set the speed value of Zombie
     public void setSpeed(double speed){
-        System.out.println("SET SPEED");
+        System.out.println("SET SPEED - NORMAL" + speed);
         this.speed = speed;
 
     }

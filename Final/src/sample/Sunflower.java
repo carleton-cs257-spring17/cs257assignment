@@ -19,7 +19,7 @@ public class Sunflower extends Sprite implements Plant {
     private int column;
     private int price = 100;
     private int[] position = new int[2];
-    private int health = 500;
+    private int health = 200;
     private int power = 0;
     private StackPane s = new StackPane();
     private Group root = new Group();

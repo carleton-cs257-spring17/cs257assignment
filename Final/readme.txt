@@ -3,7 +3,6 @@ Contributor: Yanhan Lyu, Lucy Wu.
 Brief Description:
 We are going to implement a game similar with Plant vs. Zombie. The player can place different types of plants, each with their own unique offensive or defensive capabilities, around a house, in order to stop a horde of zombies from reaching the house of the residents. We will at least will include Sunflower, Peashooter, Wall-nut and Potato Mine, which are the main characters in the day-time scene. The playing field is divided into 5 horizontal lanes. A zombie will only move towards the player's house along one lane. Planting costs "sun", which can be gathered by planting Sunflowers. The plants can only attack or defend against zombies in the lane they are planted in. 
 
-
 Why MVC:
 We will be using the MVC design pattern to build the general structure of the program. 
 Our Model contains all game state data. We will construct a class to hold the current game information, including the list of plants that have been planted, the list of zombies that appear in the current scene, the progress of the game. 

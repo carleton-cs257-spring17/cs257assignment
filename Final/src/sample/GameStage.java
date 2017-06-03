@@ -4,6 +4,7 @@ import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -139,6 +140,7 @@ public class GameStage extends Application{
         initiateStage = primaryStage;
         Controller controller = new Controller(1,player,enermy);
         controller.initialize();
+
     }
 
     public Stage getInitiateStage() {

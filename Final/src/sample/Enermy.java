@@ -18,20 +18,34 @@ public class Enermy{
 
     public Enermy(Group root){
         this.root = root;
-        zombies = generateZombies(100);
+        zombies = generateZombies(3);
     }
 
     public ArrayList<Zombie> generateZombies(int density){
+        int norm = (int) Math.round(density * 0.6);
+        int strong = density - norm;
+
         ArrayList<Zombie> zombies = new ArrayList<Zombie>();
         for (int i = 0; i < 1; i++){
-            NormalZombie normalZombie1 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
-            NormalZombie normalZombie2 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
-            NormalZombie normalZombie3 = new NormalZombie(rand.nextInt(5)  + 1,10, root);
-            StrongZombie strongZombie1 = new StrongZombie(rand.nextInt(5)  + 1,10, root);
-            zombies.add(normalZombie1);
-            zombies.add(normalZombie2);
-            zombies.add(normalZombie3);
-            zombies.add(strongZombie1);
+
+            for (int j = 0; j < norm; j++){
+                NormalZombie normalZombie =  new NormalZombie(rand.nextInt(5)  + 1, 10 + rand.nextDouble(), root);
+                zombies.add(normalZombie);
+            }
+
+            for (int k = 0; k < strong; k++){
+                StrongZombie strongZombie = new StrongZombie(rand.nextInt(5)  + 1,10 + rand.nextDouble(), root);
+                zombies.add(strongZombie);
+            }
+
+//            NormalZombie normalZombie1 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
+//            NormalZombie normalZombie2 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
+//            NormalZombie normalZombie3 = new NormalZombie(rand.nextInt(5)  + 1,10, root);
+//            StrongZombie strongZombie1 = new StrongZombie(rand.nextInt(5)  + 1,10, root);
+//            zombies.add(normalZombie1);
+//            zombies.add(normalZombie2);
+//            zombies.add(normalZombie3);
+//            zombies.add(strongZombie1);
         }
 
 
