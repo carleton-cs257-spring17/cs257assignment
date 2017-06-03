@@ -14,7 +14,7 @@ public class WallNut extends Sprite implements Plant {
     private int column;
     private int price = 100;
     private int[] position = new int[2];
-    private int health = 500;
+    private int health = 5000;
     private int power = 0;
     private StackPane s = new StackPane();
     private Group root = new Group();
@@ -48,6 +48,11 @@ public class WallNut extends Sprite implements Plant {
 
     public int getColumn(){
         return this.column;
+    }
+
+    @Override
+    public String getName() {
+        return "wallnut";
     }
 
     public void removeImage(){

@@ -134,4 +134,9 @@ public class Sunflower extends Sprite implements Plant {
     public void makeSound() {
 
     }
+
+    public String getName(){
+        return "sunflower";
+    }
+
 }

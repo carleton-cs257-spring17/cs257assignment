@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Enermy{
     private int density;
-    private int speed;
+    private double speed;
     private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
     Group root = new Group();
     Random rand = new Random();
@@ -24,12 +24,14 @@ public class Enermy{
     public ArrayList<Zombie> generateZombies(int density){
         ArrayList<Zombie> zombies = new ArrayList<Zombie>();
         for (int i = 0; i < 1; i++){
-            //NormalZombie normalZombie1 = new NormalZombie(rand.nextInt(5)  + 6, rand.nextInt(5)  + 6, root);
-            NormalZombie normalZombie1 = new NormalZombie(2, 2, root);
-            //NormalZombie normalZombie1 = new NormalZombie(rand.nextInt(5)  + 1,rand.nextInt(100)  + 9, root);
-            //StrongZombie strongZombie1 = new StrongZombie(rand.nextInt(5)  + 1,rand.nextInt(100)  + 9, root);
+            NormalZombie normalZombie1 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
+            NormalZombie normalZombie2 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
+            NormalZombie normalZombie3 = new NormalZombie(rand.nextInt(5)  + 1,10, root);
+            StrongZombie strongZombie1 = new StrongZombie(rand.nextInt(5)  + 1,10, root);
             zombies.add(normalZombie1);
-            //zombies.add(strongZombie1);
+            zombies.add(normalZombie2);
+            zombies.add(normalZombie3);
+            zombies.add(strongZombie1);
         }
 
 
@@ -51,7 +53,7 @@ public class Enermy{
     /**
      * get the speed of the group of zombies
      */
-    public int getSpeed(){
+    public double getSpeed(){
         return speed;
     }
     /**

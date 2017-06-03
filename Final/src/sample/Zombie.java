@@ -5,18 +5,25 @@ package sample;
  * Interface that lists the general characters and behaviors of a Zombie
  */
 public interface Zombie {
+
+    public void setImagePosition(double x, double y);
+
+    public double getImagePositionX();
+
     /**
      * set the position of the zombie
      */
     public void setPosition(int x, int y);
+
     /**
      * get the position of the zombie
      */
-
     public int getRow();
-
     public int getColumn();
 
+    /**
+     * get the health value of the zombie
+     */
     public int getHealth();
     /**
      * set the health value of the zombie
@@ -33,11 +40,16 @@ public interface Zombie {
     /**
      * get the speed value of the zombie
      */
-    public int getSpeed();
+    public double getSpeed();
+
+    /**
+     * get the real speed value of the zombie
+     */
+    public double getISpeed();
     /**
      * set the speed value of the zombie
      */
-    public void setSpeed(int speed);
+    public void setSpeed(double speed);
 
     public void step();
 

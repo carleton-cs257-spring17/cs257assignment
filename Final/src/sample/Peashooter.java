@@ -17,7 +17,7 @@ public class Peashooter extends Sprite implements Plant{
     private int row;
     private int column;
     private int health = 500;
-    private int power = 1;
+    private int power = 100;
     private StackPane s = new StackPane();
     private  Group root = new Group();
     private Image plant;
@@ -28,7 +28,7 @@ public class Peashooter extends Sprite implements Plant{
     private double sizeY;
     private boolean shrink = false;
     private Player player;
-    private int shoot_count = 0;
+    private int shoot_count = 900;
 
 
     public Peashooter(int row, int column, Group root, Player player){
@@ -71,6 +71,11 @@ public class Peashooter extends Sprite implements Plant{
         return this.column;
     }
 
+    @Override
+    public String getName() {
+        return "peashooter";
+    }
+
     public int getHealth(){
         return health;
     }
@@ -99,7 +104,7 @@ public class Peashooter extends Sprite implements Plant{
             this.shrink = false;
         }
 
-        if (shoot_count == 500){
+        if (shoot_count == 1000){
             Pea pea = new Pea (this.row, this.column, this.root,this.player);
             this.player.addPea(pea);
             //System.out.println("NEW PEA ADDED");

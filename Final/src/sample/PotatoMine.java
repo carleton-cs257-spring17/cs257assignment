@@ -51,6 +51,12 @@ public class PotatoMine extends Sprite implements Plant{
     public int getColumn(){
         return this.column;
     }
+
+    @Override
+    public String getName() {
+        return "potatomine";
+    }
+
     /** Get the position of Wallnut*/
     public int[] getPosition(){
         return position;

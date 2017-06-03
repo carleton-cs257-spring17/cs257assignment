@@ -46,4 +46,6 @@ public interface Plant{
     public int getRow();
 
     public int getColumn();
+
+    public String getName();
 }

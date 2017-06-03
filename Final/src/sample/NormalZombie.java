@@ -20,6 +20,10 @@ public class NormalZombie implements Zombie {
     private Group root = new Group();
     private Image zombie;
     private ImageView zombieView;
+    private double imageY;
+    private double imageX;
+    private double speed = -0.01;
+    private double ispeed = -0.01;
 
 
     public NormalZombie(int row, int column, Group root){
@@ -31,11 +35,24 @@ public class NormalZombie implements Zombie {
         root.getChildren().add(s);
         s.setTranslateY((int) (135+(row-1)*110+55)-40+1);
         s.setTranslateX((int) (60+(column-1)*80+40)-40);
+        this.imageX = 60+(column-1)*80+40+40;
+        this.imageY = 135+(row-1)*110+55-40;
     }
 
     public void removeImage(){
         this.s.getChildren().remove(this.zombieView);
         this.root.getChildren().remove(this.s);
+    }
+
+    @Override
+    public void setImagePosition(double x, double y){
+        this.imageX = x;
+        this.imageY = y;
+    }
+
+    @Override
+    public double getImagePositionX(){
+        return this.imageX;
     }
 
     public void setPosition(int row, int column){
@@ -77,17 +94,32 @@ public class NormalZombie implements Zombie {
     }
 
     // Get the speed value of Zombie
-    public int getSpeed(){
-        return 1;//speed;
+    public double getSpeed(){
+        return speed;
+    }
+
+    public double getISpeed(){
+        return ispeed;
     }
 
     // Set the speed value of Zombie
-    public void setSpeed(int speed){
-//        this.speed = speed;
+    public void setSpeed(double speed){
+        System.out.println("SET SPEED");
+        this.speed = speed;
+
+    }
+
+    // Set the speed value of Zombie
+    public void setISpeed(double speed){
+        System.out.println("SET ISPEED");
+        this.ispeed = speed;
 
     }
 
     public void step(){
-
+        double imageX = getImagePositionX()+this.speed;
+        setImagePosition(imageX, imageY);
+        s.setTranslateY(this.imageY);
+        s.setTranslateX(imageX);
     }
 }

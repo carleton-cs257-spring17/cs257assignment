@@ -12,7 +12,7 @@ import javafx.scene.media.AudioClip;
 public class Pea extends Sprite{
     private double velocityRow = 0;
     private double velocityColumn = 1;
-    private double velocityX = 10;
+    private double velocityX = 0.2;
     private int price = 100;
     private double row;
     private double column;
@@ -20,13 +20,7 @@ public class Pea extends Sprite{
     private int power = 1;
     private Image plant;
     private  ImageView plantView;
-    private double osizeX;
-    private double osizeY;
-    private double sizeX;
-    private double sizeY;
-    private boolean shrink = false;
     private Player player;
-    private int shoot_count = 0;
     private AudioClip audioClip;
     private  Group root = new Group();
     private StackPane s = new StackPane();
@@ -44,10 +38,6 @@ public class Pea extends Sprite{
         root.getChildren().add(s);
         s.setTranslateY((int) (135+(row-1)*110+55)-40);
         s.setTranslateX((int) (60+(column-1)*80+40)+40);
-        this.osizeX = 90;
-        this.osizeY = 90;
-        this.sizeX = 90;
-        this.sizeY = 90;
         this.audioClip = new AudioClip(getClass().getResource("/res/shoot.wav").toString());
         this.imageX = 60+(column-1)*80+40+40;
         this.imageY = 135+(row-1)*110+55-40;
@@ -66,7 +56,10 @@ public class Pea extends Sprite{
         this.audioClip.play();
     }
 
-
+    public void removeImage(){
+        this.s.getChildren().remove(this.plantView);
+        this.root.getChildren().remove(this.s);
+    }
 
     public int getRow(){
 

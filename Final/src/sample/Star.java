@@ -65,6 +65,11 @@ public class Star extends Sprite implements Plant{
         return 0;
     }
 
+    @Override
+    public String getName() {
+        return "star";
+    }
+
 
     public void setPosition(int row, int column){
         this.row = row;
