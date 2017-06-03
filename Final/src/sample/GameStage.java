@@ -128,6 +128,11 @@ public class GameStage extends Application{
         primaryStage.setScene( theScene );
         primaryStage.setResizable(false);
         primaryStage.show();
+        Label sun1 = new Label(Integer.toString(200));
+        sun1.setFont(new Font(20));
+        this.root.getChildren().add(sun1);
+        sun1.setTranslateX(90);
+        sun1.setTranslateY(110);
         //buy stuff???????? solved from google
         s1.setOnDragDetected(new PlantDrag(s1, peashooter));
         s2.setOnDragDetected(new PlantDrag(s2, sunflower));
@@ -138,7 +143,8 @@ public class GameStage extends Application{
         Player player = new Player();
         Enermy enermy = new Enermy(root);
         theScene.setOnDragDropped(new PlantDragDrop(root, player));
-        theScene.setOnMouseClicked(new SunController(player));
+        theScene.setOnMouseClicked(new SunController(player,root,sun1));
+        //root.getChildren().set(0,sun1);
         initiateStage = primaryStage;
         Controller controller = new Controller(1,player,enermy);
         controller.initialize();

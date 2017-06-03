@@ -7,6 +7,8 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.event.EventHandler;
 
+import java.util.Stack;
+
 
 /**
  * Created by yanhanlyu on 29/05/2017.
@@ -29,10 +31,18 @@ public class Sunflower extends Sprite implements Plant {
     private double sizeY;
     private boolean shrink = false;
     private Player player;
+    private int shoot_count=0;
+    private String name = "";
+    private Image star;
+    private ImageView starView;
+    StackPane s2 = new StackPane();
 
 
 
     public Sunflower(int row, int column, Group root, Player player){
+        this.star= new Image("/res/star.png");
+        this.starView = new ImageView(star);
+        this.s2.getChildren().add(starView);
         this.player = player;
         this.row = row;
         this.column = column;
@@ -52,6 +62,11 @@ public class Sunflower extends Sprite implements Plant {
     public void removeImage(){
         this.s.getChildren().remove(this.plantView);
         this.root.getChildren().remove(this.s);
+    }
+
+    public void removeStar(){
+        this.s2.getChildren().remove(this.starView);
+        this.root.getChildren().remove(this.s2);
     }
 
     public int getRow(){
@@ -128,6 +143,22 @@ public class Sunflower extends Sprite implements Plant {
             this.sizeX = this.sizeX + 0.1;
             this.sizeY = this.sizeY + 0.1;
         }
+
+        if (shoot_count == 100){
+            StackPane s2 = new StackPane();
+            s2.getChildren().add(this.starView);
+            s2.setTranslateY((int) (135+(row-1)*110+55)-40+1);
+            s2.setTranslateX((int) (60+(column-1)*80+40)-40-20);
+            //s2.getChildren().add(starView);
+            root.getChildren().add(s2);
+            this.s2 = s2;
+            shoot_count = 0;
+
+        } else {
+            //removeStar();
+            //System.out.println("SHOOT COUNT" + shoot_count);
+            shoot_count ++;
+        }
     }
 
     @Override
@@ -138,5 +169,4 @@ public class Sunflower extends Sprite implements Plant {
     public String getName(){
         return "sunflower";
     }
-
 }

@@ -84,7 +84,6 @@ public class Controller implements EventHandler<KeyEvent> {
         }
 
         for (Plant plant : listOfPlants){
-            //System.out.println("here?????");
             plant.step();
         }
 
@@ -129,7 +128,7 @@ public class Controller implements EventHandler<KeyEvent> {
         for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
 
             Plant plant = iterator.next();
-            System.out.println("bullet"+this.player.getPeas().size());
+            //System.out.println("bullet"+this.player.getPeas().size());
 
             for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
                 Zombie zombie = iterator2.next();

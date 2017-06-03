@@ -41,8 +41,6 @@ public class Pea extends Sprite{
         this.audioClip = new AudioClip(getClass().getResource("/res/shoot.wav").toString());
         this.imageX = 60+(column-1)*80+40+40;
         this.imageY = 135+(row-1)*110+55-40;
-
-
     }
 
 
@@ -98,6 +96,4 @@ public class Pea extends Sprite{
     public double getImagePositionX(){
         return this.imageX;
     }
-
-
 }

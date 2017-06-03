@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Class that sets player's status of sun and plants;
  */
 public class Player {
-    private int sun;
+    private int sun = 200;
     private ArrayList<Plant> listPlants = new ArrayList<Plant>();
     private ArrayList<Pea> listPeas = new ArrayList<Pea>();
 

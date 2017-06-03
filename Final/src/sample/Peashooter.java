@@ -71,11 +71,6 @@ public class Peashooter extends Sprite implements Plant{
         return this.column;
     }
 
-    @Override
-    public String getName() {
-        return "peashooter";
-    }
-
     public int getHealth(){
         return health;
     }
@@ -124,9 +119,17 @@ public class Peashooter extends Sprite implements Plant{
         }
     }
 
+    public void removeStar(){
+
+    }
+
     @Override
     public void makeSound() {
 
+    }
+
+    public String getName(){
+        return "peashooter";
     }
 }
 

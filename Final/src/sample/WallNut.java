@@ -50,10 +50,6 @@ public class WallNut extends Sprite implements Plant {
         return this.column;
     }
 
-    @Override
-    public String getName() {
-        return "wallnut";
-    }
 
     public void removeImage(){
         this.s.getChildren().remove(this.plantView);
@@ -127,5 +123,13 @@ public class WallNut extends Sprite implements Plant {
     @Override
     public void makeSound() {
 
+    }
+
+    public void removeStar(){
+
+    }
+
+    public String getName(){
+        return "wallnut";
     }
 }

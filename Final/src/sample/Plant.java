@@ -48,4 +48,6 @@ public interface Plant{
     public int getColumn();
 
     public String getName();
+
+    public void removeStar();
 }

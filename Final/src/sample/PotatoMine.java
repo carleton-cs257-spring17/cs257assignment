@@ -52,11 +52,6 @@ public class PotatoMine extends Sprite implements Plant{
         return this.column;
     }
 
-    @Override
-    public String getName() {
-        return "potatomine";
-    }
-
     /** Get the position of Wallnut*/
     public int[] getPosition(){
         return position;
@@ -97,6 +92,14 @@ public class PotatoMine extends Sprite implements Plant{
 
     @Override
     public void makeSound() {
+
+    }
+
+    public String getName(){
+        return "potatoMine";
+    }
+
+    public void removeStar(){
 
     }
 }

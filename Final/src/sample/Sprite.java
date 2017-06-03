@@ -27,6 +27,7 @@ public abstract class Sprite extends Group {
         }
     }
 
+
     public final void setName(String newName) {
         this.name = newName;
     }
