@@ -11,28 +11,48 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Circle;
 
 public class Pea extends Sprite implements Plant{
-    private int velocityX = 1;
-    private int velocityY = 1;
-    private int[] position = new int[2];
+    private double velocityRow = 0;
+    private double velocityColumn = 1;
+    private int price = 100;
+    private double row;
+    private double column;
+    private int health = 500;
+    private int power = 1;
     private Image plant;
     private  ImageView plantView;
+    private double osizeX;
+    private double osizeY;
+    private double sizeX;
+    private double sizeY;
+    private boolean shrink = false;
+    private Player player;
+    private int shoot_count = 0;
     private AudioClip audioClip;
     private  Group root = new Group();
     private StackPane s = new StackPane();
 
-    public Pea(int x, int y, Group root) {
-        this.position[0] = x;
-        this.position[1] = y;
+    public Pea(int row, int column, Group root, Player player) {
+        this.player = player;
+        this.row = row;
+        this.column = column;
         this.plant = new Image("/res/pea.png");
-        this.plantView = new ImageView(plant);
+        this.plantView = new  ImageView(plant);
         s.getChildren().add(plantView);
         this.root = root;
         root.getChildren().add(s);
-//        s.setTranslateX(x);
-//        s.setTranslateY(y);
-        s.setTranslateY((int) (135+(x-1)*110+55)-40);
-        s.setTranslateX((int) (60+(y-1)*80+40)-40 + 90);
+        s.setTranslateY((int) (135+(row-1)*110+55)-40);
+        s.setTranslateX((int) (60+(column-1)*80+40)+40);
+        this.osizeX = 90;
+        this.osizeY = 90;
+        this.sizeX = 90;
+        this.sizeY = 90;
         this.audioClip = new AudioClip(getClass().getResource("/res/shoot.wav").toString());
+    }
+
+
+    public void setPosition(double row, double column){
+        this.row = row;
+        this.column = column;
     }
 
     @Override
@@ -40,20 +60,22 @@ public class Pea extends Sprite implements Plant{
         this.audioClip.play();
     }
 
-    @Override
-    public void setPosition(int x, int y) {
-        this.position[0] = x;
-        this.position[1] = y;
-        s.setTranslateX((int) (60+(y-1)*80+40)-40 + 90);
-        s.setTranslateY((int) (135+(x-1)*110+55)-40);
-//        this.plantView.setX(x);
-//        this.plantView.setY(y);
-        System.out.println("SET POSITION");
-        System.out.println("POSITION:" + this.position[0] + " - " + this.position[1]);
+//    public void setPosition(double row, double column){
+//        this.row = row;
+//        this.column = column;
+//    }
+
+    public int getRow(){
+
+        return (int)this.row;
     }
 
-    public int[] getPosition() {
-        return this.position;
+    public void setPosition(int x, int y){
+
+    }
+
+    public int getColumn(){
+        return (int)this.column;
     }
 
     @Override
@@ -91,7 +113,11 @@ public class Pea extends Sprite implements Plant{
         //System.out.println("velocity x: " + velocityX);
         //System.out.println(this.getPosition());
         //System.out.println("END PEASHOOTER STEP");
-        this.setPosition(this.getPosition()[0] + velocityX, this.getPosition()[1]);
+        this.setPosition(this.getRow(), this.getColumn()+this.velocityColumn);
+//        System.out.println(this.column+velocityColumn);
+//        System.out.println(this.getColumn());
+        s.setTranslateY((int) (135+(this.row-1)*110+55)-40);
+        s.setTranslateX((int) (60+(this.column-1)*80+40)+40);
     }
 
     @Override
@@ -99,29 +125,19 @@ public class Pea extends Sprite implements Plant{
 
     }
 
-    @Override
-    public int getRow() {
-        return 0;
+    public double getVelocityRow() {
+        return velocityRow;
     }
 
-    @Override
-    public int getColumn() {
-        return 0;
+    public void setVelocityColumn(int velocityColumn) {
+        this.velocityColumn = velocityColumn;
     }
 
-    public double getVelocityX() {
-        return velocityX;
+    public double getVelocityColumn() {
+        return velocityColumn;
     }
 
-    public void setVelocityX(int velocityX) {
-        this.velocityX = velocityX;
-    }
-
-    public double getVelocityY() {
-        return velocityY;
-    }
-
-    public void setVelocityY(int velocityY) {
-        this.velocityY = velocityY;
+    public void setVelocityRow(int velocityRow) {
+        this.velocityRow = velocityRow;
     }
 }

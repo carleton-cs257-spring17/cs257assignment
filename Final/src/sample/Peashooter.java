@@ -100,7 +100,7 @@ public class Peashooter extends Sprite implements Plant{
         }
 
         if (shoot_count == 20){
-            Pea pea = new Pea (this.row + 10, this.column, this.root);
+            Pea pea = new Pea (this.row + 10, this.column, this.root,this.player);
             this.player.addPea(pea);
             System.out.println("NEW PEA ADDED");
             shoot_count = 0;

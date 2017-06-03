@@ -66,7 +66,7 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                         Peashooter peashooter = new Peashooter(row, column,root, player);
                         player.addPlants(peashooter);
                         peashooter.setSize(90, 90);
-                        Pea pea = new Pea (row, column, this.root);
+                        Pea pea = new Pea (row, column, this.root,this.player);
                         pea.makeSound();
                         this.player.addPlants(pea);
                         break;
