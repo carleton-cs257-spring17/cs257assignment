@@ -93,4 +93,12 @@ public class PotatoMine extends Sprite implements Plant{
     public void makeSound() {
 
     }
+
+    public String getName(){
+        return "potatoMine";
+    }
+
+    public void removeStar(){
+
+    }
 }

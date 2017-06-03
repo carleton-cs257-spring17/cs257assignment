@@ -12,7 +12,7 @@ import javafx.scene.media.AudioClip;
 public class Pea extends Sprite{
     private double velocityRow = 0;
     private double velocityColumn = 1;
-    private double velocityX = 10;
+    private double velocityX = 0.1;
     private int price = 100;
     private double row;
     private double column;
@@ -51,8 +51,6 @@ public class Pea extends Sprite{
         this.audioClip = new AudioClip(getClass().getResource("/res/shoot.wav").toString());
         this.imageX = 60+(column-1)*80+40+40;
         this.imageY = 135+(row-1)*110+55-40;
-
-
     }
 
 
@@ -105,6 +103,4 @@ public class Pea extends Sprite{
     public double getImagePositionX(){
         return this.imageX;
     }
-
-
 }

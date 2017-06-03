@@ -1,16 +1,27 @@
 package sample;
 
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.Group;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 /**
  * Created by yanhanlyu on 01/06/2017.
  */
 public class SunController implements EventHandler<MouseEvent> {
     Player player;
+    Group root;
+    Label sun;
+    Label sunOriginal;
 
-    public SunController(Player player){
+    public SunController(Player player, Group root, Label sunOriginal) {
+        this.root = root;
         this.player = player;
+        this.sunOriginal = sunOriginal;
+
     }
 
     @Override
@@ -52,22 +63,32 @@ public class SunController implements EventHandler<MouseEvent> {
                 }
             }
         }
-        for (Plant plant: this.player.getPlants()){
-            // check if is sunflower
-            if (row == plant.getRow() && column == plant.getColumn()) {
-                player.setSun(player.getSun() + 50);
-                System.out.println(player.getSun());
+        for (Plant plant : this.player.getPlants()) {
+            if ("sunflower".equals(plant.getName())) {
+                if (row == plant.getRow() && column == plant.getColumn()) {
+                    this.root.getChildren().remove(sunOriginal);
+                    Sunflower s = (Sunflower) plant;
+                    s.removeStar();
+                    //this.root.getChildren().remove(0);
+                    this.root.getChildren().remove(this.sun);
+                    player.setSun(player.getSun() + 50);
+                    Label sun = new Label(Integer.toString(this.player.getSun()));
+                    sun.setFont(new Font(20));
+                    this.sun = sun;
+                    this.root.getChildren().add(this.sun);
+                    sun.setTranslateX(90);
+                    sun.setTranslateY(110);
+                    System.out.println(player.getSun());
+
+                }
+
             }
 
-
         }
-//
-//        System.out.println(row);
-//        System.out.println(column);
-
     }
-
-
 }
+
+
+
 
 

@@ -119,9 +119,17 @@ public class Peashooter extends Sprite implements Plant{
         }
     }
 
+    public void removeStar(){
+
+    }
+
     @Override
     public void makeSound() {
 
+    }
+
+    public String getName(){
+        return "peashooter";
     }
 }
 

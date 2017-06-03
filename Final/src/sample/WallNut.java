@@ -123,4 +123,12 @@ public class WallNut extends Sprite implements Plant {
     public void makeSound() {
 
     }
+
+    public void removeStar(){
+
+    }
+
+    public String getName(){
+        return "wallnut";
+    }
 }
