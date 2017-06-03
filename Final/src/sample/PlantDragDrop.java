@@ -89,10 +89,6 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                             player.addPlants(sunflower);
                             //player.addPlants(star);
                             break;
-                        case "potatoMine":
-                            PotatoMine potatoMine = new PotatoMine(row, column,root);
-                            player.addPlants(potatoMine);
-                            break;
                     }
                 }
             }
