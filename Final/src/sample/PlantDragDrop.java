@@ -61,27 +61,40 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                 }else if (event.getX()<=780) {
                     column = 9;
                 }
-                switch (type) {
-                    case "peashooter":
-                        Peashooter peashooter = new Peashooter(row, column,root, player);
-                        player.addPlants(peashooter);
-                        peashooter.setSize(90, 90);
-                        Pea pea = new Pea (row, column, this.root,this.player);
-                        pea.makeSound();
-                        this.player.addPlants(pea);
-                        break;
-                    case "wallnut":
-                        WallNut wallnut = new WallNut(row, column,root);
-                        player.addPlants(wallnut);
-                        break;
-                    case "sunflower":
-                        Sunflower sunflower = new Sunflower(row, column,root,player);
-                        player.addPlants(sunflower);
-                        break;
-                    case "potatoMine":
-                        PotatoMine potatoMine = new PotatoMine(row, column,root);
-                        player.addPlants(potatoMine);
-                        break;
+
+                boolean add = true;
+
+                for (Plant plant : player.getPlants()) {
+                    if (plant.getRow() == row && plant.getColumn() == column) {
+                        add = false;
+                    }
+                }
+
+                if (add) {
+                    switch (type) {
+                        case "peashooter":
+                            Peashooter peashooter = new Peashooter(row, column,root, player);
+                            player.addPlants(peashooter);
+                            peashooter.setSize(90, 90);
+                            Pea pea = new Pea (row, column, this.root,this.player);
+                            pea.makeSound();
+                            this.player.addPlants(pea);
+                            break;
+                        case "wallnut":
+                            WallNut wallnut = new WallNut(row, column,root);
+                            player.addPlants(wallnut);
+                            break;
+                        case "sunflower":
+                            Sunflower sunflower = new Sunflower(row, column,root,player);
+                            Star star = new Star(row, column, root, player);
+                            player.addPlants(sunflower);
+                            player.addPlants(star);
+                            break;
+                        case "potatoMine":
+                            PotatoMine potatoMine = new PotatoMine(row, column,root);
+                            player.addPlants(potatoMine);
+                            break;
+                    }
                 }
             }
         }
