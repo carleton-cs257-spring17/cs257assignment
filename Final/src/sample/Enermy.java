@@ -25,27 +25,31 @@ public class Enermy{
         int norm = (int) Math.round(density * 0.6);
         int strong = density - norm;
 
-        ArrayList<Zombie> zombies = new ArrayList<Zombie>();
-        for (int i = 0; i < 1; i++){
+//        ArrayList<Zombie> zombies = new ArrayList<Zombie>();
+//        StrongZombie strongZombie1 = new StrongZombie(5,10, root);
+//        StrongZombie norma2 = new StrongZombie(5,11, root);
+//        zombies.add(strongZombie1);
+//        zombies.add(norma2);
+        for (int i = 0; i < 2; i++){
 
-            for (int j = 0; j < norm; j++){
+            for (int j = 0; j < 3; j++){
                 NormalZombie normalZombie =  new NormalZombie(rand.nextInt(5)  + 1, 10 + rand.nextDouble(), root);
                 zombies.add(normalZombie);
             }
 
-            for (int k = 0; k < strong; k++){
+            for (int k = 0; k < 3; k++){
                 StrongZombie strongZombie = new StrongZombie(rand.nextInt(5)  + 1,10 + rand.nextDouble(), root);
                 zombies.add(strongZombie);
             }
 
-//            NormalZombie normalZombie1 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
-//            NormalZombie normalZombie2 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
-//            NormalZombie normalZombie3 = new NormalZombie(rand.nextInt(5)  + 1,10, root);
-//            StrongZombie strongZombie1 = new StrongZombie(rand.nextInt(5)  + 1,10, root);
-//            zombies.add(normalZombie1);
-//            zombies.add(normalZombie2);
-//            zombies.add(normalZombie3);
-//            zombies.add(strongZombie1);
+            NormalZombie normalZombie1 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
+            NormalZombie normalZombie2 = new NormalZombie(rand.nextInt(5)  + 1, 10, root);
+            NormalZombie normalZombie3 = new NormalZombie(rand.nextInt(5)  + 1,10, root);
+            StrongZombie strongZombie1 = new StrongZombie(rand.nextInt(5)  + 1,10, root);
+            zombies.add(normalZombie1);
+            zombies.add(normalZombie2);
+            zombies.add(normalZombie3);
+            zombies.add(strongZombie1);
         }
 
 

@@ -120,10 +120,10 @@ public class GameStage extends Application{
         primaryStage.setResizable(false);
         primaryStage.show();
 
-        Player player = new Player();
-        Enermy enermy = new Enermy(root);
 
-        Label sun1 = new Label(Integer.toString(player.getMoney()));
+        Enermy enermy = new Enermy(root);
+        Label sun1 = new Label(Integer.toString(200));
+        Player player = new Player(root,sun1);
         sun1.setFont(new Font(20));
         this.root.getChildren().add(sun1);
         sun1.setTranslateX(90);
@@ -136,9 +136,8 @@ public class GameStage extends Application{
 
         theScene.setOnDragDropped(new PlantDragDrop(root, player));
         theScene.setOnMouseClicked(new SunController(player,root,sun1));
-        //root.getChildren().set(0,sun1);
         initiateStage = primaryStage;
-        Controller controller = new Controller(1,player,enermy);
+        Controller controller = new Controller(1,player,enermy,initiateStage);
         controller.initialize();
 
     }

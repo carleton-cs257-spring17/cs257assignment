@@ -12,7 +12,7 @@ import javafx.scene.layout.StackPane;
 public class WallNut extends Sprite implements Plant {
     private int row;
     private int column;
-    private int price = 100;
+    private int price = 50;
     private int[] position = new int[2];
     private int health = 500;
     private int power = 0;
@@ -25,7 +25,7 @@ public class WallNut extends Sprite implements Plant {
     private double sizeX;
     private double sizeY;
     private boolean shrink = false;
-
+    private boolean isDie = false;
 
     public WallNut(int row, int column, Group root){
         this.row = row;
@@ -101,7 +101,7 @@ public class WallNut extends Sprite implements Plant {
         this.price = price;
     }
     public void step(){
-        System.out.println("WALNIUT STEP");
+        //System.out.println("WALNIUT STEP");
         super.step();
 
         if (this.sizeX > (1.1 * osizeX) || this.sizeY > (1.1 * osizeY)){
@@ -127,6 +127,10 @@ public class WallNut extends Sprite implements Plant {
 
     public void removeStar(){
 
+    }
+
+    public boolean isDie(){
+        return isDie;
     }
 
     public String getName(){

@@ -16,7 +16,7 @@ public class NormalZombie implements Zombie {
     private int price = 100;
     private int[] position = new int[2];
     private int health = 500;
-    private int power = 2;
+    private int power = 5;
     private StackPane s = new StackPane();
     private Group root = new Group();
     private Image zombie;
@@ -105,14 +105,14 @@ public class NormalZombie implements Zombie {
 
     // Set the speed value of Zombie
     public void setSpeed(double speed){
-        System.out.println("SET SPEED - NORMAL" + speed);
+        //System.out.println("SET SPEED - NORMAL" + speed);
         this.speed = speed;
 
     }
 
     // Set the speed value of Zombie
     public void setISpeed(double speed){
-        System.out.println("SET ISPEED");
+        //System.out.println("SET ISPEED");
         this.ispeed = speed;
 
     }

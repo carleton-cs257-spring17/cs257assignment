@@ -16,7 +16,7 @@ public class StrongZombie implements Zombie{
     private double x_position;
     private int[] position = new int[2];
     private int health = 500;
-    private int power = 1;
+    private int power = 2;
     private StackPane s = new StackPane();
     private Group root = new Group();
     private Image zombie;
@@ -101,14 +101,14 @@ public class StrongZombie implements Zombie{
 
     // Set the speed value of Zombie
     public void setSpeed(double speed){
-        System.out.println("SET SPEED - STRONG" + speed);
+        //System.out.println("SET SPEED - STRONG" + speed);
         this.speed = speed;
 
     }
 
     // Set the speed value of Zombie
     public void setISpeed(double speed){
-        System.out.println("SET ISPEED");
+        //System.out.println("SET ISPEED");
         this.ispeed = speed;
 
     }

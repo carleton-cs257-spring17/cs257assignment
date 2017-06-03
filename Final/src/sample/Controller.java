@@ -4,16 +4,20 @@ import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 import sun.security.provider.Sun;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Iterator;
+import java.util.ConcurrentModificationException;
 
 
 
@@ -28,10 +32,12 @@ public class Controller implements EventHandler<KeyEvent> {
     private Player player;
     private Enermy enermy;
     private boolean win = false;
+    private Stage stage;
+
 
     private Timer timer;
 
-    public Controller(int difficulty, Player player, Enermy enermy) {
+    public Controller(int difficulty, Player player, Enermy enermy, Stage initStage) {
         this.difficulty = difficulty;
         this.player = player;
         this.enermy = enermy;
@@ -76,22 +82,37 @@ public class Controller implements EventHandler<KeyEvent> {
      * Update animation in this method
      */
     private void updateAnimation() {
-        System.out.println(this.player.getSun());
+        //System.out.println(this.player.getSun());
         ArrayList<Plant> listOfPlants = checkPlants();
         ArrayList<Zombie> listOfZombies = checkZombies();
         ArrayList<Pea> listOfPeas = checkPeas();
         // System.out.println(listOfPlants.size());
+<<<<<<< HEAD
+        try{
+            for (Iterator<Pea> iterator3 = player.getPeas().iterator(); iterator3.hasNext(); ) {
+                Pea pea = iterator3.next();
+                if (pea.getImagePositionX()>1000){
+                    player.getPeas().remove(pea);
+                }
+                pea.step();
+=======
 
         // Update pea animation and remove the peas that are out of the screen
         for (Iterator<Pea> iterator3 = player.getPeas().iterator(); iterator3.hasNext(); ) {
             Pea pea = iterator3.next();
             if (pea.getImagePositionX()>1000){
                 player.getPeas().remove(pea);
+>>>>>>> 39af6dcce2491fbeab076a6a2c3915fcb6820074
             }
-            pea.step();
+        } catch (ConcurrentModificationException e){
+
         }
 
+<<<<<<< HEAD
+
+=======
         // Update plant animation
+>>>>>>> 39af6dcce2491fbeab076a6a2c3915fcb6820074
         for (Plant plant : listOfPlants){
             plant.step();
         }
@@ -100,6 +121,10 @@ public class Controller implements EventHandler<KeyEvent> {
         for (Zombie zombie : enermy.getZombies()){
             zombie.step();
         }
+
+        listOfPlants = checkPlants();
+        listOfZombies = checkZombies();
+        listOfPeas = checkPeas();
 
         runFight(listOfPlants, listOfZombies, listOfPeas);
 
@@ -137,13 +162,13 @@ public class Controller implements EventHandler<KeyEvent> {
     private void runFight(ArrayList<Plant> plants, ArrayList<Zombie> zombies, ArrayList<Pea> peas){
         ArrayList<Integer> dieZombie = new ArrayList<Integer>();
         ArrayList<Integer> diePlant = new ArrayList<Integer>();
+        boolean plantDie = false;
 
-
+        ArrayList<Zombie> blockZombie = new  ArrayList<Zombie>();
         for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
             Zombie zombie = iterator2.next();
-            //System.out.println("bullet"+this.player.getPeas().size());
-
             for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
+                //System.out.println("here!!!!");
                 Plant plant = iterator.next();
 
                 int plantRow = plant.getRow();
@@ -172,7 +197,8 @@ public class Controller implements EventHandler<KeyEvent> {
                 }else if (zombie.getImagePositionX()<=780) {
                     zombieCol = 9;
                 }
-
+//                System.out.println("plant row: "+plantRow);
+//                System.out.println("plant col: "+plantColumn);
                 if (plant.getName().equals("peashooter")) {
                     for (Iterator<Pea> iterator3 = peas.iterator(); iterator3.hasNext(); ) {
                         Pea pea = iterator3.next();
@@ -186,25 +212,22 @@ public class Controller implements EventHandler<KeyEvent> {
                             int zombieHealth = zombie.getHealth();
                             int plantPower = plant.getPower();
                             zombie.setHealth(zombieHealth - plantPower);
-
-                            player.getPeas().remove(pea);
-
-                            System.out.println("ZOMBIE HEALTH: " + zombieHealth);
-
+                            iterator3.remove();
                             if (zombie.getHealth() <= 0) {
-                                //iterator2.remove();
-                                enermy.removeZombie(zombie);
                                 zombie.removeImage();
-
-//                        int index = zombies.indexOf(zombie);
-//                        dieZombie.add(index);
+                                iterator2.remove();
                             }
                         }
                     }
                 }
 
+//                System.out.println("ZOMBIE row: "+zombieRow);
+//                System.out.println("ZOMBIE col: "+zombieCol);
 
 
+<<<<<<< HEAD
+                if (plantRow == zombieRow && plantColumn == zombieCol) {
+=======
 //                System.out.println("PLANT ROW: " + plantRow);
 //                System.out.println("PLANT COL: " + plantColumn);
 //                System.out.println("ZOMBIE ROW: " + zombieRow);
@@ -216,11 +239,18 @@ public class Controller implements EventHandler<KeyEvent> {
 //                    System.out.println("here!!");
 
                     // Make the zombie stop when it meets a plant
+>>>>>>> 39af6dcce2491fbeab076a6a2c3915fcb6820074
                     zombie.setSpeed(0);
-//                    System.out.println("ZOMBIE SPEED" + zombie.getSpeed());
+                    blockZombie.add(zombie);
                     int plantHealth = plant.getHealth();
                     int zombiePower = zombie.getPower();
                     plant.setHealth(plantHealth-zombiePower);
+<<<<<<< HEAD
+                    System.out.println(plant.getHealth());
+                    if (plant.getHealth() < 50) {
+                        if (plant.getHealth() <= 0){
+                            plantDie = true;
+=======
                     if (plant.getHealth() <= 0) {
                         System.out.println("plant is dying");
                         iterator.remove();
@@ -234,23 +264,44 @@ public class Controller implements EventHandler<KeyEvent> {
                         plant.removeImage();
                         if (plant.getName().equals("sunflower")){
                             plant.removeStar();
+>>>>>>> 39af6dcce2491fbeab076a6a2c3915fcb6820074
                         }
+                        zombie.setSpeed(zombie.getISpeed());
                     }
                 }
+                if (plantDie == true){
+                    plant.removeImage();
+                    if (plant.getName().equals("sunflower")){
+                        plant.removeStar();
+                    }
+                    iterator.remove();
+                }
+                plantDie = false;
 
             }
+
+//            if (plantDie == true){
+//                for (Zombie zombie1: blockZombie){
+//                    zombie1.setSpeed(zombie1.getISpeed());
+//                }
+//                blockZombie.clear();
+//            }
+//            plantDie=false;
 
         }
 
         // If player has killed all zombie in the list, show message that player has won.
         if (enermy.getZombies().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText("Plants vs Zombies");
-            alert.setContentText("YOU WIN!");
+            Main game = new Main();
+            try{
+                //this.stage.close();
+                game.start(game.welcomeStage);
+            } catch (Exception e){
 
-            alert.showAndWait();
+            }
+
         }
+
     }
 
     /**

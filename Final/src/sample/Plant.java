@@ -50,4 +50,7 @@ public interface Plant{
     public String getName();
 
     public void removeStar();
+
+    public boolean isDie();
+
 }

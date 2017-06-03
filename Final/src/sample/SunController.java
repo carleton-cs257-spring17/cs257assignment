@@ -70,24 +70,16 @@ public class SunController implements EventHandler<MouseEvent> {
                     if (s.isHasStar()){
                         s.removeStar();
                         s.setHasStar(false);
-                        //this.root.getChildren().remove(0);
                         this.root.getChildren().remove(sunOriginal);
-                        System.out.println("SUN" + this.sun);
                         if(this.sun != null){
-                            System.out.println("NULL");
                             this.root.getChildren().remove(this.sun);
                             player.setSun(player.getSun() + 50);
                         } else {
-                            player.setSun(250);
+                            player.setSun(player.getSun()+50);
                         }
 
-                        Label sun = new Label(Integer.toString(this.player.getSun()));
-                        sun.setFont(new Font(20));
-                        this.sun = sun;
-                        this.root.getChildren().add(this.sun);
-                        sun.setTranslateX(90);
-                        sun.setTranslateY(110);
-                        System.out.println(player.getSun());
+
+                        //System.out.println(player.getSun());
                     }
 
                 }

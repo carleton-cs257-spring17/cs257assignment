@@ -75,20 +75,27 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                 if (add) {
                     switch (type) {
                         case "peashooter":
-                            Peashooter peashooter = new Peashooter(row, column,root, player);
-                            player.addPlants(peashooter);
-                            player.setMoney(player.getSun() - peashooter.getPrice());
+                            if (this.player.getSun() >= 100){
+                                Peashooter peashooter = new Peashooter(row, column,root, player);
+                                player.addPlants(peashooter);
+                                player.setSun(player.getSun() - peashooter.getPrice());
+                            }
 
                             break;
                         case "wallnut":
-                            WallNut wallnut = new WallNut(row, column,root);
-                            player.addPlants(wallnut);
-                            player.setSun(player.getSun() - wallnut.getPrice());
+                            if (this.player.getSun() >= 50) {
+                                WallNut wallnut = new WallNut(row, column,root);
+                                player.addPlants(wallnut);
+                                player.setSun(player.getSun() - wallnut.getPrice());
+                            }
                             break;
                         case "sunflower":
-                            Sunflower sunflower = new Sunflower(row, column,root,player);
-                            player.addPlants(sunflower);
-                            player.setSun(player.getSun() - sunflower.getPrice());
+
+                            if (this.player.getSun() >= 50) {
+                                Sunflower sunflower = new Sunflower(row, column,root,player);
+                                player.addPlants(sunflower);
+                                player.setSun(player.getSun() - sunflower.getPrice());
+                            }
                             //player.addPlants(star);
                             break;
                     }

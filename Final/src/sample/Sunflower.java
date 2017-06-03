@@ -17,9 +17,9 @@ import java.util.Stack;
 public class Sunflower extends Sprite implements Plant {
     private int row;
     private int column;
-    private int price = 100;
+    private int price = 50;
     private int[] position = new int[2];
-    private int health = 200;
+    private int health = 20000;
     private int power = 0;
     private StackPane s = new StackPane();
     private Group root = new Group();
@@ -37,6 +37,7 @@ public class Sunflower extends Sprite implements Plant {
     private ImageView starView;
     private boolean hasStar = false;
     StackPane s2 = new StackPane();
+    private boolean isDie;
 
 
 
@@ -167,6 +168,10 @@ public class Sunflower extends Sprite implements Plant {
     @Override
     public void makeSound() {
 
+    }
+
+    public boolean isDie(){
+        return this.isDie;
     }
 
     public boolean isHasStar(){
