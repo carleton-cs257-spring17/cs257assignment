@@ -8,11 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
-import javafx.scene.shape.Circle;
 
-public class Pea extends Sprite implements Plant{
+public class Pea extends Sprite{
     private double velocityRow = 0;
     private double velocityColumn = 1;
+    private double velocityX = 10;
     private int price = 100;
     private double row;
     private double column;
@@ -30,6 +30,8 @@ public class Pea extends Sprite implements Plant{
     private AudioClip audioClip;
     private  Group root = new Group();
     private StackPane s = new StackPane();
+    private double imageY;
+    private double imageX;
 
     public Pea(int row, int column, Group root, Player player) {
         this.player = player;
@@ -47,6 +49,10 @@ public class Pea extends Sprite implements Plant{
         this.sizeX = 90;
         this.sizeY = 90;
         this.audioClip = new AudioClip(getClass().getResource("/res/shoot.wav").toString());
+        this.imageX = 60+(column-1)*80+40+40;
+        this.imageY = 135+(row-1)*110+55-40;
+
+
     }
 
 
@@ -60,10 +66,7 @@ public class Pea extends Sprite implements Plant{
         this.audioClip.play();
     }
 
-//    public void setPosition(double row, double column){
-//        this.row = row;
-//        this.column = column;
-//    }
+
 
     public int getRow(){
 
@@ -78,66 +81,30 @@ public class Pea extends Sprite implements Plant{
         return (int)this.column;
     }
 
-    @Override
-    public int getHealth() {
-        return 0;
-    }
-
-    @Override
-    public void setHealth(int health) {
-
-    }
-
-    @Override
-    public int getPower() {
-        return 0;
-    }
-
-    @Override
-    public void setPower(int power) {
-
-    }
-
-    @Override
-    public int getPrice() {
-        return 0;
-    }
-
-    @Override
-    public void setPrice(int price) {
-
-    }
 
     public void step() {
         //System.out.println("PEASHOOTER STEP");
         //System.out.println("velocity x: " + velocityX);
         //System.out.println(this.getPosition());
         //System.out.println("END PEASHOOTER STEP");
-        this.setPosition(this.getRow(), this.getColumn()+this.velocityColumn);
+        //this.setPosition(this.getRow(), this.getColumn()+this.velocityColumn);
 //        System.out.println(this.column+velocityColumn);
 //        System.out.println(this.getColumn());
-        s.setTranslateY((int) (135+(this.row-1)*110+55)-40);
-        s.setTranslateX((int) (60+(this.column-1)*80+40)+40);
-    }
-
-    @Override
-    public void removeImage() {
+        double imageX = getImagePositionX()+velocityX;
+        setImagePosition(imageX, imageY);
+        s.setTranslateY(this.imageY);
+        s.setTranslateX(imageX);
 
     }
 
-    public double getVelocityRow() {
-        return velocityRow;
+    public void setImagePosition(double x, double y){
+        this.imageX = x;
+        this.imageY = y;
     }
 
-    public void setVelocityColumn(int velocityColumn) {
-        this.velocityColumn = velocityColumn;
+    public double getImagePositionX(){
+        return this.imageX;
     }
 
-    public double getVelocityColumn() {
-        return velocityColumn;
-    }
 
-    public void setVelocityRow(int velocityRow) {
-        this.velocityRow = velocityRow;
-    }
 }

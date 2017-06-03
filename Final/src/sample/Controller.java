@@ -73,7 +73,13 @@ public class Controller implements EventHandler<KeyEvent> {
         ArrayList<Plant> listOfPlants = checkPlants();
         ArrayList<Zombie> listOfZombies = checkZombies();
        // System.out.println(listOfPlants.size());
-        runFight(listOfPlants, listOfZombies);
+        for (Pea pea: player.getPeas()){
+            if (pea.getImagePositionX()>1000){
+                player.getPeas().remove(pea);
+            }
+            pea.step();
+        }
+
         listOfPlants = checkPlants();
 //        listOfZombies = checkZombies();
 //
@@ -81,6 +87,9 @@ public class Controller implements EventHandler<KeyEvent> {
             //System.out.println("here?????");
             plant.step();
         }
+        runFight(listOfPlants, listOfZombies);
+
+
 //
 //        for (Zombie zombie : listOfZombies){
 //            zombie.step();
