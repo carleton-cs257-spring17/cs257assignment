@@ -82,6 +82,7 @@ public class Controller implements EventHandler<KeyEvent> {
         ArrayList<Pea> listOfPeas = checkPeas();
         // System.out.println(listOfPlants.size());
 
+        // Update pea animation and remove the peas that are out of the screen
         for (Iterator<Pea> iterator3 = player.getPeas().iterator(); iterator3.hasNext(); ) {
             Pea pea = iterator3.next();
             if (pea.getImagePositionX()>1000){
@@ -90,10 +91,12 @@ public class Controller implements EventHandler<KeyEvent> {
             pea.step();
         }
 
+        // Update plant animation
         for (Plant plant : listOfPlants){
             plant.step();
         }
 
+        // Update Zombie animation
         for (Zombie zombie : enermy.getZombies()){
             zombie.step();
         }
@@ -112,21 +115,25 @@ public class Controller implements EventHandler<KeyEvent> {
 ////        }
     }
 
+    // Get list of plants
     private ArrayList<Plant> checkPlants(){
         ArrayList<Plant> listOfPlants = player.getPlants();
         return listOfPlants;
     }
 
+    // Get list of peas
     private ArrayList<Pea> checkPeas(){
         ArrayList<Pea> listOfPeas = player.getPeas();
         return listOfPeas;
     }
 
+    // Get list of zombies
     private ArrayList<Zombie> checkZombies(){
         ArrayList<Zombie> listOfZombies = enermy.getZombies();
         return listOfZombies;
     }
 
+    // Simulate the fight between plants and zombies and update animation accordingly
     private void runFight(ArrayList<Plant> plants, ArrayList<Zombie> zombies, ArrayList<Pea> peas){
         ArrayList<Integer> dieZombie = new ArrayList<Integer>();
         ArrayList<Integer> diePlant = new ArrayList<Integer>();
@@ -145,6 +152,7 @@ public class Controller implements EventHandler<KeyEvent> {
                 int zombieColumn = (int) Math.round(zombie.getImagePositionX());
                 int zombieCol = 0;
 
+                // Convert zombie image position to colomn
                 if (zombie.getImagePositionX() >= 60 && zombie.getImagePositionX() <= 140){
                     zombieCol = 1;
                 } else if (zombie.getImagePositionX()<=211) {
@@ -172,6 +180,7 @@ public class Controller implements EventHandler<KeyEvent> {
                         int peaRow = pea.getRow();
                         int peaColumn = (int) Math.round(pea.getImagePositionX());
 
+                        // If pea hit the zombie, reduce zombie's health value and remove the pea
                         if (plantRow == peaRow && peaRow == zombieRow && peaColumn == zombieColumn) {
                             pea.removeImage();
                             int zombieHealth = zombie.getHealth();
@@ -201,8 +210,12 @@ public class Controller implements EventHandler<KeyEvent> {
 //                System.out.println("ZOMBIE ROW: " + zombieRow);
 //                System.out.println("ZOMBIE COL: " + zombieCol);
 
+                // If zombie arrives at a block where a plant is located
+                // zombie starts to consume plant's health value
                 if (plantRow == zombieRow && plantColumn == zombieCol) {
 //                    System.out.println("here!!");
+
+                    // Make the zombie stop when it meets a plant
                     zombie.setSpeed(0);
 //                    System.out.println("ZOMBIE SPEED" + zombie.getSpeed());
                     int plantHealth = plant.getHealth();
@@ -213,6 +226,7 @@ public class Controller implements EventHandler<KeyEvent> {
                         iterator.remove();
                         int count = 0;
 
+                        // If the plant is consumed, zombie move again
                         zombie.setSpeed(zombie.getISpeed());
                         System.out.println("ZERO SPEED ZOMBIE COUNT: " + count);
 
@@ -228,6 +242,7 @@ public class Controller implements EventHandler<KeyEvent> {
 
         }
 
+        // If player has killed all zombie in the list, show message that player has won.
         if (enermy.getZombies().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
