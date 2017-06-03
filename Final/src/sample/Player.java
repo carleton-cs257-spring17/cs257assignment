@@ -8,14 +8,23 @@ import java.util.ArrayList;
  */
 public class Player {
     private int sun = 200;
+    private int money = 200;
     private ArrayList<Plant> listPlants = new ArrayList<Plant>();
     private ArrayList<Pea> listPeas = new ArrayList<Pea>();
+
+    public int getMoney() {
+        return this.money;
+    }
+
+    public void setMoney(int money){
+        this.money = money;
+    }
 
     /**
      * Get the sun status
      */
     public int getSun(){
-        return sun;
+        return this.sun;
     }
 
 

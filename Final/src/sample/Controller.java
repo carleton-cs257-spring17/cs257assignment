@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
+import sun.security.provider.Sun;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -190,15 +191,15 @@ public class Controller implements EventHandler<KeyEvent> {
 
 
 
-                System.out.println("PLANT ROW: " + plantRow);
-                System.out.println("PLANT COL: " + plantColumn);
-                System.out.println("ZOMBIE ROW: " + zombieRow);
-                System.out.println("ZOMBIE COL: " + zombieCol);
+//                System.out.println("PLANT ROW: " + plantRow);
+//                System.out.println("PLANT COL: " + plantColumn);
+//                System.out.println("ZOMBIE ROW: " + zombieRow);
+//                System.out.println("ZOMBIE COL: " + zombieCol);
 
                 if (plantRow == zombieRow && plantColumn == zombieCol) {
-                    System.out.println("here!!");
+//                    System.out.println("here!!");
                     zombie.setSpeed(0);
-                    System.out.println("ZOMBIE SPEED" + zombie.getSpeed());
+//                    System.out.println("ZOMBIE SPEED" + zombie.getSpeed());
                     int plantHealth = plant.getHealth();
                     int zombiePower = zombie.getPower();
                     plant.setHealth(plantHealth-zombiePower);
@@ -207,6 +208,9 @@ public class Controller implements EventHandler<KeyEvent> {
 //                        iterator.remove();
                         player.removePlants(plant);
                         plant.removeImage();
+                        if (plant.getName().equals("sunflower")){
+                            plant.removeStar();
+                        }
                         zombie.setSpeed(zombie.getISpeed());
                     }
                     int zombieHealth = zombie.getHealth();

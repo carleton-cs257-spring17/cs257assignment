@@ -72,13 +72,6 @@ public class GameStage extends Application{
         s3.getChildren().add(wallnut1);
         s3.setMaxSize(90, 160);
         s3.setTranslateX(20);
-        // img potato mine
-        StackPane s4 = new StackPane();
-        Image potatoMine = new Image("/res/potatoMine.png");
-        ImageView potatoMine1 = new  ImageView(potatoMine);
-        s4.getChildren().add(potatoMine1);
-        s4.setMaxSize(90, 160);
-        s4.setTranslateX(115);
 
 
         Label sunPrice =new Label("how much now?????");
@@ -114,21 +107,22 @@ public class GameStage extends Application{
         fifty.setTranslateY(50);
         fifty.setTextFill(Color.WHITE);
 
-        drag.getChildren().add(s4);
-        s4.getChildren().add(twoHundred);
         twoHundred.setTranslateY(50);
         twoHundred.setTextFill(Color.WHITE);
         //sun.setTop(sunPrice);
         s1.setId("peashooter");
         s2.setId("sunflower");
         s3.setId("wallnut");
-        s4.setId("potatoMine");
         sunPrice.setTranslateX(90);
         sunPrice.setTranslateY(110);
         primaryStage.setScene( theScene );
         primaryStage.setResizable(false);
         primaryStage.show();
-        Label sun1 = new Label(Integer.toString(200));
+
+        Player player = new Player();
+        Enermy enermy = new Enermy(root);
+
+        Label sun1 = new Label(Integer.toString(player.getMoney()));
         sun1.setFont(new Font(20));
         this.root.getChildren().add(sun1);
         sun1.setTranslateX(90);
@@ -137,11 +131,8 @@ public class GameStage extends Application{
         s1.setOnDragDetected(new PlantDrag(s1, peashooter));
         s2.setOnDragDetected(new PlantDrag(s2, sunflower));
         s3.setOnDragDetected(new PlantDrag(s3, wallnut));
-        s4.setOnDragDetected(new PlantDrag(s4, potatoMine));
         theScene.setOnDragOver(new PlantDragOver());
-        //drop
-        Player player = new Player();
-        Enermy enermy = new Enermy(root);
+
         theScene.setOnDragDropped(new PlantDragDrop(root, player));
         theScene.setOnMouseClicked(new SunController(player,root,sun1));
         //root.getChildren().set(0,sun1);

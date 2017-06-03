@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
@@ -10,6 +11,7 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import sun.security.provider.Sun;
 
 public class PlantDragDrop implements EventHandler<DragEvent> {
@@ -75,18 +77,18 @@ public class PlantDragDrop implements EventHandler<DragEvent> {
                         case "peashooter":
                             Peashooter peashooter = new Peashooter(row, column,root, player);
                             player.addPlants(peashooter);
-                            peashooter.setSize(90, 90);
-//                            Pea pea = new Pea (row, column, this.root,this.player);
-//                            pea.makeSound();
-//                            this.player.addPlants(pea);
+                            player.setMoney(player.getSun() - peashooter.getPrice());
+
                             break;
                         case "wallnut":
                             WallNut wallnut = new WallNut(row, column,root);
                             player.addPlants(wallnut);
+                            player.setSun(player.getSun() - wallnut.getPrice());
                             break;
                         case "sunflower":
                             Sunflower sunflower = new Sunflower(row, column,root,player);
                             player.addPlants(sunflower);
+                            player.setSun(player.getSun() - sunflower.getPrice());
                             //player.addPlants(star);
                             break;
                     }

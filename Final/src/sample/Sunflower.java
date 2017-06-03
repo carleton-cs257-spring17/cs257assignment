@@ -35,6 +35,7 @@ public class Sunflower extends Sprite implements Plant {
     private String name = "";
     private Image star;
     private ImageView starView;
+    private boolean hasStar = false;
     StackPane s2 = new StackPane();
 
 
@@ -144,7 +145,7 @@ public class Sunflower extends Sprite implements Plant {
             this.sizeY = this.sizeY + 0.1;
         }
 
-        if (shoot_count == 100){
+        if (shoot_count == 5000){
             StackPane s2 = new StackPane();
             s2.getChildren().add(this.starView);
             s2.setTranslateY((int) (135+(row-1)*110+55)-40+1);
@@ -153,6 +154,8 @@ public class Sunflower extends Sprite implements Plant {
             root.getChildren().add(s2);
             this.s2 = s2;
             shoot_count = 0;
+            hasStar = true;
+
 
         } else {
             //removeStar();
@@ -164,6 +167,14 @@ public class Sunflower extends Sprite implements Plant {
     @Override
     public void makeSound() {
 
+    }
+
+    public boolean isHasStar(){
+        return hasStar;
+    }
+
+    public void setHasStar(boolean bool){
+        hasStar = bool;
     }
 
     public String getName(){
