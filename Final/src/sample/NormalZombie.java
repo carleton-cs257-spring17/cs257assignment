@@ -41,6 +41,10 @@ public class NormalZombie implements Zombie {
     public void setPosition(int row, int column){
         this.row = row;
         this.column = column;
+        s.setTranslateX(row);
+        s.setTranslateY(column);
+//        this.zombieView.setX(x);
+
     }
 
     public int getRow(){

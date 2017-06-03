@@ -13,14 +13,14 @@ import javafx.scene.shape.Circle;
 public class Pea extends Sprite implements Plant{
     private int velocityX = 1;
     private int velocityY = 1;
-    private double[] position = new double[2];
+    private int[] position = new int[2];
     private Image plant;
     private  ImageView plantView;
     private AudioClip audioClip;
     private  Group root = new Group();
     private StackPane s = new StackPane();
 
-    public Pea(double x, double y, Group root) {
+    public Pea(int x, int y, Group root) {
         this.position[0] = x;
         this.position[1] = y;
         this.plant = new Image("/res/pea.png");
@@ -28,6 +28,8 @@ public class Pea extends Sprite implements Plant{
         s.getChildren().add(plantView);
         this.root = root;
         root.getChildren().add(s);
+//        s.setTranslateX(x);
+//        s.setTranslateY(y);
         s.setTranslateY((int) (135+(x-1)*110+55)-40);
         s.setTranslateX((int) (60+(y-1)*80+40)-40 + 90);
         this.audioClip = new AudioClip(getClass().getResource("/res/shoot.wav").toString());
@@ -40,11 +42,18 @@ public class Pea extends Sprite implements Plant{
 
     @Override
     public void setPosition(int x, int y) {
-
+        this.position[0] = x;
+        this.position[1] = y;
+        s.setTranslateX((int) (60+(y-1)*80+40)-40 + 90);
+        s.setTranslateY((int) (135+(x-1)*110+55)-40);
+//        this.plantView.setX(x);
+//        this.plantView.setY(y);
+        System.out.println("SET POSITION");
+        System.out.println("POSITION:" + this.position[0] + " - " + this.position[1]);
     }
 
     public int[] getPosition() {
-        return new int[0];
+        return this.position;
     }
 
     @Override
@@ -78,7 +87,11 @@ public class Pea extends Sprite implements Plant{
     }
 
     public void step() {
-        this.setPosition(0,0);
+        //System.out.println("PEASHOOTER STEP");
+        //System.out.println("velocity x: " + velocityX);
+        //System.out.println(this.getPosition());
+        //System.out.println("END PEASHOOTER STEP");
+        this.setPosition(this.getPosition()[0] + velocityX, this.getPosition()[1]);
     }
 
     @Override

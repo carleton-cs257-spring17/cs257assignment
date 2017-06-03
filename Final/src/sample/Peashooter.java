@@ -28,8 +28,7 @@ public class Peashooter extends Sprite implements Plant{
     private double sizeY;
     private boolean shrink = false;
     private Player player;
-    private int count = 0;
-    private boolean shoot = false;
+    private int shoot_count = 0;
 
 
     public Peashooter(int row, int column, Group root, Player player){
@@ -100,27 +99,17 @@ public class Peashooter extends Sprite implements Plant{
             this.shrink = false;
         }
 
-        if (count >= 100){
-            shoot = true;
-        } else if (count <= 0){
-            shoot = false;
-        }
-
-        if (shoot) {
-            count --;
-            System.out.println("SHOOT");
-           Pea pea = new Pea (10, 10, this.root);
-//            pea.makeSound();
+        if (shoot_count == 20){
+            Pea pea = new Pea (this.row + 10, this.column, this.root);
             this.player.addPea(pea);
+            System.out.println("NEW PEA ADDED");
+            shoot_count = 0;
         } else {
-            System.out.println("NOT SHOOT");
-            count ++;
+            System.out.println("SHOOT COUNT" + shoot_count);
+            shoot_count ++;
         }
 
         if (shrink) {
-
-
-
             this.setSize(1 * this.sizeX, this.sizeY - 0.1);
 
             this.sizeY = this.sizeY - 0.1;
