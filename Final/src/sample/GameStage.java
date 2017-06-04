@@ -29,10 +29,16 @@ import javafx.util.Duration;
  */
 public class GameStage extends Application{
     private Group root;
+    private int density;
     static Stage initiateStage = new Stage();
     final private double SCENE_WIDTH = 500;
     final private double SCENE_HEIGHT = 400;
     final private double FRAMES_PER_SECOND = 20.0;
+
+
+    public GameStage (int density) {
+        this.density = density;
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -121,7 +127,7 @@ public class GameStage extends Application{
         primaryStage.show();
 
 
-        Enermy enermy = new Enermy(root);
+        Enermy enermy = new Enermy(root, density);
         Label sun1 = new Label(Integer.toString(200));
         Player player = new Player(root,sun1);
         sun1.setFont(new Font(20));
