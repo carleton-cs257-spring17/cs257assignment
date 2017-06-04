@@ -30,17 +30,20 @@ public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 60.0;
     private int difficulty;
     private Player player;
-    private Enermy enermy;
-    private boolean win = false;
+    private Enemy enemy;
+    private boolean playerWin = false;
+    private boolean zombieWin = false;
+
     private Stage stage;
 
 
     private Timer timer;
 
-    public Controller(int difficulty, Player player, Enermy enermy, Stage initStage) {
+    public Controller(int difficulty, Player player, Enemy enemy, Stage initStage) {
         this.difficulty = difficulty;
         this.player = player;
-        this.enermy = enermy;
+        this.enemy = enemy;
+        this.stage = initStage;
     }
 
     /**
@@ -78,38 +81,21 @@ public class Controller implements EventHandler<KeyEvent> {
      * Update animation in this method
      */
     private void updateAnimation() {
-            //System.out.println(this.player.getSun());
             ArrayList<Plant> listOfPlants = checkPlants();
             ArrayList<Zombie> listOfZombies = checkZombies();
             ArrayList<Pea> listOfPeas = checkPeas();
-            // System.out.println(listOfPlants.size());
-
-            try {
-                for (Iterator<Pea> iterator3 = player.getPeas().iterator(); iterator3.hasNext(); ) {
-                    Pea pea = iterator3.next();
-                    if (pea.getImagePositionX() > 1000) {
-                        player.getPeas().remove(pea);
-                    }
-                    pea.step();
-                }
-
-            } catch(ConcurrentModificationException e){
-
+            runFight(listOfPlants, listOfZombies, listOfPeas);
+            for (Pea pea: listOfPeas) {
+                pea.step();
             }
-
             // Update plant animation
             for (Plant plant : listOfPlants) {
                 plant.step();
             }
             // Update Zombie animation
-            for (Zombie zombie : enermy.getZombies()) {
+            for (Zombie zombie : enemy.getZombies()) {
                 zombie.step();
             }
-            listOfPlants = checkPlants();
-            listOfZombies = checkZombies();
-            listOfPeas = checkPeas();
-            runFight(listOfPlants, listOfZombies, listOfPeas);
-
         }
 
 
@@ -126,19 +112,20 @@ public class Controller implements EventHandler<KeyEvent> {
 
     // Get list of zombies
     private ArrayList<Zombie> checkZombies(){
-        ArrayList<Zombie> listOfZombies = enermy.getZombies();
+        ArrayList<Zombie> listOfZombies = enemy.getZombies();
         return listOfZombies;
     }
 
     // Simulate the fight between plants and zombies and update animation accordingly
     private void runFight(ArrayList<Plant> plants, ArrayList<Zombie> zombies, ArrayList<Pea> peas){
-        ArrayList<Integer> dieZombie = new ArrayList<Integer>();
-        ArrayList<Integer> diePlant = new ArrayList<Integer>();
         boolean plantDie = false;
 
         ArrayList<Zombie> blockZombie = new  ArrayList<Zombie>();
         for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
             Zombie zombie = iterator2.next();
+            if (zombie.getImagePositionX()<60){
+                this.zombieWin = true;
+            }
             for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
                 //System.out.println("here!!!!");
                 Plant plant = iterator.next();
@@ -146,40 +133,19 @@ public class Controller implements EventHandler<KeyEvent> {
                 int plantRow = plant.getRow();
                 int plantColumn = plant.getColumn();
                 int zombieRow = zombie.getRow();
-                int zombieColumn = (int) Math.round(zombie.getImagePositionX());
-                int zombieCol = 0;
+                int zombieColumn = zombie.getColumn();
+                //System.out.print(zombieColumn);
 
-                // Convert zombie image position to colomn
-                if (zombie.getImagePositionX() >= 60 && zombie.getImagePositionX() <= 140){
-                    zombieCol = 1;
-                } else if (zombie.getImagePositionX()<=211) {
-                    zombieCol = 2;
-                } else if (zombie.getImagePositionX()<=300) {
-                    zombieCol = 3;
-                }else if (zombie.getImagePositionX()<=380){
-                    zombieCol = 4;
-                } else if (zombie.getImagePositionX()<=460) {
-                    zombieCol = 5;
-                } else if (zombie.getImagePositionX()<=540) {
-                    zombieCol = 6;
-                } else if (zombie.getImagePositionX()<=620) {
-                    zombieCol = 7;
-                } else if (zombie.getImagePositionX()<=700) {
-                    zombieCol = 8;
-                }else if (zombie.getImagePositionX()<=780) {
-                    zombieCol = 9;
-                }
-//                System.out.println("plant row: "+plantRow);
-//                System.out.println("plant col: "+plantColumn);
+                // if the plant is a peashooter, we should consider the pea hits the zombie
                 if (plant.getName().equals("peashooter")) {
                     for (Iterator<Pea> iterator3 = peas.iterator(); iterator3.hasNext(); ) {
                         Pea pea = iterator3.next();
-
                         int peaRow = pea.getRow();
-                        int peaColumn = (int) Math.round(pea.getImagePositionX());
-
+                        int peaX = (int) Math.round(pea.getImagePositionX());
                         // If pea hit the zombie, reduce zombie's health value and remove the pea
-                        if (plantRow == peaRow && peaRow == zombieRow && peaColumn == zombieColumn) {
+                        // we calculate their real position instead of column to make the animation more
+                        // realistic
+                        if (plantRow == peaRow && peaRow == zombieRow && peaX == (int)zombie.getImagePositionX()) {
                             pea.removeImage();
                             int zombieHealth = zombie.getHealth();
                             int plantPower = plant.getPower();
@@ -190,17 +156,18 @@ public class Controller implements EventHandler<KeyEvent> {
                                 iterator2.remove();
                             }
                         }
+                        // remove the pea if it is out of the image
+                        if (pea.getImagePositionX() > 1000) {
+                            iterator3.remove();
+                        }
                     }
                 }
-                if (plantRow == zombieRow && plantColumn == zombieCol) {
-
+                if (plantRow == zombieRow && plantColumn == zombieColumn) {
                     zombie.setSpeed(0);
                     blockZombie.add(zombie);
                     int plantHealth = plant.getHealth();
                     int zombiePower = zombie.getPower();
                     plant.setHealth(plantHealth-zombiePower);
-
-                    System.out.println(plant.getHealth());
                     if (plant.getHealth() < 50) {
                         if (plant.getHealth() <= 0){
                             plantDie = true;
@@ -210,39 +177,45 @@ public class Controller implements EventHandler<KeyEvent> {
                 }
                 if (plantDie == true){
                     plant.removeImage();
-                    if (plant.getName().equals("sunflower")){
-                        plant.removeStar();
-                    }
                     iterator.remove();
                 }
                 plantDie = false;
-
             }
 
-//            if (plantDie == true){
-//                for (Zombie zombie1: blockZombie){
-//                    zombie1.setSpeed(zombie1.getISpeed());
-//                }
-//                blockZombie.clear();
-//            }
-//            plantDie=false;
-
         }
-
         // If player has killed all zombie in the list, show message that player has won.
-        if (enermy.getZombies().isEmpty()){
-            Main game = new Main();
+        if (enemy.getZombies().isEmpty()){
+            this.playerWin = true;
+        }
+        checkIfEnd();
+    }
+
+
+    public void checkIfEnd(){
+        if (this.playerWin) {
+            String result = "You win the Game";
+            EndView game = new EndView(result);
+            try {
+                this.timer.cancel();
+                game.start(game.getEndStage());
+                this.stage.close();
+            } catch (Exception e) {
+
+            }
+        }
+        if (this.zombieWin){
+            String result = "You lose the Game";
+            EndView game = new EndView(result);
             try{
-                //this.stage.close();
-                game.start(game.welcomeStage);
+                this.timer.cancel();
+                game.start(game.getEndStage());
+                this.stage.close();
             } catch (Exception e){
 
             }
 
         }
-
     }
-
     /**
      * handle events
      */

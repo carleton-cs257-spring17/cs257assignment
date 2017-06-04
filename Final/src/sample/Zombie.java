@@ -16,9 +16,13 @@ public interface Zombie {
     public void setPosition(int x, int y);
 
     /**
-     * get the position of the zombie
+     * get the row of the zombie
      */
     public int getRow();
+
+    /**
+     * get the row of the zombie
+     */
     public int getColumn();
 
     /**
@@ -37,19 +41,19 @@ public interface Zombie {
      * set the power value of the zombie
      */
     public void setPower(int power);
-    /**
-     * get the speed value of the zombie
-     */
-    public double getSpeed();
+
 
     /**
-     * get the real speed value of the zombie
+     * get the initial speed value of the zombie
      */
     public double getISpeed();
+
     /**
      * set the speed value of the zombie
      */
     public void setSpeed(double speed);
+
+    public void setColumn (int column);
 
     public void step();
 

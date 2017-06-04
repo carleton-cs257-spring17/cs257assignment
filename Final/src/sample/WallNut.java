@@ -14,7 +14,7 @@ public class WallNut extends Sprite implements Plant {
     private int column;
     private int price = 50;
     private int[] position = new int[2];
-    private int health = 500;
+    private int health = 100000;
     private int power = 0;
     private StackPane s = new StackPane();
     private Group root = new Group();
@@ -61,7 +61,6 @@ public class WallNut extends Sprite implements Plant {
     }
 
     public void setSize(double width, double height) {
-        super.setSize(width, height);
         this.plantView.setFitWidth(width);
         this.plantView.setFitHeight(height);
     }

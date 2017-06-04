@@ -16,7 +16,7 @@ public class StrongZombie implements Zombie{
     private double x_position;
     private int[] position = new int[2];
     private int health = 500;
-    private int power = 2;
+    private int power = 10;
     private StackPane s = new StackPane();
     private Group root = new Group();
     private Image zombie;
@@ -66,9 +66,32 @@ public class StrongZombie implements Zombie{
     }
 
     public int getColumn(){
-        return this.column;
+        int zombieCol = 0;
+        if (getImagePositionX() >= 60 && getImagePositionX() <= 140){
+            zombieCol = 1;
+        } else if (getImagePositionX()<=211) {
+            zombieCol = 2;
+        } else if (getImagePositionX()<=300) {
+            zombieCol = 3;
+        }else if (getImagePositionX()<=380){
+            zombieCol = 4;
+        } else if (getImagePositionX()<=460) {
+            zombieCol = 5;
+        } else if (getImagePositionX()<=540) {
+            zombieCol = 6;
+        } else if (getImagePositionX()<=620) {
+            zombieCol = 7;
+        } else if (getImagePositionX()<=700) {
+            zombieCol = 8;
+        }else if (getImagePositionX()<=780) {
+            zombieCol = 9;
+        }
+        return zombieCol;
     }
 
+    public void setColumn (int column){
+        this.column = column;
+    }
     // Get the health value of Zombie
     public int getHealth(){
         return health;
@@ -90,10 +113,6 @@ public class StrongZombie implements Zombie{
         this.power = power;
     }
 
-    // Get the speed value of Zombie
-    public double getSpeed(){
-        return speed;
-    }
 
     public double getISpeed(){
         return ispeed;

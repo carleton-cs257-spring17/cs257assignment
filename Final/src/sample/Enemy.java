@@ -9,23 +9,23 @@ import java.util.*;
  * Created by yanhanlyu on 28/05/2017.
  * Class that lists the general behavior of the Zombies
  */
-public class Enermy{
-    private int density;
+public class Enemy{
+    private int difficulty;
     private double speed;
     private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
     Group root = new Group();
     Random rand = new Random();
 
-    public Enermy(Group root, int density){
+    public Enemy(Group root, int difficulty){
         this.root = root;
-        this.density = density;
-        zombies = generateZombies(density);
+        this.difficulty = difficulty;
+        zombies = generateZombies(difficulty);
     }
 
-    public ArrayList<Zombie> generateZombies(int density){
-        System.out.println("DENSITY" + density);
-        int norm = (int) Math.round(density * 0.6);
-        int strong = density - norm;
+    public ArrayList<Zombie> generateZombies(int difficulty){
+        System.out.println("difficulty"+this.difficulty);
+        int norm = (int) Math.round(difficulty * 0.6);
+        int strong = difficulty - norm;
 
         for (int i = 0; i < 1; i++){
 
@@ -45,16 +45,16 @@ public class Enermy{
     }
     /**
      *
-     * return the density of the group of zombies
+     * return the difficulty of the group of zombies
      */
-    public int getDensity(){
-        return density;
+    public int getdifficulty(){
+        return difficulty;
     }
     /**
-     * set the density of the group of zombies
+     * set the difficulty of the group of zombies
      */
-    public void setDensity(int density){
-        this.density = density;
+    public void setdifficulty(int difficulty){
+        this.difficulty = difficulty;
     }
     /**
      * get the speed of the group of zombies

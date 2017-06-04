@@ -29,15 +29,12 @@ import javafx.util.Duration;
  */
 public class GameStage extends Application{
     private Group root;
-    private int density;
+    private int difficulty;
     static Stage initiateStage = new Stage();
-    final private double SCENE_WIDTH = 500;
-    final private double SCENE_HEIGHT = 400;
-    final private double FRAMES_PER_SECOND = 20.0;
 
 
-    public GameStage (int density) {
-        this.density = density;
+    public GameStage (int difficulty) {
+        this.difficulty = difficulty;
     }
 
     @Override
@@ -52,13 +49,9 @@ public class GameStage extends Application{
         primaryStage.setTitle( "Plants VS Zombies" );
         this.root = new Group();
         Scene theScene = new Scene(root,900,800);
-        //set image
-        Image background = new Image("/res/wallp.png");
-        ImageView backgroundView = new ImageView();
-        backgroundView.setImage(background);
-        backgroundView.setTranslateY(100);
-        // Set up a KeyEvent handler so we can respond to keyboard activity.
-        // img peashooter
+        //add background
+        ImageView backgroundView = addBackground();
+        // add peashooter
         StackPane s1 = new StackPane();
         Image peashooter = new Image("/res/peashooter.png");
         ImageView peashooter1 = new  ImageView(peashooter);
@@ -127,7 +120,7 @@ public class GameStage extends Application{
         primaryStage.show();
 
 
-        Enermy enermy = new Enermy(root, density);
+        Enemy enemy = new Enemy(root, difficulty);
         Label sun1 = new Label(Integer.toString(200));
         Player player = new Player(root,sun1);
         sun1.setFont(new Font(20));
@@ -143,9 +136,17 @@ public class GameStage extends Application{
         theScene.setOnDragDropped(new PlantDragDrop(root, player));
         theScene.setOnMouseClicked(new SunController(player,root,sun1));
         initiateStage = primaryStage;
-        Controller controller = new Controller(1,player,enermy,initiateStage);
+        Controller controller = new Controller(1,player,enemy,initiateStage);
         controller.initialize();
 
+    }
+
+    private ImageView addBackground(){
+        Image background = new Image("/res/wallp.png");
+        ImageView backgroundView = new ImageView();
+        backgroundView.setImage(background);
+        backgroundView.setTranslateY(100);
+        return backgroundView;
     }
 
     public Stage getInitiateStage() {

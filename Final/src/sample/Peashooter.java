@@ -16,7 +16,7 @@ public class Peashooter extends Sprite implements Plant{
     private int price = 100;
     private int row;
     private int column;
-    private int health = 500;
+    private int health = 20000;
     private int power = 100;
     private StackPane s = new StackPane();
     private  Group root = new Group();
@@ -59,7 +59,6 @@ public class Peashooter extends Sprite implements Plant{
     }
 
     public void setSize(double width, double height) {
-        super.setSize(width, height);
         this.plantView.setFitWidth(width);
         this.plantView.setFitHeight(height);
     }

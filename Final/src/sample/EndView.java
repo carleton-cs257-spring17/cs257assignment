@@ -1,41 +1,52 @@
 package sample;
-
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.stage.Stage;
-import javafx.scene.web.WebView;
-import javafx.scene.layout.VBox;
-import javafx.scene.control.Button;
-import javafx.scene.text.Text;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.effect.Blend;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.InnerShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import java.util.Optional;
-import javafx.scene.control.DialogPane;
+import javafx.scene.text.Text;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import javafx.scene.Group;
+
+import java.time.Duration;
+import java.util.*;
 
 /**
- * Main function
+ * Created by cheny2 on 3/3/17.
  */
+public class EndView extends Application {
 
-public class Main extends Application {
-    static Stage welcomeStage;
+    String result = "";
+    public static Stage endStage = new Stage();
     int difficulty = 5;
 
+
+    public EndView(String s){
+        this.result = s;
+    }
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         WebView webView = new WebView();
         VBox root = addContent(webView);
         Scene scene = new Scene(root, 900, 800);
-        scene.getStylesheets().add(Main.class.getResource("welcome.css").toExternalForm());
-        primaryStage.setTitle("Welcome!");
+        scene.getStylesheets().add(EndView.class.getResource("welcome.css").toExternalForm());
+        primaryStage.setTitle("END!");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
-        welcomeStage = primaryStage;
+        endStage = primaryStage;
     }
 
     private VBox addContent(WebView webView) {
@@ -43,7 +54,7 @@ public class Main extends Application {
         box.prefWidth(500);
         box.setAlignment(Pos.CENTER);
         box.setSpacing(50);
-        Text title= new Text("Plants vs. Zombies");
+        Text title= new Text(this.result);
         Button startGameButton = addStartButton(webView);
         Button helpButton = addHelpButton();
         Button difficultyButton = addDifficultyButton();
@@ -53,7 +64,7 @@ public class Main extends Application {
         return box;
     }
     private Button addStartButton(WebView webView) {
-        Button startGameButton = new StartButton("START", webView);
+        Button startGameButton = new EndView.StartButton("START", webView);
         startGameButton.setOnAction(event -> {
             GameStage game = new GameStage(difficulty);
             try{
@@ -63,7 +74,7 @@ public class Main extends Application {
                 e.printStackTrace();
                 System.err.println("Can not initiate game");
             }
-            welcomeStage.close();
+            endStage.close();
         });
         return startGameButton;
     }
@@ -94,12 +105,13 @@ public class Main extends Application {
     }
 
 
-        private Button addDifficultyButton() {
+    private Button addDifficultyButton() {
         Button difficultyButton = new Button("SET DIFFICULTY");
         difficultyButton.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             DialogPane dialogPane = alert.getDialogPane();
             alert.setTitle("SET DIFFICULTY");
+
 
             ButtonType buttonTypeOne = new ButtonType("Easy");
             ButtonType buttonTypeTwo = new ButtonType("Medium");
@@ -122,8 +134,11 @@ public class Main extends Application {
         return difficultyButton;
     }
 
+    public Stage getEndStage() {
+        return endStage;
+    }
 
-    public static void main(String[] args) {
+    public static void EndView(String[] args) {
         launch(args);
     }
 }

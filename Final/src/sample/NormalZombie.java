@@ -70,7 +70,27 @@ public class NormalZombie implements Zombie {
     }
 
     public int getColumn(){
-        return this.column;
+        int zombieCol = 0;
+        if (getImagePositionX() >= 60 && getImagePositionX() <= 140){
+            zombieCol = 1;
+        } else if (getImagePositionX()<=211) {
+            zombieCol = 2;
+        } else if (getImagePositionX()<=300) {
+            zombieCol = 3;
+        }else if (getImagePositionX()<=380){
+            zombieCol = 4;
+        } else if (getImagePositionX()<=460) {
+            zombieCol = 5;
+        } else if (getImagePositionX()<=540) {
+            zombieCol = 6;
+        } else if (getImagePositionX()<=620) {
+            zombieCol = 7;
+        } else if (getImagePositionX()<=700) {
+            zombieCol = 8;
+        }else if (getImagePositionX()<=780) {
+            zombieCol = 9;
+        }
+        return zombieCol;
     }
 
     // Get the health value of Zombie
@@ -110,11 +130,8 @@ public class NormalZombie implements Zombie {
 
     }
 
-    // Set the speed value of Zombie
-    public void setISpeed(double speed){
-        //System.out.println("SET ISPEED");
-        this.ispeed = speed;
-
+    public void setColumn (int column){
+        this.column = column;
     }
 
     public void step(){
@@ -122,5 +139,26 @@ public class NormalZombie implements Zombie {
         setImagePosition(imageX, imageY);
         s.setTranslateY(this.imageY);
         s.setTranslateX(imageX);
+        int zombieCol = 0;
+        if (getImagePositionX() >= 60 && getImagePositionX() <= 140){
+            zombieCol = 1;
+        } else if (getImagePositionX()<=211) {
+            zombieCol = 2;
+        } else if (getImagePositionX()<=300) {
+            zombieCol = 3;
+        }else if (getImagePositionX()<=380){
+            zombieCol = 4;
+        } else if (getImagePositionX()<=460) {
+            zombieCol = 5;
+        } else if (getImagePositionX()<=540) {
+            zombieCol = 6;
+        } else if (getImagePositionX()<=620) {
+            zombieCol = 7;
+        } else if (getImagePositionX()<=700) {
+            zombieCol = 8;
+        }else if (getImagePositionX()<=780) {
+            zombieCol = 9;
+        }
+        setColumn(zombieCol);
     }
 }

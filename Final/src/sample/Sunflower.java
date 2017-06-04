@@ -64,6 +64,8 @@ public class Sunflower extends Sprite implements Plant {
     public void removeImage(){
         this.s.getChildren().remove(this.plantView);
         this.root.getChildren().remove(this.s);
+        this.s2.getChildren().remove(this.starView);
+        this.root.getChildren().remove(this.s2);
     }
 
     public void removeStar(){
@@ -121,7 +123,6 @@ public class Sunflower extends Sprite implements Plant {
     }
 
     public void setSize(double width, double height) {
-        super.setSize(width, height);
         this.plantView.setFitWidth(width);
         this.plantView.setFitHeight(height);
     }
