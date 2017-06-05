@@ -9,10 +9,8 @@ import javafx.stage.Stage;
 
 import java.util.*;
 
-
-
 /**
- * Created by yanhanlyu on 28/05/2017.
+ * @author YanhanLyu, Lucy Wu
  * Class that updates the status of game in general
  */
 
@@ -23,12 +21,16 @@ public class GameController implements EventHandler<KeyEvent> {
     private Enemy enemy;
     private boolean playerWin = false;
     private boolean zombieWin = false;
-
     private Stage stage;
-
-
     private Timer timer;
 
+    /**
+     * Constructor
+     * @param difficulty the difficulty level of this game
+     * @param player the player
+     * @param enemy the enemy
+     * @param initStage the stage
+     */
     public GameController(int difficulty, Player player, Enemy enemy, Stage initStage) {
         this.difficulty = difficulty;
         this.player = player;
@@ -94,22 +96,22 @@ public class GameController implements EventHandler<KeyEvent> {
         return listOfPlants;
     }
 
-    // Get list of peas
+    /** Get list of peas*/
     private ArrayList<Pea> checkPeas(){
         ArrayList<Pea> listOfPeas = player.getPeas();
         return listOfPeas;
     }
 
-    // Get list of zombies
+    /** Get list of zombies*/
     private ArrayList<Zombie> checkZombies(){
         ArrayList<Zombie> listOfZombies = enemy.getZombies();
         return listOfZombies;
     }
 
-    // Simulate the fight between plants and zombies and update animation accordingly
+    /** Simulate the fight between plants and zombies and update animation accordingly*/
     private void runFight(ArrayList<Plant> plants, ArrayList<Zombie> zombies, ArrayList<Pea> peas){
         boolean plantDie = false;
-
+        // this is the list containing the zombies blocked by plants
         ArrayList<Zombie> blockZombie = new  ArrayList<Zombie>();
         for (Iterator<Zombie> iterator2 = zombies.iterator(); iterator2.hasNext(); ) {
             Zombie zombie = iterator2.next();
@@ -117,14 +119,11 @@ public class GameController implements EventHandler<KeyEvent> {
                 this.zombieWin = true;
             }
             for (Iterator<Plant> iterator = plants.iterator(); iterator.hasNext(); ) {
-                //System.out.println("here!!!!");
                 Plant plant = iterator.next();
-
                 int plantRow = plant.getRow();
                 int plantColumn = plant.getColumn();
                 int zombieRow = zombie.getRow();
                 int zombieColumn = zombie.getColumn();
-                //System.out.print(zombieColumn);
 
                 // if the plant is a peashooter, we should consider the pea hits the zombie
                 if (plant.getName().equals("peashooter")) {
@@ -152,6 +151,7 @@ public class GameController implements EventHandler<KeyEvent> {
                         }
                     }
                 }
+                // if the zombie is blocked, it should eat the plant
                 if (plantRow == zombieRow && plantColumn == zombieColumn) {
                     zombie.setSpeed(0);
                     blockZombie.add(zombie);
@@ -180,7 +180,7 @@ public class GameController implements EventHandler<KeyEvent> {
         checkIfEnd();
     }
 
-
+    /** check if we win the game*/
     public void checkIfEnd(){
         if (this.playerWin) {
             String result = "You win the Game";

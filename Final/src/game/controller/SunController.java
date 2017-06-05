@@ -6,7 +6,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.Group;
 
 /**
- * Created by yanhanlyu on 01/06/2017.
+ * @author YanhanLyu, Lucy Wu
+ * If the star of the sunflower is clicked, the controller will reset the sun of the layer
  */
 public class SunController implements EventHandler<MouseEvent> {
     Player player;
@@ -74,9 +75,6 @@ public class SunController implements EventHandler<MouseEvent> {
                         } else {
                             player.setSun(player.getSun()+50);
                         }
-
-
-                        //System.out.println(player.getSun());
                     }
 
                 }

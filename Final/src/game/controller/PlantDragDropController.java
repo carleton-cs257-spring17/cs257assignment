@@ -6,6 +6,10 @@ import javafx.scene.Group;
 import javafx.scene.input.DragEvent;
 import javafx.scene.layout.StackPane;
 
+/**
+ *@author YanhanLyu, Lucy Wu
+ * Class that controls the behavior of dropping dragged plants
+ */
 public class PlantDragDropController implements EventHandler<DragEvent> {
     Group root;
     Player player;

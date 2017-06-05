@@ -14,7 +14,13 @@ import javafx.stage.Stage;
 import java.util.*;
 
 /**
- * Created by yanhanlyu
+ * Created by Yanhan Lyu
+ * @author Yanhan Lyu
+ * This is the end screen of the game. It shows the result of the game, and give options to let
+ * you start a new game and set difficulty. The structures of this screen is similar as the welcome 
+ * screen
+ * 
+ * 
  */
 public class EndGame extends Application {
     String result = "";
@@ -32,7 +38,7 @@ public class EndGame extends Application {
         VBox root = addContent(webView);
         Scene scene = new Scene(root, 900, 800);
         scene.getStylesheets().add(Welcome.class.getResource("static/welcome.css").toExternalForm());
-        primaryStage.setTitle("Welcome!");
+        primaryStage.setTitle("End!");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
@@ -45,16 +51,16 @@ public class EndGame extends Application {
         box.setAlignment(Pos.CENTER);
         box.setSpacing(50);
         Text title = new Text(this.result);
-        Button startGameButton = addStartButton(webView);
-        Button helpButton = addHelpButton();
-        Button difficultyButton = addDifficultyButton();
+        Button startGameButton = addStart(webView);
+        Button helpButton = addHelp();
+        Button difficultyButton = addDifficulty();
         title.setFont(Font.font("Verdana", 50));
         title.setId("fancytext");
         box.getChildren().addAll(title, startGameButton, difficultyButton, helpButton);
         return box;
     }
 
-    private Button addStartButton(WebView webView) {
+    private Button addStart(WebView webView) {
         Button startGameButton = new EndGame.StartButton("START A NEW GAME AND TRY TO WIN", webView);
         startGameButton.setOnAction(event -> {
             GameStage game = new GameStage(difficulty);
@@ -77,7 +83,7 @@ public class EndGame extends Application {
         }
     }
 
-    private Button addHelpButton() {
+    private Button addHelp() {
         Button helpButton = new Button("HOW TO PLAY");
         helpButton.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -97,7 +103,7 @@ public class EndGame extends Application {
     }
 
 
-    private Button addDifficultyButton() {
+    private Button addDifficulty() {
         Button difficultyButton = new Button("SET DIFFICULTY");
         difficultyButton.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

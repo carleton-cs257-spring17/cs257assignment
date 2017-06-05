@@ -1,7 +1,7 @@
 package game.model;
 
 /**
- * Created by yanhanlyu on 28/05/2017.
+ * @author YanhanLyu, Lucy Wu
  * Interface for the characters of Plant
  */
 public interface Plant{
@@ -33,23 +33,34 @@ public interface Plant{
      * get the price of the plant
      */
     public int getPrice();
-    /**
-     * set the price of the plant
-     */
-    public void setPrice(int price);
 
+    /**
+     * set the movement of the plant
+     */
     public void step();
 
+    /**
+     * remove the image of the plant
+     */
     public void removeImage();
 
+    /**
+     * get the row of the plant
+     * @return row
+     */
     public int getRow();
 
+    /**
+     * get the column of the plant
+     * @return row
+     */
     public int getColumn();
 
+    /**
+     * get the name of the plant
+     * @return row
+     */
     public String getName();
 
-    public void removeStar();
-
-    public boolean isDie();
 
 }

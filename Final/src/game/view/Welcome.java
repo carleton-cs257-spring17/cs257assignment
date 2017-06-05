@@ -25,10 +25,10 @@ public class Welcome extends Application {
     static Stage welcomeStage;
     int difficulty = 5;
 
-    /*
+    /**
     * initialize the scene and call helper function.
     *
-    * */
+    */
     @Override
     public void start(Stage primaryStage) throws Exception{
         WebView webView = new WebView();
@@ -42,7 +42,7 @@ public class Welcome extends Application {
         welcomeStage = primaryStage;
     }
 
-    /*
+    /**
     *helper funtion to add several buttons in a vertical box
     */
     private VBox addContent(WebView webView) {
@@ -60,7 +60,7 @@ public class Welcome extends Application {
         return box;
     }
 
-    /*
+    /**
     * add start button
     */
     private Button addStartButton(WebView webView) {
@@ -79,9 +79,9 @@ public class Welcome extends Application {
         return startGameButton;
     }
 
-    /*
-   * load text on the button
-   */
+    /**
+    * load text on the button
+    */
     private class StartButton extends Button {
         public StartButton(String textOnButton, WebView webView) {
             setText(textOnButton);
@@ -90,7 +90,7 @@ public class Welcome extends Application {
     }
 
 
-    /*
+    /**
     * add help button
     */
     private Button addHelpButton() {
@@ -112,9 +112,10 @@ public class Welcome extends Application {
         return helpButton;
     }
 
-    /*
-    * add difficulty button.
-    * */
+     /**
+     * add difficulty button.
+     *
+     */
         private Button addDifficultyButton() {
         Button difficultyButton = new Button("SET DIFFICULTY");
         difficultyButton.setOnAction(event -> {

@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the behavior of Sunflower
  */
-public class Sunflower extends Sprite implements Plant {
+public class Sunflower implements Plant {
     private int row;
     private int column;
     private int price = 50;
@@ -123,8 +123,6 @@ public class Sunflower extends Sprite implements Plant {
     }
 
     public void step(){
-        super.step();
-
         if (this.sizeX > (1.1 * osizeX) || this.sizeY > (1.1 * osizeY)){
             this.shrink = true;
         } else if (this.sizeX < (0.8 * osizeX) || this.sizeY < (0.8 * osizeY)) {
@@ -147,27 +145,16 @@ public class Sunflower extends Sprite implements Plant {
             s2.getChildren().add(this.starView);
             s2.setTranslateY((int) (135+(row-1)*110+55)-40+1);
             s2.setTranslateX((int) (60+(column-1)*80+40)-40-20);
-            //s2.getChildren().add(starView);
             root.getChildren().add(s2);
             this.s2 = s2;
             shoot_count = 0;
             hasStar = true;
-
-
         } else {
-            //removeStar();
-            //System.out.println("SHOOT COUNT" + shoot_count);
             shoot_count ++;
         }
     }
-
-    @Override
     public void makeSound() {
 
-    }
-
-    public boolean isDie(){
-        return this.isDie;
     }
 
     public boolean isHasStar(){

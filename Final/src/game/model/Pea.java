@@ -1,7 +1,8 @@
 package game.model;
 
 /**
- * Created by yanhanlyu on 01/06/2017.
+ *@author YanhanLyu, Lucy Wu
+ * This is the "weapon" pea class.
  */
 import javafx.scene.Group;
 import javafx.scene.image.Image;
@@ -9,7 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 
-public class Pea extends Sprite{
+public class Pea{
     private double velocityX = 0.2;
     private double row;
     private double column;

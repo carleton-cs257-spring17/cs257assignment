@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
  * Created by yanhanlyu on 29/05/2017.
  * Class that specifies the character of Wallnut
  */
-public class WallNut extends Sprite implements Plant {
+public class WallNut implements Plant {
     private int row;
     private int column;
     private int price = 50;
@@ -100,9 +100,6 @@ public class WallNut extends Sprite implements Plant {
         this.price = price;
     }
     public void step(){
-        //System.out.println("WALNIUT STEP");
-        super.step();
-
         if (this.sizeX > (1.1 * osizeX) || this.sizeY > (1.1 * osizeY)){
             this.shrink = true;
         } else if (this.sizeX < (0.8 * osizeX) || this.sizeY < (0.8 * osizeY)) {
@@ -119,17 +116,12 @@ public class WallNut extends Sprite implements Plant {
         }
     }
 
-    @Override
     public void makeSound() {
 
     }
 
     public void removeStar(){
 
-    }
-
-    public boolean isDie(){
-        return isDie;
     }
 
     public String getName(){

@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
 /**
- * Created by yanhanlyu on 28/05/2017.
+ * @author YanhanLyu, Lucy Wu
  * Class that sets player's status of sun and plants;
  */
 public class Player {
@@ -43,13 +43,12 @@ public class Player {
     }
 
     /**
-     * set the sun status
+     * set the sun status and the label
      */
     public void setSun(int sun){
         this.sun = sun;
         this.root.getChildren().remove(this.sunLabel);
         this.root.getChildren().remove(this.sunOriginal);
-        System.out.println(getSun());
         Label sunL = new Label(Integer.toString(getSun()));
         this.sunLabel = sunL;
         sunL.setFont(new Font(20));
@@ -65,6 +64,10 @@ public class Player {
         listPlants.add(plant);
     }
 
+    /**
+     * add the peas which are weapons
+     * @param pea
+     */
     public void addPea(Pea pea){
         listPeas.add(pea);
 

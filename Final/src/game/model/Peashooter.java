@@ -6,10 +6,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 /**
- * Created by yanhanlyu on 29/05/2017.
+ * @author YanhanLyu, Lucy Wu
  * Class that specifies the behavior of Peashooter
  */
-public class Peashooter extends Sprite implements Plant{
+public class Peashooter implements Plant{
     private int price = 100;
     private int row;
     private int column;
@@ -83,13 +83,7 @@ public class Peashooter extends Sprite implements Plant{
     public int getPrice(){
         return price;
     }
-    public void setPrice(int price){
-        this.price = price;
-    }
     public void step(){
-        super.step();
-
-
         if (this.sizeX > (1.1 * osizeX) || this.sizeY > (1.1 * osizeY)){
             this.shrink = true;
         } else if (this.sizeX < (0.8 * osizeX) || this.sizeY < (0.8 * osizeY)) {
@@ -121,13 +115,8 @@ public class Peashooter extends Sprite implements Plant{
 
     }
 
-    @Override
     public void makeSound() {
 
-    }
-
-    public boolean isDie(){
-        return this.isDie;
     }
 
     public String getName(){

@@ -7,6 +7,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.StackPane;
 
+/**
+ * @author YanhanLyu, Lucy Wu
+ * Class that controls the behavior of dragging plants
+ */
 public class PlantDragController implements EventHandler<MouseEvent> {
     private StackPane stackPane;
     private Image image;
