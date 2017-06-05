@@ -14,25 +14,25 @@ import javafx.stage.Stage;
 import java.util.*;
 
 /**
- * Created by cheny2 on 3/3/17.
+ * Created by yanhanlyu
  */
 public class EndGame extends Application {
-
     String result = "";
     public static Stage endStage = new Stage();
     int difficulty = 5;
 
 
-    public EndGame(String s){
+    public EndGame(String s) {
         this.result = s;
     }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         WebView webView = new WebView();
         VBox root = addContent(webView);
         Scene scene = new Scene(root, 900, 800);
-        scene.getStylesheets().add(EndGame.class.getResource("/static/welcome.css").toExternalForm());
-        primaryStage.setTitle("END!");
+        scene.getStylesheets().add(Welcome.class.getResource("static/welcome.css").toExternalForm());
+        primaryStage.setTitle("Welcome!");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
@@ -44,23 +44,24 @@ public class EndGame extends Application {
         box.prefWidth(500);
         box.setAlignment(Pos.CENTER);
         box.setSpacing(50);
-        Text title= new Text(this.result);
+        Text title = new Text(this.result);
         Button startGameButton = addStartButton(webView);
         Button helpButton = addHelpButton();
         Button difficultyButton = addDifficultyButton();
-        title.setFont(Font.font ("Verdana", 50));
+        title.setFont(Font.font("Verdana", 50));
         title.setId("fancytext");
-        box.getChildren().addAll(title,startGameButton, difficultyButton, helpButton);
+        box.getChildren().addAll(title, startGameButton, difficultyButton, helpButton);
         return box;
     }
+
     private Button addStartButton(WebView webView) {
-        Button startGameButton = new EndGame.StartButton("START", webView);
+        Button startGameButton = new EndGame.StartButton("START A NEW GAME AND TRY TO WIN", webView);
         startGameButton.setOnAction(event -> {
             GameStage game = new GameStage(difficulty);
-            try{
+            try {
 
                 game.start(game.getInitiateStage());
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 System.err.println("Can not initiate game");
             }
@@ -75,6 +76,7 @@ public class EndGame extends Application {
             webView.getEngine().load(textOnButton);
         }
     }
+
     private Button addHelpButton() {
         Button helpButton = new Button("HOW TO PLAY");
         helpButton.setOnAction(event -> {
@@ -111,7 +113,7 @@ public class EndGame extends Application {
             alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
 
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == buttonTypeOne){
+            if (result.get() == buttonTypeOne) {
                 difficulty = 3;
             } else if (result.get() == buttonTypeTwo) {
                 difficulty = 5;
@@ -128,7 +130,7 @@ public class EndGame extends Application {
         return endStage;
     }
 
-    public static void EndView(String[] args) {
+    public static void EndGame(String[] args) {
         launch(args);
     }
 }

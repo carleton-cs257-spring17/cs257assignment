@@ -4,7 +4,6 @@ import game.model.*;
 import game.view.*;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
-import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -195,7 +194,7 @@ public class GameController implements EventHandler<KeyEvent> {
             }
         }
         if (this.zombieWin){
-            addDifficultyButton();
+            System.out.println("here");
             String result = "You lose the Game";
             EndGame game = new EndGame(result);
             try{
@@ -209,24 +208,6 @@ public class GameController implements EventHandler<KeyEvent> {
         }
     }
 
-    private Button addDifficultyButton() {
-        Button difficultyButton = new Button("SET DIFFICULTY");
-        difficultyButton.setOnAction(event -> {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("GAME RESULT");
-
-            ButtonType buttonTypeOne = new ButtonType("Easy");
-            ButtonType buttonTypeTwo = new ButtonType("Medium");
-            ButtonType buttonTypeThree = new ButtonType("Hard");
-            ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
-
-            Optional<ButtonType> result = alert.showAndWait();
-        });
-
-        return difficultyButton;
-    }
     /**
      * handle events
      */

@@ -20,7 +20,7 @@ public class NormalZombie implements Zombie {
     private ImageView zombieView;
     private double imageY;
     private double imageX;
-    private double speed = -0.007;
+    private double speed = -0.7;
     private double ispeed = -0.007;
 
 
