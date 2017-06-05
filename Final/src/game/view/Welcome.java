@@ -23,7 +23,7 @@ import java.util.Optional;
  */
 public class Welcome extends Application {
     static Stage welcomeStage;
-    int difficulty = 5;
+    private int difficulty = 5;
 
     /**
     * initialize the scene and call helper function.

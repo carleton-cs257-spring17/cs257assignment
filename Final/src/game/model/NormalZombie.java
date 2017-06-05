@@ -27,7 +27,7 @@ public class NormalZombie implements Zombie {
     public NormalZombie(int row, int column, Group root) {
         this.row = row;
         this.column = column;
-        this.zombie = new Image("/res/strongZombie.png");
+        this.zombie = new Image("/res/normalZombie.png");
         this.zombieView = new ImageView(zombie);
         s.getChildren().add(zombieView);
         root.getChildren().add(s);

@@ -23,9 +23,9 @@ import java.util.*;
  * 
  */
 public class EndGame extends Application {
-    String result = "";
+    private String result = "";
     public static Stage endStage = new Stage();
-    int difficulty = 5;
+    private int difficulty = 5;
 
 
     public EndGame(String s) {

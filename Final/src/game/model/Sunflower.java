@@ -31,8 +31,7 @@ public class Sunflower implements Plant {
     private Image star;
     private ImageView starView;
     private boolean hasStar = false;
-    StackPane s2 = new StackPane();
-    private boolean isDie;
+    private StackPane s2 = new StackPane();
 
 
 

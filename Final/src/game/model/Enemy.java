@@ -32,6 +32,7 @@ public class Enemy{
      */
     public ArrayList<Zombie> generateZombies(int difficulty){
         int norm = (int) Math.round(difficulty * 0.6);
+        System.out.println(norm);
         int strong = difficulty - norm;
         for (int i = 0; i < difficulty; i++){
 

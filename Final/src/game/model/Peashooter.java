@@ -26,7 +26,6 @@ public class Peashooter implements Plant{
     private boolean shrink = false;
     private Player player;
     private int shoot_count = 900;
-    private boolean isDie = false;
 
 
     public Peashooter(int row, int column, Group root, Player player){
