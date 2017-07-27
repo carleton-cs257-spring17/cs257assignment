@@ -37,11 +37,11 @@ public class Enemy{
         for (int i = 0; i < difficulty; i++){
 
             for (int j = 0; j < norm; j++){
-                NormalZombie normalZombie =  new NormalZombie(rand.nextInt(5)  + 1, rand.nextInt(9)  + 9, root);
+                NormalZombie normalZombie =  new NormalZombie(rand.nextInt(5)  + 1, rand.nextInt(5)  + 9, root);
                 zombies.add(normalZombie);
             }
             for (int k = 0; k < strong; k++){
-                StrongZombie strongZombie = new StrongZombie(rand.nextInt(5)  + 1,rand.nextInt(9)  + 9, root);
+                StrongZombie strongZombie = new StrongZombie(rand.nextInt(5)  + 1,rand.nextInt(5)  + 9, root);
                 zombies.add(strongZombie);
             }
         }
